@@ -1,0 +1,327 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAAKzn///+0\u003d",
+        "filename": "README",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "s/this GitBlit/GitBlit",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///+Q\u003d",
+        "filename": "README",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "This URL looks not so nice. Could it be set to \u0027/plugins/gitblit/\u0027?",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///+M\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "Does this need to be LocalDiskRepositoryManager? Normally we are injecting GitRepositoryManager.",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///+E\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "[optional] have \"reference.properties\" as private final static String? Here and in line 91.",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///+A\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "Should this be \u0027applicationClassName\u0027 as in the method above? Maybe better have constants for the names?",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///98\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "missing licence header",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///94\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "nit: line wrap",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9I\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitModule.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "s/filtes/filters",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///90\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationFilter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "nit: whitespace error",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9w\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationFilter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "nit: whitespace error",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9s\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/GerritGitBlit.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "missing licence header",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9o\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/GerritToGitBlitWebApp.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "missing licence header",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9k\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/StaticCodingStrategy.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "missing licence header",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9g\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritAuthFilter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "missing licence header",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9c\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserModel.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "This file has Windows line-endings.",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9Y\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "missing licence header",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9U\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "?",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9Q\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "Should the TODOs stay?",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAAKzn///9M\u003d",
+        "filename": "src/main/resources/com/googlesource/gerrit/plugins/gitblit/reference.properties",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-25T12:27:25Z",
+      "side": 1,
+      "message": "This file has Windows line endings.",
+      "revId": "dec647c57e29bedcb5dc24e8a43c79647fa7b8d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
