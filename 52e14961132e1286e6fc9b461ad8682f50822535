@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "AAALDX///8Y\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/StaticCodingStrategy.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2012-10-27T15:01:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAALDX///8s\u003d",
+      "revId": "52e14961132e1286e6fc9b461ad8682f50822535",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "AAALDX///8o\u003d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2012-10-27T13:16:21Z",
       "side": 1,
       "message": "one more TODO which can be removed",
+      "revId": "52e14961132e1286e6fc9b461ad8682f50822535",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "AAALDX///8U\u003d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2012-10-27T15:01:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "AAALDX///8o\u003d",
       "revId": "52e14961132e1286e6fc9b461ad8682f50822535",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
