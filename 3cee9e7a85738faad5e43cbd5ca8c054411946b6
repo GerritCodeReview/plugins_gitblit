@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "AAALNH////4\u003d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2012-10-31T06:09:47Z",
+      "side": 1,
+      "message": "After the last change in GitBlitInitStep this is now just \u0027plugins/\u0027 and the pluginname is contained in the path of all parameters below.",
+      "revId": "3cee9e7a85738faad5e43cbd5ca8c054411946b6",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
