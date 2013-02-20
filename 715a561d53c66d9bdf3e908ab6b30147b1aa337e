@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "P8lD6zJ0",
+        "filename": "src/main/resources/com/googlesource/gerrit/plugins/gitblit/reference.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-02-20T13:31:08Z",
+      "side": 1,
+      "message": "- I/O\n- RPCs",
+      "revId": "715a561d53c66d9bdf3e908ab6b30147b1aa337e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "P8nD30LQ",
+        "filename": "src/main/resources/com/googlesource/gerrit/plugins/gitblit/reference.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-02-20T13:31:08Z",
+      "side": 1,
+      "message": "RPC",
+      "revId": "715a561d53c66d9bdf3e908ab6b30147b1aa337e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
