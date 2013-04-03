@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "S7NZfpB8",
+        "filename": "src/main/resources/com/googlesource/gerrit/plugins/gitblit/reference.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1012155
+      },
+      "writtenOn": "2013-04-03T12:11:22Z",
+      "side": 1,
+      "message": "While the lines below look good to me, this file typically copies over\nthe corresponding gitblit documentation.\n\nIt would be good to have that for allowForking as well (in addition to\nthe lines below), so we know what allowForking does.",
+      "revId": "81220cf5ab14f336f7339d6ce57109d28f79a478",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
