@@ -14,7 +14,6 @@
 package com.googlesource.gerrit.plugins.gitblit;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,7 +34,6 @@ import org.slf4j.LoggerFactory;
 
 import com.gitblit.Constants;
 import com.gitblit.GitBlit;
-import com.gitblit.IStoredSettings;
 import com.google.gerrit.httpd.WebSession;
 import com.google.gerrit.server.git.LocalDiskRepositoryManager;
 import com.google.inject.Inject;
@@ -48,7 +46,6 @@ import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
 
 @Singleton
 public class GerritWicketFilter extends WicketFilter {
-  private static final String GITBLIT_REFERENCE_PROPERTIES = "reference.properties";
 
   private static final Logger log = LoggerFactory
       .getLogger(GerritWicketFilter.class);
@@ -74,28 +71,17 @@ public class GerritWicketFilter extends WicketFilter {
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
     showGitBlitBanner();
-
-    try {
-      InputStream resin =
-          getClass().getResourceAsStream(GITBLIT_REFERENCE_PROPERTIES);
-      Properties properties = null;
-      try {
-        properties = new Properties();
-        properties.load(resin);
-        properties.put("git.repositoriesFolder", repoManager.getBasePath()
-            .toString());
-      } finally {
-        resin.close();
-      }
-      IStoredSettings settings = new GitBlitSettings(properties);
-      GitBlit.self().configureContext(settings, false);
-      GitBlit.self().contextInitialized(
-          new ServletContextEvent(filterConfig.getServletContext()),
-          getClass().getResourceAsStream(GITBLIT_REFERENCE_PROPERTIES));
-      super.init(new CustomFilterConfig(filterConfig));
-    } catch (Exception e) {
-      throw new ServletException(e);
-    }
+    final Properties properties = new Properties();
+    properties.put("git.repositoriesFolder", repoManager.getBasePath()
+        .toString());
+    properties
+        .put("realm.userService",
+            "com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService");
+    GitBlit.self().configureContext(new GitBlitSettings(properties),
+        repoManager.getBasePath(), false);
+    GitBlit.self().contextInitialized(
+        new ServletContextEvent(filterConfig.getServletContext()));
+    super.init(new CustomFilterConfig(filterConfig));
   }
 
   private void showGitBlitBanner() {
