@@ -88,7 +88,7 @@ public class GerritWicketFilter extends WicketFilter {
         resin.close();
       }
       IStoredSettings settings = new GitBlitSettings(properties);
-      GitBlit.self().configureContext(settings, false);
+      GitBlit.self().configureContext(settings, repoManager.getBasePath(), false);
       GitBlit.self().contextInitialized(
           new ServletContextEvent(filterConfig.getServletContext()),
           getClass().getResourceAsStream(GITBLIT_REFERENCE_PROPERTIES));
