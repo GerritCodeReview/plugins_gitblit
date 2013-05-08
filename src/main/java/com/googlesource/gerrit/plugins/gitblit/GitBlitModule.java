@@ -19,6 +19,8 @@ import org.slf4j.LoggerFactory;
 
 import com.gitblit.IUserService;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.registration.DynamicSet;
+import com.google.gerrit.extensions.webui.TopMenuExtension;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
@@ -40,6 +42,7 @@ public class GitBlitModule extends ServletModule {
     log.info("Configuring servlet and filters");
     bind(IUserService.class).to(GerritToGitBlitUserService.class);
     bind(GerritGitBlit.class);
+    DynamicSet.bind(binder(), TopMenuExtension.class).to(GitBlitTopMenu.class);
 
     serve("/pages/*").with(WrappedPagesServlet.class);
     serve("/feed/*").with(WrappedSyndicationServlet.class);
