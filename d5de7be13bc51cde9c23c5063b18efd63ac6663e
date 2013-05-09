@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "UguBDYsg",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1010134
+      },
+      "writtenOn": "2013-05-09T22:22:52Z",
+      "side": 1,
+      "message": "is the license header required? if yes, then you should add it",
+      "revId": "d5de7be13bc51cde9c23c5063b18efd63ac6663e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "Ug99Dm8g",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1010134
+      },
+      "writtenOn": "2013-05-09T22:22:52Z",
+      "side": 1,
+      "message": "@Listen annotation is not required since you bind this extension in HttpModule",
+      "revId": "d5de7be13bc51cde9c23c5063b18efd63ac6663e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "UgqBNWvU",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1010134
+      },
+      "writtenOn": "2013-05-09T22:22:52Z",
+      "side": 1,
+      "message": "in Gerrit we use to define injected constructor with default access",
+      "revId": "d5de7be13bc51cde9c23c5063b18efd63ac6663e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "UgsBIXuc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1010134
+      },
+      "writtenOn": "2013-05-09T22:22:52Z",
+      "side": 1,
+      "message": "you could consider using String.format() here",
+      "revId": "d5de7be13bc51cde9c23c5063b18efd63ac6663e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
