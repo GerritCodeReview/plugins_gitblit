@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d8381c6_c23242f6",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-05-28T14:41:32Z",
+      "side": 1,
+      "message": "NPE whenever web.otherUrls is not specified in the gitblit.properties.\n(properties.get(\"web.otherUrls\") would be null)",
+      "revId": "45e1005e76996bcf3482bd66ffbe9bf1f2a8ea3c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
