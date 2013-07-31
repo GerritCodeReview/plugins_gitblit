@@ -17,6 +17,8 @@ import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.List;
 
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
@@ -34,17 +36,25 @@ public class GitBlitUrlsConfig {
   private String canonicalWebUrlString;
   private String sshdListenAddressString;
   private String httpdListenUrlString;
+  private String[] downloadSchemes;
 
   public GitBlitUrlsConfig(Config config) {
     canonicalWebUrlString = config.getString("gerrit", null, "canonicalWebUrl");
     sshdListenAddressString = config.getString("sshd", null, "listenAddress");
     httpdListenUrlString = config.getString("httpd", null, "listenUrl");
+    downloadSchemes = config.getStringList("download", null, "scheme");
   }
 
   public String getGitSshUrl() {
     if (sshdListenAddressString == null) {
       return "";
     }
+    if (downloadSchemes.length != 0) {
+      if (!Arrays.asList(downloadSchemes).contains("ssh")) {
+        return "";
+      }
+    }
+
     String[] urlParts = sshdListenAddressString.split(":");
     if (urlParts.length < 2) {
       log.error("Invalid SSHD listenUrl: " + sshdListenAddressString);
@@ -87,6 +97,11 @@ public class GitBlitUrlsConfig {
     if (httpListenUrl == null) {
       return "";
     }
+      if (downloadSchemes.length != 0){
+        if (!Arrays.asList(downloadSchemes).contains("http")) {
+          return "";
+        }
+      }
 
     String httpUrl = Objects.firstNonNull(canonicalWebUrlString, httpListenUrl);
     httpUrl = httpUrl.replace("://", "://" + GITBLIT_USER + "@");
