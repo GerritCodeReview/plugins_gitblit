@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d39dfbd4_0d949189",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitUrlsConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-07-31T21:36:16Z",
+      "side": 1,
+      "message": "Why don\u0027t use use a List\u003cString\u003e here ?",
+      "revId": "28614e80c0ae256a3d4a59a0f91efaaeda7e2fba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3775f7c_b6eb082a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitUrlsConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-07-31T21:36:16Z",
+      "side": 1,
+      "message": "... so that you can get it straight as:\n  \n  downloadSchemes \u003d Arrays.asList(config.getStringList(\"download\", null, \"scheme\");",
+      "revId": "28614e80c0ae256a3d4a59a0f91efaaeda7e2fba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d39dfbd4_6da1d5eb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitUrlsConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-07-31T21:36:16Z",
+      "side": 1,
+      "message": "... and this becomes:\n\n  if (!downloadSchemes.isEmpty() \u0026\u0026 !downloadSchemes.contains(\"ssh\"))",
+      "revId": "28614e80c0ae256a3d4a59a0f91efaaeda7e2fba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d39dfbd4_4d9e99ab",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitUrlsConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-07-31T21:36:16Z",
+      "side": 1,
+      "message": "Same here:\n\n   if(!downloadSchemes.isEmpty() \u0026\u0026 !downloadSchemes.contains(\"http\"))",
+      "revId": "28614e80c0ae256a3d4a59a0f91efaaeda7e2fba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
