@@ -13,6 +13,9 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.gitblit;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
@@ -40,6 +43,7 @@ import com.gitblit.IStoredSettings;
 import com.google.gerrit.common.data.GerritConfig;
 import com.google.gerrit.httpd.WebSession;
 import com.google.gerrit.server.config.GerritServerConfig;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.gerrit.server.git.LocalDiskRepositoryManager;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -63,18 +67,21 @@ public class GerritWicketFilter extends WicketFilter {
   private final GerritGitBlit gitBlit;
   private final GerritAuthFilter gerritAuthFilter;
   private final GitBlitUrlsConfig config;
+  private final File etcDir;
 
   @Inject
   public GerritWicketFilter(final LocalDiskRepositoryManager repoManager,
       final Provider<WebSession> webSession, final GerritGitBlit gitBlit,
       final GerritAuthFilter gerritAuthFilter, final @GerritServerConfig Config config,
-      final GerritConfig gerritConfig) {
+      final GerritConfig gerritConfig,
+      final SitePaths sitePaths) {
 
     this.repoManager = repoManager;
     this.webSession = webSession;
     this.gitBlit = gitBlit;
     this.gerritAuthFilter = gerritAuthFilter;
     this.config = new GitBlitUrlsConfig(config);
+    this.etcDir = sitePaths.etc_dir;
   }
 
   @Override
@@ -82,8 +89,7 @@ public class GerritWicketFilter extends WicketFilter {
     showGitBlitBanner();
 
     try {
-      InputStream resin =
-          getClass().getResourceAsStream(GITBLIT_GERRIT_PROPERTIES);
+      InputStream resin = openPropertiesFile();
       Properties properties = null;
       try {
         properties = new Properties();
@@ -111,6 +117,20 @@ public class GerritWicketFilter extends WicketFilter {
       super.init(new CustomFilterConfig(filterConfig));
     } catch (Exception e) {
       throw new ServletException(e);
+    }
+  }
+
+  private InputStream openPropertiesFile() {
+    File gitblitPropertiesFile = new File(etcDir, GITBLIT_GERRIT_PROPERTIES);
+    if(gitblitPropertiesFile.exists()) {
+      try {
+        return new FileInputStream(gitblitPropertiesFile);
+      } catch (FileNotFoundException e) {
+        // this would never happen as we checked for file existence before
+        throw new IllegalStateException(e);
+      }
+    } else {
+      return getClass().getResourceAsStream(GITBLIT_GERRIT_PROPERTIES);
     }
   }
 
