@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9e2631f7_2a83bf7f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-11-11T14:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bef77598_2bdc59b0",
+      "revId": "7b18a80bcb0d233e8ca2a83b109d09d399b1311d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bef77598_0be19d68",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2013-11-11T11:00:38Z",
       "side": 1,
       "message": "You are logging the ASCII art here, but why not to log which from both files inside plugin or outside was used for configuration?",
+      "revId": "7b18a80bcb0d233e8ca2a83b109d09d399b1311d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e2631f7_cac663d7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-11-11T14:02:38Z",
+      "side": 1,
+      "message": "Very good idea: will do that now :-)\nThat would highly simplify the troubleshooting ... possibly including the file date/time that was actually loaded.",
+      "parentUuid": "bef77598_0be19d68",
       "revId": "7b18a80bcb0d233e8ca2a83b109d09d399b1311d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
