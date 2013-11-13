@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "deb429fe_dce3ad48",
+        "filename": "BUCK",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-11-13T23:38:46Z",
+      "side": 1,
+      "message": "One minor issue exists: gitblit.properties appears under\n\n  plugins/gitblit/src/main/resources/gitblit.properties\n\nand not under the root of JAR file as expected. Relocating it inside the JAR makes the plugin work.",
+      "revId": "6d7f0b616b11359d165e872943f7d28d16663a21",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
