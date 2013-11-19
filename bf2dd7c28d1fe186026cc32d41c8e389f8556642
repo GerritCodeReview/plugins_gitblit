@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1e75e13d_2ec4c775",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/GitBlitSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-11-19T08:15:40Z",
+      "side": 1,
+      "message": "True, will remove.",
+      "parentUuid": "bef77598_4e3c53e2",
+      "revId": "bf2dd7c28d1fe186026cc32d41c8e389f8556642",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bef77598_ae2057b2",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/GitBlitSettings.java",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2013-11-12T21:34:11Z",
       "side": 1,
       "message": "Where is that method actually called?",
+      "revId": "bf2dd7c28d1fe186026cc32d41c8e389f8556642",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e75e13d_0ec78b7d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/GitBlitSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-11-19T08:15:40Z",
+      "side": 1,
+      "message": "toString() is a standard Java method for objects to be printed out.\nIt is called within GitBlit and used for people to look at what an object is and contains during debug.\n\nVery useful for tracing what what the config actually contained in log files.",
+      "parentUuid": "bef77598_ae2057b2",
       "revId": "bf2dd7c28d1fe186026cc32d41c8e389f8556642",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
