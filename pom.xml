@@ -94,17 +94,27 @@ limitations under the License.
     <dependency>
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-core</artifactId>
-      <version>3.6.0</version>
+      <version>4.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-highlighter</artifactId>
-      <version>3.6.0</version>
+      <version>4.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-memory</artifactId>
-      <version>3.6.1</version>
+      <version>4.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-queryparser</artifactId>
+      <version>4.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-analyzers-common</artifactId>
+      <version>4.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.tautua.markdownpapers</groupId>
@@ -161,6 +171,10 @@ limitations under the License.
               <exclude>com.googlecode.javaewah:*</exclude>
               <exclude>com.jcraft:*</exclude>
               <exclude>javax.servlet:*</exclude>
+              <exclude>org.apache.lucene:lucene-core:*</exclude>
+              <exclude>org.apache.lucene:lucene-queries:*</exclude>
+              <exclude>org.apache.lucene:lucene-analyzers-common:*</exclude>
+              <exclude>org.apache.lucene:lucene-queries:*</exclude>
             </excludes>
           </artifactSet>
           <transformers>
