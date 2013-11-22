@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e3de19e_4e423356",
+        "filename": "ReleaseNotes-2.9.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-11-22T08:55:07Z",
+      "side": 1,
+      "message": "Remove the trailing colon, or add a link to the download.",
+      "revId": "5ec68733ae359802b31703df04a2370c7b5a7e38",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e3de19e_6e3fefca",
+        "filename": "ReleaseNotes-2.9.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-11-22T08:55:07Z",
+      "side": 1,
+      "message": "s/possible/potential",
+      "range": {
+        "startLine": 12,
+        "startChar": 33,
+        "endLine": 12,
+        "endChar": 41
+      },
+      "revId": "5ec68733ae359802b31703df04a2370c7b5a7e38",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e58e519_ef520129",
+        "filename": "ReleaseNotes-2.9.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2013-11-22T08:55:07Z",
+      "side": 1,
+      "message": "s/contains/requires",
+      "range": {
+        "startLine": 12,
+        "startChar": 24,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "5ec68733ae359802b31703df04a2370c7b5a7e38",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
