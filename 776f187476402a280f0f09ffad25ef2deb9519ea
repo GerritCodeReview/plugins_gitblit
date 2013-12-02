@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "231a8eb4_069d1a0b",
+        "filename": "BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-12-02T19:18:00Z",
+      "side": 1,
+      "message": "This should use $SRCDIR",
+      "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03174a8c_a5187e00",
+        "filename": "BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-12-02T19:18:00Z",
+      "side": 1,
+      "message": "Don\u0027t use glob if the internal command only honors one file. Instead:\n\n  srcs \u003d [\u0027src/main/resources/gitblit.properties\u0027],",
+      "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231a8eb4_2698161b",
+        "filename": "lib/BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-12-02T19:18:00Z",
+      "side": 1,
+      "message": "nit: space on either side of \u003d",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 14
+      },
+      "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03174a8c_45242a40",
+        "filename": "lib/BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001240
+      },
+      "writtenOn": "2013-12-02T19:18:00Z",
+      "side": 1,
+      "message": "This doesn\u0027t play well. At runtime the plugin is given the version Gerrit has, not the version it was compiled with. Unfortunately Gerrit is not running insided of an OSGi container.",
+      "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
