@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a3cbde64_e29546e0",
+        "filename": "BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-12-02T19:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "231a8eb4_069d1a0b",
+      "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03174a8c_a5187e00",
         "filename": "BUCK",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-02T19:18:00Z",
       "side": 1,
       "message": "Don\u0027t use glob if the internal command only honors one file. Instead:\n\n  srcs \u003d [\u0027src/main/resources/gitblit.properties\u0027],",
+      "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d09a10_21b48e6c",
+        "filename": "BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-12-02T19:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03174a8c_a5187e00",
       "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -59,6 +95,24 @@
     },
     {
       "key": {
+        "uuid": "a3cbde64_c28842c7",
+        "filename": "lib/BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-12-02T19:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "231a8eb4_2698161b",
+      "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03174a8c_45242a40",
         "filename": "lib/BUCK",
         "patchSetId": 5
@@ -70,6 +124,24 @@
       "writtenOn": "2013-12-02T19:18:00Z",
       "side": 1,
       "message": "This doesn\u0027t play well. At runtime the plugin is given the version Gerrit has, not the version it was compiled with. Unfortunately Gerrit is not running insided of an OSGi container.",
+      "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "83d09a10_011a2ac5",
+        "filename": "lib/BUCK",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-12-02T19:36:30Z",
+      "side": 1,
+      "message": "Two different Lucene versions are deployed to Gerrit, one in plugin jar itself. another from gerrit.war. I guess it only works, because Gerrit\u0027s Lucene version was higher (4.4) then gitblit required (3.6)?\n\nThat why i uploaded both upgrades to Gitblit itself (James already merged it ,-) and Gerrit to harmonize this difference in used Lucene versions. Lucene upgrade for Gerrit is still pending for review [1]:\n\n[1] https://gerrit-review.googlesource.com/52161",
+      "parentUuid": "03174a8c_45242a40",
       "revId": "776f187476402a280f0f09ffad25ef2deb9519ea",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
