@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "682c637b_08a667d8",
+        "filename": "lib/BUCK",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-12-22T23:38:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "283d0b9f_0e290b71",
+      "revId": "002af2c415348f11ef572ebcdfa5ef3f26509b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "682c637b_c8ab6fa2",
         "filename": "lib/BUCK",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2013-12-22T23:35:05Z",
       "side": 1,
       "message": "5d1a6df0ed4ee0517e1f61cdf92b7fb47b4b1119",
+      "revId": "002af2c415348f11ef572ebcdfa5ef3f26509b3e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "682c637b_28a32bc9",
+        "filename": "lib/BUCK",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2013-12-22T23:38:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "682c637b_c8ab6fa2",
       "revId": "002af2c415348f11ef572ebcdfa5ef3f26509b3e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
