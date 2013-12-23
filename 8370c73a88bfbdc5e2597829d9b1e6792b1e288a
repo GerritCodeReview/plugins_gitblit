@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "682c637b_689d237b",
+        "filename": "lib/BUCK",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2013-12-23T00:21:54Z",
+      "side": 1,
+      "message": "mmm ... you mean SNAPSHOT ? ;-)",
+      "revId": "8370c73a88bfbdc5e2597829d9b1e6792b1e288a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
