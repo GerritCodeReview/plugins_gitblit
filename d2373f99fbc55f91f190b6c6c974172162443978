@@ -22,6 +22,30 @@
       "revId": "d2373f99fbc55f91f190b6c6c974172162443978",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dbc1132_6ffa71ea",
+        "filename": "lib/BUCK",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-01-15T07:17:39Z",
+      "side": 1,
+      "message": "Ach, this was a local try to make generated gitblit.jar work against 1.4.0-SNAPSHOT from gerrit forge. But it didn\u0027t work either. Only real upstream gitblit was migrated to Lucene 4.6.0. But in the upstream version gitblit was changed and this plugin have to be rewired as mentioned by James.",
+      "parentUuid": "8de44952_211fce6e",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 69,
+        "endChar": 59
+      },
+      "revId": "d2373f99fbc55f91f190b6c6c974172162443978",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
