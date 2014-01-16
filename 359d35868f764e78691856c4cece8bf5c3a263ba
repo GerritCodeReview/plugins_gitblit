@@ -22,6 +22,30 @@
       "revId": "359d35868f764e78691856c4cece8bf5c3a263ba",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd9561be_3bed1733",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011812
+      },
+      "writtenOn": "2014-01-16T15:32:49Z",
+      "side": 1,
+      "message": "I\u0027m not sure.  I just tried switching to 2.8.1, and got dependencies errors because the gerrit-plugin-api:jar:2.8.1 is not available in the repository.  I think that can be worked around, but I haven\u0027t seen any other plugins using a bug-fix release number for their ApiVersion.",
+      "parentUuid": "edc305c9_6413aa72",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "359d35868f764e78691856c4cece8bf5c3a263ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
