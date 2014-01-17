@@ -94,6 +94,30 @@
       "revId": "359d35868f764e78691856c4cece8bf5c3a263ba",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd1c8154_23898a5b",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2014-01-17T15:05:36Z",
+      "side": 1,
+      "message": "The API jar files are deployed at https://gerrit-maven.storage.googleapis.com\n\nSeems it isn\u0027t listed here though, so that\u0027s probably why it\u0027s not working.  If you check out the stable-2.8 branch of gerrit and run `buck build api_install` you should get the jar files in your local maven repository.",
+      "parentUuid": "4d58911a_af5b9944",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "359d35868f764e78691856c4cece8bf5c3a263ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
