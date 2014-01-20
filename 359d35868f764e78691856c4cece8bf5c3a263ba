@@ -142,6 +142,78 @@
       "revId": "359d35868f764e78691856c4cece8bf5c3a263ba",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2a0465c_5c505d27",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-01-20T15:31:00Z",
+      "side": 1,
+      "message": "You are correct. You shouldn\u0027t need to build and deploy plugin API locally to build a plugin against released plugin API. That\u0027s why we publish it. Just add this repository:\n\n    \u003crepository\u003e\n      \u003cid\u003egerrit-api-repository\u003c/id\u003e\n      \u003curl\u003ehttps://gerrit-api.commondatastorage.googleapis.com/release\u003c/url\u003e\n    \u003c/repository\u003e\n\nHowever you still need to build and install the plugin API locally, if you want to build a plugin against 2.9-SNAPSHOT.",
+      "parentUuid": "7258d641_68022328",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "359d35868f764e78691856c4cece8bf5c3a263ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1294fafd_bd239fb6",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-01-20T15:31:00Z",
+      "side": 1,
+      "message": "Yes, it should be 2.8.1.",
+      "parentUuid": "edc305c9_6413aa72",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "359d35868f764e78691856c4cece8bf5c3a263ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1294fafd_9d26e3c7",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-01-20T15:31:00Z",
+      "side": 1,
+      "message": "Reviewer plugin does that. Check this change:\n\n  https://gerrit-review.googlesource.com/#/c/53860/1/pom.xml",
+      "parentUuid": "cd9561be_3bed1733",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 14
+      },
+      "revId": "359d35868f764e78691856c4cece8bf5c3a263ba",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
