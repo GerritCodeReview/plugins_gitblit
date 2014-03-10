@@ -39,7 +39,6 @@ public class GerritToGitBlitUserModel extends UserModel {
   public String password;
   public String cookie;
   public String displayName;
-  public String emailAddress;
   public boolean canAdmin;
   public boolean excludeFromFederation;
   public final Set<String> repositories = new HashSet<String>();
@@ -50,14 +49,16 @@ public class GerritToGitBlitUserModel extends UserModel {
   // non-persisted fields
   public boolean isAuthenticated;
 
-  public GerritToGitBlitUserModel(String username) {
-    this(username, null);
+  public GerritToGitBlitUserModel(String username, String emailAddress) {
+    this(username, emailAddress, null);
   }
 
   public GerritToGitBlitUserModel(String username,
+      String emailAddress,
       final ProjectControl.Factory projectControlFactory) {
     super(username);
     this.username = username;
+    this.emailAddress = emailAddress;
     this.isAuthenticated = true;
     this.projectControlFactory = projectControlFactory;
   }
@@ -222,6 +223,10 @@ public class GerritToGitBlitUserModel extends UserModel {
   }
 
   public static UserModel getAnonymous(Factory projectControl) {
-    return new GerritToGitBlitUserModel(ANONYMOUS_USER, projectControl);
+    return new GerritToGitBlitUserModel(ANONYMOUS_USER, "", projectControl);
+  }
+
+  public String getEmailAddress() {
+    return emailAddress;
   }
 }
