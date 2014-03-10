@@ -18,6 +18,7 @@ import java.util.Set;
 
 import com.gitblit.Constants.AccessPermission;
 import com.gitblit.Constants.AccessRestrictionType;
+import com.gitblit.Constants.AccountType;
 import com.gitblit.models.RepositoryModel;
 import com.gitblit.models.TeamModel;
 import com.gitblit.models.UserModel;
@@ -60,6 +61,7 @@ public class GerritToGitBlitUserModel extends UserModel {
     this.username = username;
     this.isAuthenticated = true;
     this.projectControlFactory = projectControlFactory;
+    this.accountType = AccountType.EXTERNAL;
   }
 
   public GerritToGitBlitUserModel(final ProjectControl.Factory projectControlFactory) {
