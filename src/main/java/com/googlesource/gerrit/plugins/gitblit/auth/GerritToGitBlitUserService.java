@@ -26,8 +26,10 @@ import com.gitblit.models.TeamModel;
 import com.gitblit.models.UserModel;
 import com.google.common.base.Strings;
 import com.google.gerrit.httpd.WebSession;
+import com.google.gerrit.server.account.AccountCache;
 import com.google.gerrit.server.account.AccountException;
 import com.google.gerrit.server.account.AccountManager;
+import com.google.gerrit.server.account.AccountState;
 import com.google.gerrit.server.account.AuthRequest;
 import com.google.gerrit.server.account.AuthResult;
 import com.google.gerrit.server.project.ProjectControl;
@@ -45,15 +47,19 @@ public class GerritToGitBlitUserService implements IUserService {
 
   private Provider<WebSession> webSession;
 
+  private final AccountCache accountCache;
+
   public static final String SESSIONAUTH = "sessionid:";
 
   @Inject
   public GerritToGitBlitUserService(
       final ProjectControl.Factory projectControl,
-      AccountManager accountManager, final Provider<WebSession> webSession) {
+      AccountManager accountManager, final Provider<WebSession> webSession,
+      AccountCache accountCache) {
     this.projectControl = projectControl;
     this.accountManager = accountManager;
     this.webSession = webSession;
+    this.accountCache = accountCache;
   }
 
   @Override
@@ -91,7 +97,19 @@ public class GerritToGitBlitUserService implements IUserService {
       return null;
     }
 
-    return new GerritToGitBlitUserModel(username, projectControl);
+    return new GerritToGitBlitUserModel(username, getEmail(username), projectControl);
+  }
+
+  private String getEmail(String username) {
+    AccountState account = accountCache.getByUsername(username);
+    if(account == null) {
+      log.warn("Cannot get account e-mail from accountCache for username '" + username + "'");
+      return "";
+    }
+
+    String email = account.getAccount().getPreferredEmail();
+    log.debug("User '" + username + "' preferred e-mail is " + email);
+    return email;
   }
 
   public UserModel authenticateBasicAuth(String username, String password) {
@@ -112,13 +130,12 @@ public class GerritToGitBlitUserService implements IUserService {
       return null;
     }
 
-    return new GerritToGitBlitUserModel(username, projectControl);
+    return new GerritToGitBlitUserModel(username, getEmail(username), projectControl);
   }
 
   @Override
   public UserModel getUserModel(String username) {
-
-    return new GerritToGitBlitUserModel(username, projectControl);
+    return new GerritToGitBlitUserModel(username, getEmail(username), projectControl);
   }
 
   @Override
