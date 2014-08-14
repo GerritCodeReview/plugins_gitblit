@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6509fa6_9c28a509",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-08-14T13:33:32Z",
+      "side": 1,
+      "message": "Why to provide another broken version of this plugin? We know that we have Lucene version collision and that the plugin doesn\u0027t even start.\n\nAs discussed on dev ML we have two options:\n\n* Make plugin work based on patched 1.3 version of gitblit: replace Lucene with 4.8.1 to match Lucene Version in Gerrit or remove Lucene search from gitblit entirely.\n* Upgrade plugin to latest gitblit 1.7 version\n\nThe option that we don\u0027t have is to release another broken version of this plugin.",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 24
+      },
+      "revId": "4d9e3b2074fe9a224ad875f9df9995617aa53b99",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
