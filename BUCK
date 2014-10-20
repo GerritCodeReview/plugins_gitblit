@@ -9,31 +9,31 @@ gerrit_plugin(
     'Gerrit-ReloadMode: restart',
   ],
   deps = [
-    '//lib/commons:httpcore',
-    '//lib/commons:net',
-    '//lib/commons:codec',
+    '//lib/httpcomponents:httpcore',
     '//plugins/gitblit/lib:gitblit-jar',
     '//plugins/gitblit/lib:wicket',
     '//plugins/gitblit/lib:wicket-extensions',
-    '//plugins/gitblit/lib:wicketstuff',
     '//plugins/gitblit/lib:javax-mail',
     '//plugins/gitblit/lib:groovy',
-    '//plugins/gitblit/lib:beust-jcommander',
     '//plugins/gitblit/lib:jdom',
-    '//plugins/gitblit/lib:lucene-core',
     '//plugins/gitblit/lib:lucene-highlighter',
     '//plugins/gitblit/lib:lucene-memory',
     '//plugins/gitblit/lib:markdownpapers',
     '//plugins/gitblit/lib:rome',
+    '//plugins/gitblit/lib:pf4j',
     '//plugins/gitblit/lib:unboundid',
     ':gitblit-properties-jar',
+  ],
+  provided_deps = [
+    '//lib/commons:net',
+    '//lib/commons:codec',
+    '//plugins/gitblit/lib:lucene-core',
   ]
 )
 
 prebuilt_jar(
   name = 'gitblit-properties-jar',
-  binary_jar = genfile('gitblit-properties.zip'),
-  deps = [':gitblit-properties'],
+  binary_jar = ':gitblit-properties',
 )
 
 genrule(
