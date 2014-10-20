@@ -1,61 +1,54 @@
 include_defs('//lib/maven.defs')
 GERRITFORGE = 'http://gerritforge.com/snapshot'
+#GITBLIT = 'http://gitblit.github.io/gitblit-maven'
+
+maven_jar(
+  name = 'pf4j',
+  id = 'ro.fortsoft.pf4j:pf4j:0.9.0',
+  sha1 = 'ff412cadfee820c50bf02723187eda6165d70379',
+  license = 'Apache2.0',
+)
 
 maven_jar(
   name = 'gitblit-jar',
-  id = 'com.gitblit:gitblit:1.4.0-SNAPSHOT',
-  sha1 = '5d1a6df0ed4ee0517e1f61cdf92b7fb47b4b1119',
+  id = 'com.gitblit:gitblit:1.7.0-SNAPSHOT',
+  sha1 = 'bf24e3a78f5421908326ec4e5a522a0bc7af3903',
   license = 'Apache2.0',
   repository = GERRITFORGE,
 )
 
 maven_jar(
   name = 'wicket',
-  id = 'org.apache.wicket:wicket:1.4.21-selfload',
-  sha1 = 'b822e4ce05232f39cc60adc59d3866452f919d6d',
+  id = 'org.apache.wicket:wicket:1.4.23',
+  sha1 = '304d9e23e52e9488308644093663b568952abd0b',
   license = 'Apache2.0',
-  repository = GERRITFORGE,
 )
 
 maven_jar(
   name = 'wicket-auth-roles',
-  id = 'org.apache.wicket:wicket-auth-roles:1.4.21',
+  id = 'org.apache.wicket:wicket-auth-roles:1.4.23',
   sha1 = '1b130dbf5578ace37507430a4a523f6594bf34fa',
   license = 'Apache2.0',
 )
 
 maven_jar(
   name = 'wicket-extensions',
-  id = 'org.apache.wicket:wicket-extensions:1.4.21',
-  sha1 = 'fac510c7ee4399a29b927405ec3de40b67d105d8',
-  license = 'Apache2.0',
-)
-
-maven_jar(
-  name = 'wicketstuff',
-  id = 'org.wicketstuff:googlecharts:1.4.21',
-  sha1 = '73d7540267afc3a0e91ca6148d3073e050dba180',
+  id = 'org.apache.wicket:wicket-extensions:1.4.23',
+  sha1 = '9ca61ca2273289d648dbb430e9033693c9b5eed3',
   license = 'Apache2.0',
 )
 
 maven_jar(
   name = 'javax-mail',
-  id = 'javax.mail:mail:1.4',
-  sha1 = '1aa1579ae5ecd41920c4f355b0a9ef40b68315dd',
+  id = 'com.sun.mail:javax.mail:1.5.1',
+  sha1 = '9724dd44f1abbba99c9858aa05fc91d53f59e7a5',
   license = 'Apache2.0',
 )
 
 maven_jar(
   name = 'groovy',
-  id = 'org.codehaus.groovy:groovy-all:1.8.8',
-  sha1 = '98a489343d3c30da817d36cbea5de11ed07bef31',
-  license = 'Apache2.0',
-)
-
-maven_jar(
-  name = 'beust-jcommander',
-  id = 'com.beust:jcommander:1.17',
-  sha1 = '219a3540f3b27d7cc3b1d91d6ea046cd8723290e',
+  id = 'org.codehaus.groovy:groovy-all:2.4.1',
+  sha1 = 'a9ca9c9de09361ec2a18d2c058d2524fbd8eae0c',
   license = 'Apache2.0',
 )
 
@@ -66,25 +59,24 @@ maven_jar(
   license = 'Apache2.0',
 )
 
-# Unfortunately an older version than used by Gerrit itself
 maven_jar(
   name = 'lucene-core',
-  id = 'org.apache.lucene:lucene-core:3.6.0',
-  sha1 = '8a0429de6b7c9918841fa2c441a6ef4cc07f2a18',
+  id = 'org.apache.lucene:lucene-core:4.10.2',
+  sha1 = 'c01e3d675d277e0a93e7890d03cc3246b2cdecaa',
   license = 'Apache2.0',
 )
 
 maven_jar(
   name = 'lucene-highlighter',
-  id = 'org.apache.lucene:lucene-highlighter:3.6.0',
-  sha1 = '9ee691f1dcc60f093df433c165d6a686c6d24553',
+  id = 'org.apache.lucene:lucene-highlighter:4.10.2',
+  sha1 = '7ced704190e1e5b9a9b32edec6dba9116d69ae72',
   license = 'Apache2.0',
 )
 
 maven_jar(
   name = 'lucene-memory',
-  id = 'org.apache.lucene:lucene-memory:3.6.1',
-  sha1 = '8c7ca5572edea50973dc0d26cf75c27047eebe7e',
+  id = 'org.apache.lucene:lucene-memory:4.10.2',
+  sha1 = 'c381123b510dd790e27445430ab8203e5a27f5bc',
   license = 'Apache2.0',
 )
 
@@ -97,15 +89,105 @@ maven_jar(
 
 maven_jar(
   name = 'rome',
-  id = 'rome:rome:1.0-selfload',
-  sha1 = 'e8d80293c9c13b557f4e570d3e12afcaf64ac6d4',
+  id = 'rome:rome:1.0',
+  sha1 = '022b33347f315833e9348cec2751af1a5d5656e4',
   license = 'Apache2.0',
-  repository = GERRITFORGE
 )
 
 maven_jar(
   name = 'unboundid',
-  id = 'com.unboundid:unboundid-ldapsdk:2.3.0',
-  sha1 = '6fde8d9fb4ee3e7e3d7e764e3ea57195971e2eb2',
+  id = 'com.unboundid:unboundid-ldapsdk:2.3.8',
+  sha1 = '1788564d03f0b786a695f4de67b4cb55eda45e14',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'jsoup',
+  id = 'org.jsoup:jsoup:1.7.3',
+  sha1 = '92568d7167ce1bf9eb1fd815b022d5a2c113547a',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'tika',
+  id = 'org.apache.tika:tika-core:1.5',
+  sha1 = '194ca0fb3d73b07737524806fbc3bec89063c03a',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'wikitext-core',
+  id = 'org.fusesource.wikitext:wikitext-core:1.4',
+  sha1 = 'b877ee61d064c01cbf9834ab1b7146cd44acad65',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'twiki-core',
+  id = 'org.fusesource.wikitext:twiki-core:1.4',
+  sha1 = '00c392027ae056d555040af2d1e0ed217fa94712',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'textile-core',
+  id = 'org.fusesource.wikitext:textile-core:1.4',
+  sha1 = '9169c4a2865232c7b22137d759fb7ee2cbf019de',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'tracwiki-core',
+  id = 'org.fusesource.wikitext:tracwiki-core:1.4',
+  sha1 = 'e2c8a5597695dc82256f2a97a505783e5ab5b0cb',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'mediawiki-core',
+  id = 'org.fusesource.wikitext:mediawiki-core:1.4',
+  sha1 = '30d1b5551bbf97a17abc22d51fe8dd3b4d27f1ab',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'confluence-core',
+  id = 'org.fusesource.wikitext:confluence-core:1.4',
+  sha1 = '08210b4af6f055ada934753facd27d7abf9d01a8',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'ivy',
+  id = 'org.apache.ivy:ivy:2.2.0',
+  sha1 = 'f9d1e83e82fc085093510f7d2e77d81d52bc2081',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'force-partner-api',
+  id = 'com.force.api:force-partner-api:24.0.0',
+  sha1 = 'ce3cd3e2ccd51735f27a83e90018123e8bd10314',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'freemarker',
+  id = 'org.freemarker:freemarker:2.3.22',
+  sha1 = '473d784b3cd2dcb6d49a287ded0542b7862c7d68',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'waffle-jna',
+  id = 'com.github.dblock.waffle:waffle-jna:1.7.3',
+  sha1 = '94ba74d3fa15bb61d4901b062b8fd5046c9e99b9',
+  license = 'Apache2.0',
+)
+
+maven_jar(
+  name = 'libpam4j',
+  id = 'org.kohsuke:libpam4j:1.8',
+  sha1 = '548d4a1177adad8242fe03a6930c335669d669ad',
   license = 'Apache2.0',
 )
