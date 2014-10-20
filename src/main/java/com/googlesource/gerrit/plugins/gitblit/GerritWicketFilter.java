@@ -112,6 +112,11 @@ public class GerritWicketFilter extends GitblitWicketFilter {
   }
 
   @Override
+  protected ClassLoader getClassLoader() {
+    return getClass().getClassLoader();
+  }
+
+  @Override
   public void doFilter(ServletRequest request, ServletResponse response,
       FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest) request;
