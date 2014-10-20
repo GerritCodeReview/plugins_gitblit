@@ -53,3 +53,4 @@ the following configuration to your Gerrit config.
         filehistory = gitblit/history/?f=${file}&r=${project}&h=${branch}
         file = gitblit/blob/?r=${project}&h=${commit}&f=${file}
         roottree = gitblit/tree/?r=${project}&h=${commit}
+
