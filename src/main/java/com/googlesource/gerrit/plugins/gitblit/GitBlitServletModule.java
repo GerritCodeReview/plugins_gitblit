@@ -55,6 +55,7 @@ import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
 import com.google.inject.servlet.ServletModule;
 import com.googlesource.gerrit.plugins.gitblit.app.GitBlitSettings;
+import com.googlesource.gerrit.plugins.gitblit.app.ReallyNullTicketService;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService;
 
 public class GitBlitServletModule extends ServletModule {
@@ -75,7 +76,7 @@ public class GitBlitServletModule extends ServletModule {
 
     // bind complex providers
     bind(IPublicKeyManager.class).toProvider(IPublicKeyManagerProvider.class);
-    bind(ITicketService.class).toProvider(ITicketServiceProvider.class);
+    bind(ITicketService.class).to(ReallyNullTicketService.class);
     bind(WorkQueue.class).toProvider(WorkQueueProvider.class);
 
     // core managers
