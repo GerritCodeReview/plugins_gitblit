@@ -1,4 +1,4 @@
-// Copyright (C) 2012 The Android Open Source Project
+// Copyright (C) 2014 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package com.googlesource.gerrit.plugins.gitblit.app;
 
 import java.io.File;
@@ -32,10 +33,13 @@ import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.SitePaths;
 import com.google.gerrit.server.git.LocalDiskRepositoryManager;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.gitblit.GitBlitUrlsConfig;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService;
 
+@Singleton
 public class GitBlitSettings extends IStoredSettings {
+  private static final Logger log = LoggerFactory.getLogger(GitBlitSettings.class);
   private static final String GITBLIT_GERRIT_PROPERTIES = "/gitblit.properties";
 
   private final LocalDiskRepositoryManager repoManager;
@@ -127,5 +131,11 @@ public class GitBlitSettings extends IStoredSettings {
     stringSettings.append(" with values ");
     stringSettings.append(properties.toString());
     return stringSettings.toString();
+  }
+
+  @Override
+  public boolean saveSettings() {
+    log.warn("Store of GitBlit settings is not supported");
+    return false;
   }
 }
