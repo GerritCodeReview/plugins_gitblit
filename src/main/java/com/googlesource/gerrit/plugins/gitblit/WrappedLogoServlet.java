@@ -13,7 +13,7 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.gitblit;
 
-import com.gitblit.LogoServlet;
+import com.gitblit.servlet.LogoServlet;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

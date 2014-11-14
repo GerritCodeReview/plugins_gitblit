@@ -13,7 +13,7 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.gitblit;
 
-import com.gitblit.DownloadZipServlet;
+import com.gitblit.servlet.DownloadZipServlet;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

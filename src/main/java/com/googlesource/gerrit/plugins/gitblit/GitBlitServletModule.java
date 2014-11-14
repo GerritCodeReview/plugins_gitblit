@@ -17,17 +17,26 @@ import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.gitblit.IUserService;
+import com.gitblit.IStoredSettings;
+import com.gitblit.manager.IAuthenticationManager;
+import com.gitblit.manager.IGitblit;
+import com.gitblit.manager.IUserManager;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.google.inject.Provides;
 import com.google.inject.servlet.ServletModule;
-import com.googlesource.gerrit.plugins.gitblit.app.GerritGitBlit;
+import com.googlesource.gerrit.plugins.gitblit.app.GitBlitSettings;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService;
 
+import dagger.ObjectGraph;
+
 public class GitBlitServletModule extends ServletModule {
-  private static final Logger log = LoggerFactory.getLogger(GitBlitServletModule.class);
+  private static final Logger log = LoggerFactory
+      .getLogger(GitBlitServletModule.class);
+  private static ObjectGraph dagger = null;
 
   @Inject
   public GitBlitServletModule(@PluginName final String name,
@@ -38,9 +47,11 @@ public class GitBlitServletModule extends ServletModule {
   @Override
   protected void configureServlets() {
     log.info("Configuring servlet and filters");
-    bind(IUserService.class).to(GerritToGitBlitUserService.class);
-    bind(GerritGitBlit.class);
+    bind(IAuthenticationManager.class).to(GerritToGitBlitUserService.class);
+    bind(IUserManager.class).to(GerritToGitBlitUserService.class);
+    bind(IStoredSettings.class).to(GitBlitSettings.class);
 
+    serve("/graph/*").with(WrappedBranchGraphServlet.class);
     serve("/pages/*").with(WrappedPagesServlet.class);
     serve("/feed/*").with(WrappedSyndicationServlet.class);
     serve("/zip/*").with(WrappedDownloadZipServlet.class);
@@ -50,5 +61,18 @@ public class GitBlitServletModule extends ServletModule {
     filter("/*").through(GerritWicketFilter.class);
     filter("/pages/*").through(WrappedPagesFilter.class);
     filter("/feed/*").through(WrappedSyndicationFilter.class);
+  }
+
+  @Provides
+  IGitblit provideGitBlit(Injector injector) {
+    return provideObjectGraph(injector).get(IGitblit.class);
+  }
+
+  @Provides
+  synchronized ObjectGraph provideObjectGraph(Injector injector) {
+    if (dagger == null) {
+      dagger = ObjectGraph.create(new GitBlitDaggerModule(injector));
+    }
+    return dagger;
   }
 }

@@ -36,6 +36,7 @@ import com.googlesource.gerrit.plugins.gitblit.GitBlitUrlsConfig;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService;
 
 public class GitBlitSettings extends IStoredSettings {
+  private static final Logger log = LoggerFactory.getLogger(GitBlitSettings.class);
   private static final String GITBLIT_GERRIT_PROPERTIES = "/gitblit.properties";
 
   private final LocalDiskRepositoryManager repoManager;
@@ -127,5 +128,11 @@ public class GitBlitSettings extends IStoredSettings {
     stringSettings.append(" with values ");
     stringSettings.append(properties.toString());
     return stringSettings.toString();
+  }
+
+  @Override
+  public boolean saveSettings() {
+    log.warn("Store of GitBlit settings is not supported");
+    return false;
   }
 }

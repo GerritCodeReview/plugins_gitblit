@@ -13,19 +13,44 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.gitblit.app;
 
+import javax.inject.Inject;
+
 import org.apache.wicket.protocol.http.WebRequestCycleProcessor;
 import org.apache.wicket.request.IRequestCodingStrategy;
 import org.apache.wicket.request.IRequestCycleProcessor;
 
+import com.gitblit.manager.IAuthenticationManager;
+import com.gitblit.manager.IFederationManager;
+import com.gitblit.manager.IGitblit;
+import com.gitblit.manager.INotificationManager;
+import com.gitblit.manager.IPluginManager;
+import com.gitblit.manager.IProjectManager;
+import com.gitblit.manager.IRepositoryManager;
+import com.gitblit.manager.IRuntimeManager;
+import com.gitblit.manager.IUserManager;
+import com.gitblit.transport.ssh.IPublicKeyManager;
 import com.gitblit.wicket.GitBlitWebApp;
 
 public class GerritToGitBlitWebApp extends GitBlitWebApp {
-    @Override
-    protected IRequestCycleProcessor newRequestCycleProcessor() {
-        return new WebRequestCycleProcessor() {
-            protected IRequestCodingStrategy newRequestCodingStrategy() {
-                return new StaticCodingStrategy("summary/", "project/");
-            }
-        };
-    }
+
+  @Inject
+  public GerritToGitBlitWebApp(IRuntimeManager runtimeManager,
+      IPluginManager pluginManager, INotificationManager notificationManager,
+      IUserManager userManager, IAuthenticationManager authenticationManager,
+      IPublicKeyManager publicKeyManager, IRepositoryManager repositoryManager,
+      IProjectManager projectManager, IFederationManager federationManager,
+      IGitblit gitblit) {
+    super(runtimeManager, pluginManager, notificationManager, userManager,
+        authenticationManager, publicKeyManager, repositoryManager,
+        projectManager, federationManager, gitblit);
+  }
+
+  @Override
+  protected IRequestCycleProcessor newRequestCycleProcessor() {
+    return new WebRequestCycleProcessor() {
+      protected IRequestCodingStrategy newRequestCodingStrategy() {
+        return new StaticCodingStrategy("summary/", "project/");
+      }
+    };
+  }
 }

@@ -22,7 +22,6 @@ import java.util.Vector;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -33,46 +32,58 @@ import org.slf4j.LoggerFactory;
 
 import com.gitblit.Constants;
 import com.gitblit.GitBlit;
+import com.gitblit.dagger.DaggerContext;
+import com.gitblit.manager.IGitblit;
+import com.gitblit.wicket.GitblitWicketFilter;
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
-import com.googlesource.gerrit.plugins.gitblit.app.GerritGitBlit;
 import com.googlesource.gerrit.plugins.gitblit.app.GerritToGitBlitWebApp;
-import com.googlesource.gerrit.plugins.gitblit.app.GitBlitSettings;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
 
+import dagger.ObjectGraph;
+
 @Singleton
-public class GerritWicketFilter extends WicketFilter {
+public class GerritWicketFilter extends GitblitWicketFilter {
   private static final Logger log = LoggerFactory
       .getLogger(GerritWicketFilter.class);
 
-  private final Provider<WebSession> webSession;
+  private final DynamicItem<WebSession> webSession;
   @SuppressWarnings("unused")
   // We need Guice to create the GerritGitBlit instance
-  private final GerritGitBlit gitBlit;
   private final GerritAuthFilter gerritAuthFilter;
-  private final GitBlitSettings settings;
+
+  private final ObjectGraph dagger;
+  
+  private final GerritGitBlitContext gerritGitblitContext;
+
+  private final SitePaths sitePaths;
 
   @Inject
   public GerritWicketFilter(
-      final Provider<WebSession> webSession, final GerritGitBlit gitBlit,
-      final GerritAuthFilter gerritAuthFilter, final GitBlitSettings settings) {
+      final DynamicItem<WebSession> webSession, 
+      final GerritAuthFilter gerritAuthFilter,
+      final ObjectGraph dagger, 
+      final GerritGitBlitContext gerritGitblitContext,
+      final SitePaths sitePaths) {
     this.webSession = webSession;
-    this.gitBlit = gitBlit;
     this.gerritAuthFilter = gerritAuthFilter;
-    this.settings = settings;
+    this.dagger = dagger;
+    this.gerritGitblitContext = gerritGitblitContext;
+    this.sitePaths = sitePaths;
   }
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
+    ServletContext servletContext = filterConfig.getServletContext();
+    servletContext.setAttribute(DaggerContext.INJECTOR_NAME, dagger);
     showGitBlitBanner();
-
+    gerritGitblitContext.init(servletContext);
+    
     try {
-      GitBlit.self().configureContext(settings, settings.getBasePath(),
-          false);
-      GitBlit.self().contextInitialized(
-          new ServletContextEvent(filterConfig.getServletContext()));
       super.init(new CustomFilterConfig(filterConfig));
     } catch (Exception e) {
       throw new ServletException(e);
@@ -113,7 +124,6 @@ public class GerritWicketFilter extends WicketFilter {
 
     private HashMap<String, String> getGitblitInitParams() {
       HashMap<String, String> props = new HashMap<String, String>();
-      props.put("applicationClassName", GerritToGitBlitWebApp.class.getName());
       props.put("filterMappingUrlPattern", "/*");
       props.put("ignorePaths", "pages/,feed/");
       return props;

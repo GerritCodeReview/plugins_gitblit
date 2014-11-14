@@ -136,30 +136,30 @@ public class GerritToGitBlitUserModel extends UserModel {
     return result;
   }
 
-  @Override
-  public boolean hasBranchPermission(String repoName, String branchRef) {
-    boolean result = false;
-
-    try {
-      repoName = getRepositoryName(repoName);
-
-      ProjectControl control =
-          projectControlFactory.validateFor(new NameKey(repoName));
-      if (control != null && control.isVisible()) {
-        RefControl branchCtrl = control.controlForRef(branchRef);
-        result = branchCtrl != null && branchCtrl.isVisible();
-      }
-
-    } catch (NoSuchProjectException e) {
-      result = false;
-    }
-
-    return result;
-  }
+//  @Override
+//  public boolean hasBranchPermission(String repoName, String branchRef) {
+//    boolean result = false;
+//
+//    try {
+//      repoName = getRepositoryName(repoName);
+//
+//      ProjectControl control =
+//          projectControlFactory.validateFor(new NameKey(repoName));
+//      if (control != null && control.isVisible()) {
+//        RefControl branchCtrl = control.controlForRef(branchRef);
+//        result = branchCtrl != null && branchCtrl.isVisible();
+//      }
+//
+//    } catch (NoSuchProjectException e) {
+//      result = false;
+//    }
+//
+//    return result;
+//  }
 
   public boolean hasTeamAccess(String repositoryName) {
     for (TeamModel team : teams) {
-      if (team.hasRepository(repositoryName)) {
+      if (team.hasRepositoryPermission(repositoryName)) {
         return true;
       }
     }

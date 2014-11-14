@@ -28,15 +28,25 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.binary.Base64;
 
 import com.gitblit.GitBlit;
+import com.gitblit.manager.IGitblit;
 import com.gitblit.models.UserModel;
 import com.google.common.base.Objects;
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
+import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 
 @Singleton
 public class GerritAuthFilter {
   private static final String LIT_BASIC = "Basic ";
+  
+  private final IGitblit gitBlit;
+  
+  @Inject
+  public GerritAuthFilter(IGitblit gitBlit) {
+    this.gitBlit = gitBlit;
+  }
 
   /**
    * Returns the user making the request, if the user has authenticated.
@@ -53,7 +63,7 @@ public class GerritAuthFilter {
     }
 
     user =
-        GitBlit.self().authenticate(username,
+        gitBlit.authenticate(username,
             (GerritToGitBlitUserService.SESSIONAUTH + token).toCharArray());
     if (user != null) {
       return user;
@@ -62,7 +72,7 @@ public class GerritAuthFilter {
     return null;
   }
 
-  public boolean doFilter(final Provider<WebSession> webSession,
+  public boolean doFilter(final DynamicItem<WebSession> webSession,
       ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -78,7 +88,7 @@ public class GerritAuthFilter {
     }
   }
 
-  public boolean filterSessionAuth(final Provider<WebSession> webSession,
+  public boolean filterSessionAuth(final DynamicItem<WebSession> webSession,
       HttpServletRequest request) {
     request.setAttribute("gerrit-username", webSession.get().getCurrentUser()
         .getUserName());

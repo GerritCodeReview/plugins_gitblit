@@ -21,8 +21,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import com.gitblit.PagesFilter;
 import com.gitblit.models.UserModel;
+import com.gitblit.servlet.PagesFilter;
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -32,10 +33,10 @@ import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
 @Singleton
 public class WrappedPagesFilter extends PagesFilter {
   private final GerritAuthFilter gerritAuthFilter;
-  private final Provider<WebSession> webSession;
+  private final DynamicItem<WebSession> webSession;
 
   @Inject
-  public WrappedPagesFilter(final Provider<WebSession> webSession, final GerritAuthFilter gerritAuthFilter) {
+  public WrappedPagesFilter(final DynamicItem<WebSession> webSession, final GerritAuthFilter gerritAuthFilter) {
     super();
 
     this.webSession = webSession;

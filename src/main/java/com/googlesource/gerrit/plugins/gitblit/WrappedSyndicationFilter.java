@@ -21,8 +21,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import com.gitblit.SyndicationFilter;
 import com.gitblit.models.UserModel;
+import com.gitblit.servlet.SyndicationFilter;
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -35,10 +36,10 @@ public class WrappedSyndicationFilter extends SyndicationFilter {
   private GerritAuthFilter gerritAuthFilter;
 
   @Inject
-  private final Provider<WebSession> webSession;
+  private final DynamicItem<WebSession> webSession;
 
   @Inject
-  public WrappedSyndicationFilter(final Provider<WebSession> webSession) {
+  public WrappedSyndicationFilter(final DynamicItem<WebSession> webSession) {
     super();
     this.webSession = webSession;
   }
