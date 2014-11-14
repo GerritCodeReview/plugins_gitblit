@@ -1,4 +1,4 @@
-// Copyright (C) 2012 The Android Open Source Project
+// Copyright (C) 2014 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package com.googlesource.gerrit.plugins.gitblit.auth;
 
 import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
@@ -27,16 +28,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.codec.binary.Base64;
 
-import com.gitblit.GitBlit;
+import com.gitblit.manager.IGitblit;
 import com.gitblit.models.UserModel;
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
-import com.google.inject.Provider;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 @Singleton
 public class GerritAuthFilter {
   private static final String LIT_BASIC = "Basic ";
+
+  private final IGitblit gitBlit;
+
+  @Inject
+  public GerritAuthFilter(IGitblit gitBlit) {
+    this.gitBlit = gitBlit;
+  }
 
   /**
    * Returns the user making the request, if the user has authenticated.
@@ -53,7 +62,7 @@ public class GerritAuthFilter {
     }
 
     user =
-        GitBlit.self().authenticate(username,
+        gitBlit.authenticate(username,
             (GerritToGitBlitUserService.SESSIONAUTH + token).toCharArray());
     if (user != null) {
       return user;
@@ -62,7 +71,7 @@ public class GerritAuthFilter {
     return null;
   }
 
-  public boolean doFilter(final Provider<WebSession> webSession,
+  public boolean doFilter(final DynamicItem<WebSession> webSession,
       ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -78,7 +87,7 @@ public class GerritAuthFilter {
     }
   }
 
-  public boolean filterSessionAuth(final Provider<WebSession> webSession,
+  public boolean filterSessionAuth(final DynamicItem<WebSession> webSession,
       HttpServletRequest request) {
     request.setAttribute("gerrit-username", webSession.get().getCurrentUser()
         .getUserName());
@@ -98,7 +107,7 @@ public class GerritAuthFilter {
     final byte[] decoded =
         new Base64().decode(hdr.substring(LIT_BASIC.length()).getBytes());
     String usernamePassword =
-        new String(decoded, Objects.firstNonNull(
+        new String(decoded, MoreObjects.firstNonNull(
             request.getCharacterEncoding(), "UTF-8"));
     int splitPos = usernamePassword.indexOf(':');
     if (splitPos < 1) {
