@@ -1,4 +1,4 @@
-// Copyright (C) 2012 The Android Open Source Project
+// Copyright (C) 2014 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package com.googlesource.gerrit.plugins.gitblit;
 
 import java.net.InetAddress;
@@ -24,7 +25,7 @@ import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 
 public class GitBlitUrlsConfig {
   private static final int SSH_DEF_PORT = 22;
@@ -99,7 +100,7 @@ public class GitBlitUrlsConfig {
         return "";
       }
 
-    String httpUrl = Objects.firstNonNull(canonicalWebUrlString, httpListenUrl);
+    String httpUrl = MoreObjects.firstNonNull(canonicalWebUrlString, httpListenUrl);
     httpUrl = httpUrl.replace("://", "://" + GITBLIT_USER + "@");
     httpUrl += (httpUrl.endsWith("/") ? "" : "/") + GITBLIT_REPO;
     return httpUrl;
