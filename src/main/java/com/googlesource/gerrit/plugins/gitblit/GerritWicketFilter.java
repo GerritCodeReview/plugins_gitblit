@@ -1,4 +1,4 @@
-// Copyright (C) 2012 The Android Open Source Project
+// Copyright (C) 2014 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,68 +11,80 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package com.googlesource.gerrit.plugins.gitblit;
 
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
-import org.apache.wicket.protocol.http.WicketFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.gitblit.Constants;
-import com.gitblit.GitBlit;
+import com.gitblit.IStoredSettings;
+import com.gitblit.manager.IProjectManager;
+import com.gitblit.manager.IRepositoryManager;
+import com.gitblit.manager.IRuntimeManager;
+import com.gitblit.wicket.GitBlitWebApp;
+import com.gitblit.wicket.GitblitWicketFilter;
+import com.google.common.collect.ImmutableSet;
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 import com.google.inject.Singleton;
-import com.googlesource.gerrit.plugins.gitblit.app.GerritGitBlit;
-import com.googlesource.gerrit.plugins.gitblit.app.GerritToGitBlitWebApp;
-import com.googlesource.gerrit.plugins.gitblit.app.GitBlitSettings;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
 
 @Singleton
-public class GerritWicketFilter extends WicketFilter {
+public class GerritWicketFilter extends GitblitWicketFilter {
   private static final Logger log = LoggerFactory
       .getLogger(GerritWicketFilter.class);
+  private static final Set<String> RESOURCES_SUFFIXES =
+      new ImmutableSet.Builder<String>().add("css", "js", "png", "gif", "ttf",
+          "swf", "afm", "eot", "otf", "scss", "svg").build();
 
-  private final Provider<WebSession> webSession;
-  @SuppressWarnings("unused")
-  // We need Guice to create the GerritGitBlit instance
-  private final GerritGitBlit gitBlit;
+  private final DynamicItem<WebSession> webSession;
+  
   private final GerritAuthFilter gerritAuthFilter;
-  private final GitBlitSettings settings;
+  
+  private final GerritGitBlitContext gerritGitblitContext;
 
   @Inject
   public GerritWicketFilter(
-      final Provider<WebSession> webSession, final GerritGitBlit gitBlit,
-      final GerritAuthFilter gerritAuthFilter, final GitBlitSettings settings) {
+      final DynamicItem<WebSession> webSession, 
+      final GerritAuthFilter gerritAuthFilter,
+      final GerritGitBlitContext gerritGitblitContext,
+      final SitePaths sitePaths,
+      IStoredSettings settings,
+      IRuntimeManager runtimeManager,
+      IRepositoryManager repositoryManager,
+      IProjectManager projectManager,
+      GitBlitWebApp webapp) {
+    super(settings, runtimeManager, repositoryManager, projectManager, webapp);
     this.webSession = webSession;
-    this.gitBlit = gitBlit;
     this.gerritAuthFilter = gerritAuthFilter;
-    this.settings = settings;
+    this.gerritGitblitContext = gerritGitblitContext;
   }
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
+    ServletContext servletContext = filterConfig.getServletContext();
     showGitBlitBanner();
+    gerritGitblitContext.init(servletContext);
 
     try {
-      GitBlit.self().configureContext(settings, settings.getBasePath(),
-          false);
-      GitBlit.self().contextInitialized(
-          new ServletContextEvent(filterConfig.getServletContext()));
       super.init(new CustomFilterConfig(filterConfig));
     } catch (Exception e) {
       throw new ServletException(e);
@@ -102,8 +114,35 @@ public class GerritWicketFilter extends WicketFilter {
   @Override
   public void doFilter(ServletRequest request, ServletResponse response,
       FilterChain chain) throws IOException, ServletException {
-    if (gerritAuthFilter.doFilter(webSession, request, response, chain)) {
-      super.doFilter(request, response, chain);
+    HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+    String requestPathInfo = httpServletRequest.getPathInfo();
+
+    if (isStaticResourceRequest(requestPathInfo)) {
+      if (!requestPathInfo.startsWith("/static")
+          && !requestPathInfo.startsWith("/resources")) {
+        httpServletRequest = new StaticHttpServletRequest(httpServletRequest);
+        // response.sendRedirect(request.getContextPath() + "/static" +
+        // request.getPathInfo());
+      }
+      super.doFilter(httpServletRequest, response, chain);
+    } else if (gerritAuthFilter.doFilter(webSession, httpServletRequest,
+        response, chain)) {
+      super.doFilter(httpServletRequest, response, chain);
+    }
+  }
+
+
+  private boolean isStaticResourceRequest(String requestPathInfo) {
+    return RESOURCES_SUFFIXES.contains(getResourceSuffix(requestPathInfo)
+        .toLowerCase());
+  }
+
+  private String getResourceSuffix(String requestPathInfo) {
+    int requestPathLastDot = requestPathInfo.lastIndexOf('.');
+    if (requestPathLastDot < 0) {
+      return "";
+    } else {
+      return requestPathInfo.substring(requestPathLastDot + 1);
     }
   }
 
@@ -113,7 +152,6 @@ public class GerritWicketFilter extends WicketFilter {
 
     private HashMap<String, String> getGitblitInitParams() {
       HashMap<String, String> props = new HashMap<String, String>();
-      props.put("applicationClassName", GerritToGitBlitWebApp.class.getName());
       props.put("filterMappingUrlPattern", "/*");
       props.put("ignorePaths", "pages/,feed/");
       return props;
