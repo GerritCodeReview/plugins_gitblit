@@ -1,4 +1,4 @@
-// Copyright (C) 2012 The Android Open Source Project
+// Copyright (C) 2014 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,6 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package com.googlesource.gerrit.plugins.gitblit;
 
 import java.io.IOException;
@@ -22,57 +23,62 @@ import java.util.Vector;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.apache.wicket.protocol.http.WicketFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.gitblit.Constants;
-import com.gitblit.GitBlit;
+import com.gitblit.IStoredSettings;
+import com.gitblit.manager.IProjectManager;
+import com.gitblit.manager.IRepositoryManager;
+import com.gitblit.manager.IRuntimeManager;
+import com.gitblit.wicket.GitblitWicketFilter;
+import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
+import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 import com.google.inject.Singleton;
-import com.googlesource.gerrit.plugins.gitblit.app.GerritGitBlit;
 import com.googlesource.gerrit.plugins.gitblit.app.GerritToGitBlitWebApp;
-import com.googlesource.gerrit.plugins.gitblit.app.GitBlitSettings;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
 
 @Singleton
-public class GerritWicketFilter extends WicketFilter {
+public class GerritWicketFilter extends GitblitWicketFilter {
   private static final Logger log = LoggerFactory
       .getLogger(GerritWicketFilter.class);
 
-  private final Provider<WebSession> webSession;
-  @SuppressWarnings("unused")
-  // We need Guice to create the GerritGitBlit instance
-  private final GerritGitBlit gitBlit;
+  private final DynamicItem<WebSession> webSession;
+  
   private final GerritAuthFilter gerritAuthFilter;
-  private final GitBlitSettings settings;
+  
+  private final GerritGitBlitContext gerritGitblitContext;
 
   @Inject
   public GerritWicketFilter(
-      final Provider<WebSession> webSession, final GerritGitBlit gitBlit,
-      final GerritAuthFilter gerritAuthFilter, final GitBlitSettings settings) {
+      final DynamicItem<WebSession> webSession, 
+      final GerritAuthFilter gerritAuthFilter,
+      final GerritGitBlitContext gerritGitblitContext,
+      final SitePaths sitePaths,
+      IStoredSettings settings,
+      IRuntimeManager runtimeManager,
+      IRepositoryManager repositoryManager,
+      IProjectManager projectManager,
+      GerritToGitBlitWebApp webapp) {
+    super(settings, runtimeManager, repositoryManager, projectManager, webapp);
     this.webSession = webSession;
-    this.gitBlit = gitBlit;
     this.gerritAuthFilter = gerritAuthFilter;
-    this.settings = settings;
+    this.gerritGitblitContext = gerritGitblitContext;
   }
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
+    ServletContext servletContext = filterConfig.getServletContext();
     showGitBlitBanner();
-
+    gerritGitblitContext.init(servletContext);
+    
     try {
-      GitBlit.self().configureContext(settings, settings.getBasePath(),
-          false);
-      GitBlit.self().contextInitialized(
-          new ServletContextEvent(filterConfig.getServletContext()));
       super.init(new CustomFilterConfig(filterConfig));
     } catch (Exception e) {
       throw new ServletException(e);
@@ -113,7 +119,6 @@ public class GerritWicketFilter extends WicketFilter {
 
     private HashMap<String, String> getGitblitInitParams() {
       HashMap<String, String> props = new HashMap<String, String>();
-      props.put("applicationClassName", GerritToGitBlitWebApp.class.getName());
       props.put("filterMappingUrlPattern", "/*");
       props.put("ignorePaths", "pages/,feed/");
       return props;
