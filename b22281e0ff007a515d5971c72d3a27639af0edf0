@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fa490b4e_92451c76",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-20T15:08:03Z",
+      "side": 1,
+      "message": "Thanks for the heads-up: I would definitely avoid the Dagger stuff and go for Guice :-)",
+      "parentUuid": "7a751b3d_ce450375",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 29
+      },
+      "revId": "b22281e0ff007a515d5971c72d3a27639af0edf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a751b3d_2e1a878d",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1a6fbfad_7331800a",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-20T15:08:03Z",
+      "side": 1,
+      "message": "Wicket is (stupidly IMHO) using the current thread class loader, making it impossible to be used in a Gerrit plugin. I\u0027ll publish my patch on GitHub for the 1.4.23-gerrit build.",
+      "parentUuid": "7a751b3d_2e1a878d",
+      "range": {
+        "startLine": 54,
+        "startChar": 15,
+        "endLine": 54,
+        "endChar": 28
+      },
+      "revId": "b22281e0ff007a515d5971c72d3a27639af0edf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7a751b3d_0e1d4b84",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2014-11-18T23:00:05Z",
       "side": 1,
       "message": "No dagger.",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 17
+      },
+      "revId": "b22281e0ff007a515d5971c72d3a27639af0edf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa490b4e_b24a2083",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-20T15:08:03Z",
+      "side": 1,
+      "message": "Cool, will remove it then :-)",
+      "parentUuid": "7a751b3d_0e1d4b84",
       "range": {
         "startLine": 56,
         "startChar": 4,
