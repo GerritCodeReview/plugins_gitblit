@@ -200,6 +200,24 @@
     },
     {
       "key": {
+        "uuid": "7faeed66_06c4da6d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedBranchGraphServlet.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-25T23:51:37Z",
+      "side": 1,
+      "message": "File removed: not needed with GitBlit/Guice :-)",
+      "parentUuid": "9a900f9b_ef4a4184",
+      "revId": "b22281e0ff007a515d5971c72d3a27639af0edf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a900f9b_cf45fd74",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritAuthFilter.java",
         "patchSetId": 1
@@ -211,6 +229,30 @@
       "writtenOn": "2014-11-18T23:00:05Z",
       "side": 1,
       "message": "trailing space",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 2
+      },
+      "revId": "b22281e0ff007a515d5971c72d3a27639af0edf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faeed66_26c9d684",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritAuthFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-25T23:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a900f9b_cf45fd74",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -246,6 +288,30 @@
     },
     {
       "key": {
+        "uuid": "5fabe956_a5829e24",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-25T23:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a751b3d_4e13537b",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 5
+      },
+      "revId": "b22281e0ff007a515d5971c72d3a27639af0edf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a900f9b_0f1d4584",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
         "patchSetId": 1
@@ -263,6 +329,24 @@
     },
     {
       "key": {
+        "uuid": "5fabe956_45516a25",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-25T23:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a900f9b_0f1d4584",
+      "revId": "b22281e0ff007a515d5971c72d3a27639af0edf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a900f9b_2f1a898d",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
         "patchSetId": 1
@@ -274,6 +358,30 @@
       "writtenOn": "2014-11-18T23:00:05Z",
       "side": 1,
       "message": "wrap this line.",
+      "range": {
+        "startLine": 150,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 3
+      },
+      "revId": "b22281e0ff007a515d5971c72d3a27639af0edf0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7faeed66_c6ad62ad",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-25T23:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a900f9b_2f1a898d",
       "range": {
         "startLine": 150,
         "startChar": 1,
