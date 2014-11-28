@@ -22,6 +22,30 @@
       "revId": "1cf7187ffcc46df4016caa0c2ee1ea45c1e841f5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5fabe956_e59ad6fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-11-28T10:49:43Z",
+      "side": 1,
+      "message": "It should be fully working now, but I need to submit a couple of patches to GitBlit as well (that\u0027s the WIP part of it).\n\nI will then include the pull request application into the README.\n\nAdditionally I\u0027m not 100% sure that a clean set-up from scratch actually works, the InitStep needs some more adaptation.",
+      "parentUuid": "1f117199_63efa217",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 5
+      },
+      "revId": "1cf7187ffcc46df4016caa0c2ee1ea45c1e841f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
