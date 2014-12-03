@@ -1,0 +1,296 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff0e5db4_0a00bb24",
+        "filename": "pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Left over of older GitBlit version?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0e5db4_ea1d678a",
+        "filename": "pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "This is used for custom Wicket only? Or also for 1.7.0-SNAPSHOT?",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 17
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0e5db4_ca22a3d0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritGitBlitContext.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "We don\u0027t use final in new code",
+      "range": {
+        "startLine": 43,
+        "startChar": 23,
+        "endLine": 43,
+        "endChar": 28
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0e5db4_aa276fde",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritGitBlitContext.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "All parameters in ctor that is annotated with @Inject annotation should be placed on its own line. Here and below.",
+      "range": {
+        "startLine": 43,
+        "startChar": 50,
+        "endLine": 43,
+        "endChar": 73
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0e5db4_8a2cabc1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritGitBlitContext.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Wouldn\u0027t \"\\n\" do the job?\n\n  logger.info(\"\\nAll managers started.\\n\");",
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df1359da_a9277dde",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Nit: trailing spaces. Here and below.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 2
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df1359da_892cb9c1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Here you put every param on new line.",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 69,
+        "endChar": 32
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df1359da_6912a579",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Remove this code?",
+      "range": {
+        "startLine": 124,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 34
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df1359da_490fe14f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Nit: unneeded new line.",
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df1359da_291cad86",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/NullPluginManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this class be rather pushed upstream?",
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0e5db4_6a129779",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/NullPluginManager.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Nit: unneeded new line.",
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df1359da_0919e996",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/StaticHttpServletRequest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Nit: trailing space.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 2
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff0e5db4_4a0fd34f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedPagesFilter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Put it on own line?",
+      "range": {
+        "startLine": 42,
+        "startChar": 70,
+        "endLine": 42,
+        "endChar": 109
+      },
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df1359da_a9409d63",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserModel.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-03T10:18:13Z",
+      "side": 1,
+      "message": "Remove this method or put a comment why it is still needed?",
+      "revId": "4e0ecc310f16f61af129aa4238bdb92ea9d41894",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
