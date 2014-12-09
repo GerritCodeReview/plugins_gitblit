@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "843ef6e8_3fcbe7b4",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-12-09T22:04:02Z",
+      "side": 1,
+      "message": "I\u0027ve excluded GItBlit\u0027s Lucene version in the shade phase :-) I am assuming that 4.10.2 should be \"good enough\" for GitBlit as well.",
+      "parentUuid": "e46c12f3_fa304908",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "62ee55c8950a6740e139a054169564dd66f47ac0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c471cec8_79452774",
         "filename": "pom.xml",
         "patchSetId": 8
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "6443c281_3ecbe9b4",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-12-09T22:04:02Z",
+      "side": 1,
+      "message": "True, need to add the instructions on how to build it in the README.md",
+      "parentUuid": "c471cec8_79452774",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "62ee55c8950a6740e139a054169564dd66f47ac0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c471cec8_9916fb6d",
         "filename": "pom.xml",
         "patchSetId": 8
@@ -59,6 +107,24 @@
       "writtenOn": "2014-12-09T09:53:29Z",
       "side": 1,
       "message": "GitBlit Maven Repository is: http://gitblit.github.io/gitblit-maven/. I assume you havnt added it yet, because snapshot artifact is not hosted there? May be add a hint in the commit message, that atm gitblit must be built and installed in local Maven repository to be able to verify this change?\n\n  \u003crepository\u003e\n    \u003cid\u003ecom.gitblit\u003c/id\u003e\n    \u003cname\u003eGitblit\u003c/name\u003e\n    \u003curl\u003ehttp://gitblit.github.io/gitblit-maven/\u003c/url\u003e\n    \u003clayout\u003edefault\u003c/layout\u003e\n  \u003c/repository\u003e",
+      "revId": "62ee55c8950a6740e139a054169564dd66f47ac0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "843ef6e8_1fd0a35d",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-12-09T22:04:02Z",
+      "side": 1,
+      "message": "Yes, it will help once released. However you need to make a \"special build\" of GitBlit for the plugin: in particular the static resources need to be placed under /static (as Gerrit take them from there) whilst in the standard GitBlit build they are on the JAR root.",
+      "parentUuid": "c471cec8_9916fb6d",
       "revId": "62ee55c8950a6740e139a054169564dd66f47ac0",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
