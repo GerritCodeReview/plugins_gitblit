@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "244d4aaf_1cd0b55d",
+        "filename": "README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-09T22:48:25Z",
+      "side": 1,
+      "message": "Fails to compile here, i guess because i am using openJDK and not one from the other company: [1]. Well, it can be easily disabled, though.\n\n [1] http://paste.openstack.org/show/148216",
+      "range": {
+        "startLine": 24,
+        "startChar": 6,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "e12d0b3d63ed430ab5216886cdf148775ef24808",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
