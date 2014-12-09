@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "e46c12f3_fa304908",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-09T10:43:14Z",
+      "side": 1,
+      "message": "Another potential Lucene library version collision:\n\n* Gerrit 4.10.2\n* GitBlit: 4.10",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "62ee55c8950a6740e139a054169564dd66f47ac0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c471cec8_79452774",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-09T10:43:14Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem to work here:\n\nCould not find artifact org.apache.wicket:wicket:jar:1.4.23-gerrit",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "62ee55c8950a6740e139a054169564dd66f47ac0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c471cec8_9916fb6d",
         "filename": "pom.xml",
         "patchSetId": 8
