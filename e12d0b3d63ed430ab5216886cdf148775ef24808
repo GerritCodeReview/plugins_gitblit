@@ -22,6 +22,29 @@
       "revId": "e12d0b3d63ed430ab5216886cdf148775ef24808",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "044a0699_7bd57f4d",
+        "filename": "README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-09T22:53:12Z",
+      "side": 1,
+      "message": "I believe you don\u0027t need this. For one it\u0027s not compiled as gitblit.jar, but rather:\n\n  target/gitblit-plugin-2.11-SNAPSHOT.jar\n\nFor another, it doesn\u0027t really matter, because you have said this in MANIFEST.MF:\n\n  \u003cGerrit-PluginName\u003egitblit\u003c/Gerrit-PluginName\u003e",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 43
+      },
+      "revId": "e12d0b3d63ed430ab5216886cdf148775ef24808",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
