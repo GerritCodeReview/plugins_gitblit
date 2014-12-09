@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c471cec8_9916fb6d",
+        "filename": "pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-09T09:53:29Z",
+      "side": 1,
+      "message": "GitBlit Maven Repository is: http://gitblit.github.io/gitblit-maven/. I assume you havnt added it yet, because snapshot artifact is not hosted there? May be add a hint in the commit message, that atm gitblit must be built and installed in local Maven repository to be able to verify this change?\n\n  \u003crepository\u003e\n    \u003cid\u003ecom.gitblit\u003c/id\u003e\n    \u003cname\u003eGitblit\u003c/name\u003e\n    \u003curl\u003ehttp://gitblit.github.io/gitblit-maven/\u003c/url\u003e\n    \u003clayout\u003edefault\u003c/layout\u003e\n  \u003c/repository\u003e",
+      "revId": "62ee55c8950a6740e139a054169564dd66f47ac0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
