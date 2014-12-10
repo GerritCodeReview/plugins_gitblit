@@ -42,7 +42,6 @@ Configuration
 -------------
 In order to use GitBlit as GitWeb replacement, please apply
 the following configuration to your Gerrit config.
-(assuming plugin was copied as gitblit.jar)
 
     [gitweb]
         type = custom
