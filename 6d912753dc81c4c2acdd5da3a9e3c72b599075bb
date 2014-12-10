@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "244d4aaf_9c020530",
+        "filename": "README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-10T12:47:59Z",
+      "side": 1,
+      "message": "trailing space.",
+      "range": {
+        "startLine": 14,
+        "startChar": 59,
+        "endLine": 14,
+        "endChar": 60
+      },
+      "revId": "6d912753dc81c4c2acdd5da3a9e3c72b599075bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "044a0699_bb0c2760",
+        "filename": "README.md",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-10T12:47:59Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 19,
+        "startChar": 59,
+        "endLine": 19,
+        "endChar": 60
+      },
+      "revId": "6d912753dc81c4c2acdd5da3a9e3c72b599075bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
