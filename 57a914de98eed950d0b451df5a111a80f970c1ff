@@ -22,6 +22,30 @@
       "revId": "57a914de98eed950d0b451df5a111a80f970c1ff",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24e9cacf_dce82d0f",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2014-12-10T21:58:55Z",
+      "side": 0,
+      "message": "Yep :-) but removed it now ;-)",
+      "parentUuid": "44dcfe2f_7df1d7f3",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 43
+      },
+      "revId": "57a914de98eed950d0b451df5a111a80f970c1ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
