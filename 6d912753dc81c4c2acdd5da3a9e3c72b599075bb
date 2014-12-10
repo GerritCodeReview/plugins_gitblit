@@ -45,6 +45,52 @@
       "revId": "6d912753dc81c4c2acdd5da3a9e3c72b599075bb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "044a0699_fb16af6d",
+        "filename": "pom.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-10T12:50:25Z",
+      "side": 1,
+      "message": "This and ...",
+      "range": {
+        "startLine": 103,
+        "startChar": 23,
+        "endLine": 103,
+        "endChar": 38
+      },
+      "revId": "6d912753dc81c4c2acdd5da3a9e3c72b599075bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "244d4aaf_fcffc9bd",
+        "filename": "pom.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2014-12-10T12:50:25Z",
+      "side": 1,
+      "message": "and this are very important packages to exclude, as we have learned the hard way.",
+      "range": {
+        "startLine": 109,
+        "startChar": 23,
+        "endLine": 109,
+        "endChar": 36
+      },
+      "revId": "6d912753dc81c4c2acdd5da3a9e3c72b599075bb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
