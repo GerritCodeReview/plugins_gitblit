@@ -38,7 +38,7 @@ limitations under the License.
     <dependency>
       <groupId>com.gitblit</groupId>
       <artifactId>gitblit</artifactId>
-      <version>1.4.0-SNAPSHOT</version>
+      <version>1.4.0</version>
     </dependency>
     <dependency>
       <groupId>org.apache.wicket</groupId>
@@ -195,6 +195,12 @@ limitations under the License.
   </build>
 
   <repositories>
+    <repository>
+      <id>com.gitblit</id>
+      <name>Gitblit</name>
+      <url>http://gitblit.github.io/gitblit-maven/</url>
+      <layout>default</layout>
+    </repository>
     <repository>
       <id>gerrit-api-repository</id>
       <url>https://gerrit-api.commondatastorage.googleapis.com/release</url>
