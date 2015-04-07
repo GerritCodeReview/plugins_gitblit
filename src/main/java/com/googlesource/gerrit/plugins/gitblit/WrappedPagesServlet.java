@@ -1,4 +1,4 @@
-// Copyright (C) 2014 The Android Open Source Project
+// Copyright (C) 2012 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,25 +11,17 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 package com.googlesource.gerrit.plugins.gitblit;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
+import com.gitblit.PagesServlet;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
-public class StaticHttpServletRequest extends HttpServletRequestWrapper {
-
-  public StaticHttpServletRequest(HttpServletRequest request) {
-    super(request);
-  }
-
-  @Override
-  public String getPathInfo() {
-    return "/static" + super.getPathInfo();
-  }
-
-  @Override
-  public String getRequestURI() {
-    return super.getContextPath() + "/static" + super.getPathInfo();
+@Singleton
+@SuppressWarnings("serial")
+public class WrappedPagesServlet extends PagesServlet {
+  @Inject
+  public WrappedPagesServlet() {
+   super();
   }
 }

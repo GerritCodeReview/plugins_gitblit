@@ -1,4 +1,4 @@
-// Copyright (C) 2014 The Android Open Source Project
+// Copyright (C) 2012 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -11,31 +11,20 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
 package com.googlesource.gerrit.plugins.gitblit.auth;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.gitblit.Constants;
-import com.gitblit.Constants.AuthenticationType;
-import com.gitblit.Constants.Role;
-import com.gitblit.manager.IAuthenticationManager;
-import com.gitblit.manager.IManager;
-import com.gitblit.manager.IRuntimeManager;
-import com.gitblit.manager.IUserManager;
+import com.gitblit.IStoredSettings;
+import com.gitblit.IUserService;
 import com.gitblit.models.TeamModel;
 import com.gitblit.models.UserModel;
-import com.gitblit.transport.ssh.SshKey;
 import com.google.common.base.Strings;
-import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
 import com.google.gerrit.server.account.AccountException;
 import com.google.gerrit.server.account.AccountManager;
@@ -43,24 +32,25 @@ import com.google.gerrit.server.account.AuthRequest;
 import com.google.gerrit.server.account.AuthResult;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.google.inject.Singleton;
 
 @Singleton
-public class GerritToGitBlitUserService implements IAuthenticationManager,
-    IUserManager {
+public class GerritToGitBlitUserService implements IUserService {
   private static final Logger log = LoggerFactory
       .getLogger(GerritToGitBlitUserService.class);
 
   private final ProjectControl.Factory projectControl;
-  private final AccountManager accountManager;
-  private final DynamicItem<WebSession> webSession;
+  private AccountManager accountManager;
+
+  private Provider<WebSession> webSession;
 
   public static final String SESSIONAUTH = "sessionid:";
 
   @Inject
   public GerritToGitBlitUserService(
       final ProjectControl.Factory projectControl,
-      AccountManager accountManager, final DynamicItem<WebSession> webSession) {
+      AccountManager accountManager, final Provider<WebSession> webSession) {
     this.projectControl = projectControl;
     this.accountManager = accountManager;
     this.webSession = webSession;
@@ -85,8 +75,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   public UserModel authenticateSSO(String username, String sessionToken) {
     WebSession session = webSession.get();
 
-    if (session.getSessionId() == null
-        || !session.getSessionId().equals(sessionToken)) {
+    if (session.getSessionId() == null || !session.getSessionId().equals(sessionToken)) {
       log.warn("Invalid Gerrit session token for user '" + username + "'");
       return null;
     }
@@ -126,117 +115,57 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
     return new GerritToGitBlitUserModel(username, projectControl);
   }
 
-
-  @Override
-  public IManager start() {
-    return null;
-  }
-
-  @Override
-  public IManager stop() {
-    return null;
-  }
-
-  @Override
-  public UserModel authenticate(HttpServletRequest httpRequest) {
-    String gerritUsername =
-        (String) httpRequest.getAttribute("gerrit-username");
-    String gerritToken = (String) httpRequest.getAttribute("gerrit-token");
-    if (Strings.isNullOrEmpty(gerritUsername)
-        || Strings.isNullOrEmpty(gerritToken)) {
-      return null;
-    }
-
-    httpRequest.getSession().setAttribute(Constants.AUTHENTICATION_TYPE,
-        AuthenticationType.CONTAINER);
-    return authenticateSSO(gerritUsername, gerritToken);
-  }
-
-  @Override
-  public UserModel authenticate(String username, SshKey key) {
-    return null;
-  }
-
-  @Override
-  public UserModel authenticate(HttpServletRequest httpRequest,
-      boolean requiresCertificate) {
-    return null;
-  }
-
-  @Override
-  public String getCookie(HttpServletRequest request) {
-    return null;
-  }
-
-  @Override
-  public void setCookie(HttpServletResponse response, UserModel user) {
-  }
-
-  @Override
-  public void setCookie(HttpServletRequest request,
-      HttpServletResponse response, UserModel user) {
-  }
-
-  @Override
-  public void logout(HttpServletResponse response, UserModel user) {
-  }
-
-  @Override
-  public void logout(HttpServletRequest request, HttpServletResponse response,
-      UserModel user) {
-  }
-
-  @Override
-  public boolean supportsCredentialChanges(UserModel user) {
-    return false;
-  }
-
-  @Override
-  public boolean supportsDisplayNameChanges(UserModel user) {
-    return false;
-  }
-
-  @Override
-  public boolean supportsEmailAddressChanges(UserModel user) {
-    return false;
-  }
-
-  @Override
-  public boolean supportsTeamMembershipChanges(UserModel user) {
-    return false;
-  }
-
-  @Override
-  public boolean supportsTeamMembershipChanges(TeamModel team) {
-    return false;
-  }
-
-  @Override
-  public void setup(IRuntimeManager runtimeManager) {
-  }
-
-  @Override
-  public String getCookie(UserModel model) {
-    return null;
-  }
-
-  @Override
-  public UserModel getUserModel(char[] cookie) {
-    return null;
-  }
-
   @Override
   public UserModel getUserModel(String username) {
+
     return new GerritToGitBlitUserModel(username, projectControl);
   }
 
   @Override
-  public boolean updateUserModel(UserModel model) {
+  public boolean supportsCookies() {
     return false;
   }
 
   @Override
-  public boolean updateUserModels(Collection<UserModel> models) {
+  public void setup(IStoredSettings settings) {
+  }
+
+  @Override
+  public boolean supportsCredentialChanges() {
+    return false;
+  }
+
+  @Override
+  public boolean supportsDisplayNameChanges() {
+    return false;
+  }
+
+  @Override
+  public boolean supportsEmailAddressChanges() {
+    return false;
+  }
+
+  @Override
+  public boolean supportsTeamMembershipChanges() {
+    return false;
+  }
+
+  @Override
+  public String getCookie(UserModel model) {
+    return model.cookie;
+  }
+
+  @Override
+  public UserModel authenticate(char[] cookie) {
+    return null;
+  }
+
+  @Override
+  public void logout(UserModel user) {
+  }
+
+  @Override
+  public boolean updateUserModel(UserModel model) {
     return false;
   }
 
@@ -272,12 +201,18 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
 
   @Override
   public List<TeamModel> getAllTeams() {
-    return null;
+    return Collections.emptyList();
   }
 
   @Override
-  public List<String> getTeamNamesForRepositoryRole(String role) {
-    return null;
+  public List<String> getTeamnamesForRepositoryRole(String role) {
+    return Collections.emptyList();
+  }
+
+  @Override
+  public boolean setTeamnamesForRepositoryRole(String role,
+      List<String> teamnames) {
+    return false;
   }
 
   @Override
@@ -287,11 +222,6 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
 
   @Override
   public boolean updateTeamModel(TeamModel model) {
-    return false;
-  }
-
-  @Override
-  public boolean updateTeamModels(Collection<TeamModel> models) {
     return false;
   }
 
@@ -312,7 +242,13 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
 
   @Override
   public List<String> getUsernamesForRepositoryRole(String role) {
-    return null;
+    return Collections.emptyList();
+  }
+
+  @Override
+  public boolean setUsernamesForRepositoryRole(String role,
+      List<String> usernames) {
+    return false;
   }
 
   @Override
@@ -326,17 +262,12 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   }
 
   @Override
-  public boolean isInternalAccount(String username) {
+  public boolean updateTeamModels(Collection<TeamModel> arg0) {
     return false;
   }
 
   @Override
-  public boolean supportsRoleChanges(UserModel user, Role role) {
-    return false;
-  }
-
-  @Override
-  public boolean supportsRoleChanges(TeamModel team, Role role) {
+  public boolean updateUserModels(Collection<UserModel> arg0) {
     return false;
   }
 }
