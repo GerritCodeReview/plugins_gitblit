@@ -14,16 +14,8 @@ repository aren't enough as they are missing some specific
 build parameters and constraints (i.e. shaded-jar) that are
 needed for a Gerrit plugin to work properly.
 
-### Wicket
-You need to clone and build a modified version of Wicket that
-is currently published on GitHub under the GerritCodeReview
-organisation: https://github.com/GerritCodeReview/wicket.git
-
-    $ git clone https://github.com/GerritCodeReview/wicket.git
-    $ git checkout wicket-1.4.23-gerrit
-    $ mvn clean install -DskipTests
-
 ### Gitblit
+
 You need to clone Gitblit from GitHub and build it locally
 using the installMaven ANT target.
 
@@ -32,6 +24,7 @@ using the installMaven ANT target.
     $ ant -DresourceFolderPrefix=static installMaven
 
 ### Gitblit plugin
+
 You are ready now to clone and build the Gitblit plugin: the
 Wicket and Giblit dependencies will be taken from your local
 Maven repository.
@@ -46,10 +39,11 @@ the following configuration to your Gerrit config.
     [gitweb]
         type = custom
         linkname = Gitblit
-        url = plugins/
-        revision = gitblit/commit/?r=${project}&h=${commit}
-        project = gitblit/summary/?r=${project}
-        branch = gitblit/log/?r=${project}&h=${branch}
-        filehistory = gitblit/history/?f=${file}&r=${project}&h=${branch}
-        file = gitblit/blob/?r=${project}&h=${commit}&f=${file}
-        roottree = gitblit/tree/?r=${project}&h=${commit}
+        url = plugins/gitblit
+        revision = /commit/?r=${project}&h=${commit}
+        project = /summary/?r=${project}
+        branch = /log/?r=${project}&h=${branch}
+        filehistory = /history/?f=${file}&r=${project}&h=${branch}
+        file = /blob/?r=${project}&h=${commit}&f=${file}
+        roottree = /tree/?r=${project}&h=${commit}
+
