@@ -82,6 +82,8 @@ public class GitBlitInitStep implements InitStep {
         "Repositories", true);
     pluginCfg
         .string("\"Activity\" submenu title", "activity", "Activity", true);
+    pluginCfg.string("\"Documentation\" submenu title", "documentation",
+        "Documentation", true);
     String originalValue = pluginCfg.get("search");
     if (originalValue == null) {
       pluginCfg
