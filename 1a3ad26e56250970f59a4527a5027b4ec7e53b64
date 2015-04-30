@@ -16,6 +16,24 @@
       "revId": "1a3ad26e56250970f59a4527a5027b4ec7e53b64",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506bee69_4a0fb3e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:46:34Z",
+      "side": 1,
+      "message": "True, but I think the syndication fix is not needed anymore.\n\nAs a matter of fact, I was using the standard Rome with GitBlit 1.7.0 and it was working fine :-)\n\nI may need to remove this part of the commit comment.",
+      "parentUuid": "506bee69_ca1ac327",
+      "revId": "1a3ad26e56250970f59a4527a5027b4ec7e53b64",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
