@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "506bee69_4a5b3310",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-04-30T14:07:06Z",
+      "side": 1,
+      "message": "Was it intended?",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "707ab234_6ba6418d",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-04-30T14:07:06Z",
+      "side": 1,
+      "message": "Missed to adjust BUCK for Buck driven build?",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506bee69_aa750f78",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-04-30T14:07:06Z",
+      "side": 1,
+      "message": "Nit: trailing blank.",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 15
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "707ab234_4ba9055c",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-04-30T14:07:06Z",
+      "side": 1,
+      "message": "Is it still needed?",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 17
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "707ab234_aba3c97c",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-04-30T14:07:06Z",
+      "side": 1,
+      "message": "Nit: Convert tabs into spaces.",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 13
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
