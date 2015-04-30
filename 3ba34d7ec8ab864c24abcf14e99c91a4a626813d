@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "707ab234_8b47ed2d",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:46:29Z",
+      "side": 1,
+      "message": "True, will need to fix that as well :-)",
+      "parentUuid": "707ab234_6ba6418d",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506bee69_aa750f78",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -76,6 +94,24 @@
     },
     {
       "key": {
+        "uuid": "707ab234_2b6279be",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:46:29Z",
+      "side": 1,
+      "message": "Good point, need to check that.",
+      "parentUuid": "506bee69_aad74fc2",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "707ab234_4ba9055c",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -87,6 +123,30 @@
       "writtenOn": "2015-04-30T14:07:06Z",
       "side": 1,
       "message": "Is it still needed?",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 17
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "707ab234_cb4df551",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:46:29Z",
+      "side": 1,
+      "message": "At least during development yes, as the *-SNAPSHOT artifacts are not published to the google data-storage but only on GerritForge maven repo during the CI builds.",
+      "parentUuid": "707ab234_4ba9055c",
       "range": {
         "startLine": 181,
         "startChar": 4,
@@ -116,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "506bee69_6a0cf7ef",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:46:29Z",
+      "side": 1,
+      "message": "Good point, it can be removed.\n\nGitBlit needs to be built in \u0027jar\u0027 mode for being used with the GitBlit plugin in Gerrit anyway.",
+      "parentUuid": "707ab234_8b75ad81",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "707ab234_aba3c97c",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -127,6 +205,30 @@
       "writtenOn": "2015-04-30T14:07:06Z",
       "side": 1,
       "message": "Nit: Convert tabs into spaces.",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 13
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "707ab234_eb5231ed",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:46:29Z",
+      "side": 1,
+      "message": "Yep, will do.",
+      "parentUuid": "707ab234_aba3c97c",
       "range": {
         "startLine": 185,
         "startChar": 0,
