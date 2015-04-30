@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "506bee69_ca4163fd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:49:07Z",
+      "side": 1,
+      "message": "Yes, I know and I\u0027m going to address that in a separate commit\nOne commit \u003d one thing is my karma :-)",
+      "parentUuid": "707ab234_6b588112",
+      "revId": "c55c4bd0c9feadeff0b3d26324e07ae0b0ba3a98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506bee69_8a24cb66",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-04-30T14:58:03Z",
       "side": 1,
       "message": "If you bind the wrapped servlet, then this binding should go away.",
+      "revId": "c55c4bd0c9feadeff0b3d26324e07ae0b0ba3a98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "707ab234_4b42651e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:49:07Z",
+      "side": 1,
+      "message": "Actually I think that the wrapping is not needed with GitBlit 1.7.0: I tried and it worked fine :-O",
+      "parentUuid": "506bee69_8a24cb66",
       "revId": "c55c4bd0c9feadeff0b3d26324e07ae0b0ba3a98",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "707ab234_6b3f2187",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:49:07Z",
+      "side": 1,
+      "message": "I think is already fixed :-)",
+      "parentUuid": "707ab234_2b87d9e2",
+      "revId": "c55c4bd0c9feadeff0b3d26324e07ae0b0ba3a98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506bee69_aa298f3f",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationFilter.java",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2015-04-30T14:58:03Z",
       "side": 1,
       "message": "Isn\u0027t that problem solved by the request wrapper below, which adds the missing \"/feed\"? So this would not be needed at all.",
+      "revId": "c55c4bd0c9feadeff0b3d26324e07ae0b0ba3a98",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "707ab234_0b3c5d8f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-04-30T15:49:07Z",
+      "side": 1,
+      "message": "Yep, agreed :-)\n\nWill just abandon this change then, but I needed some double-check.",
+      "parentUuid": "506bee69_aa298f3f",
       "revId": "c55c4bd0c9feadeff0b3d26324e07ae0b0ba3a98",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
