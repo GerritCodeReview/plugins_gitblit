@@ -102,6 +102,75 @@
       "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f067829d_67551220",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-04-30T14:19:38Z",
+      "side": 1,
+      "message": "wrong indentation",
+      "range": {
+        "startLine": 115,
+        "startChar": 3,
+        "endLine": 115,
+        "endChar": 11
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0751e3f_4ea353ad",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationServlet.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-04-30T14:19:38Z",
+      "side": 1,
+      "message": "2014 according to the author date",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f067829d_07521639",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationServlet.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-04-30T14:19:38Z",
+      "side": 1,
+      "message": "tabs",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 1
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
