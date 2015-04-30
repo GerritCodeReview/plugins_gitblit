@@ -59,6 +59,23 @@
     },
     {
       "key": {
+        "uuid": "506bee69_aad74fc2",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-04-30T14:51:29Z",
+      "side": 1,
+      "message": "Did you check if that still is true for wicket 1.4.23? The GitHub version used the same as GitBlit 1.6.2, which was Wicket 1.4.21. I do not know what Wicket 1.4.23 does.",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "707ab234_4ba9055c",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -82,6 +99,23 @@
     },
     {
       "key": {
+        "uuid": "707ab234_8b75ad81",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-04-30T14:51:29Z",
+      "side": 1,
+      "message": "That was included on GitHub because it\u0027s where the GitHub build gets GitBlit 1.6.2 from. You are using 1.7.0-SNAPSHOT, and I don\u0027t see that there? So why is this included?",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "707ab234_aba3c97c",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -99,6 +133,23 @@
         "endLine": 191,
         "endChar": 13
       },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506bee69_0a653bc5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-04-30T14:51:29Z",
+      "side": 1,
+      "message": "Missing @Override, no?",
       "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -145,6 +196,47 @@
         "endLine": 1,
         "endChar": 21
       },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506bee69_cac8832b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationServlet.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-04-30T14:51:29Z",
+      "side": 1,
+      "message": "No, 2012 is right: existed already in stable-2.9. Compare\n\nhttps://github.com/tomaswolf/gerrit-gitblit-plugin/blame/master/src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationFilter.java",
+      "parentUuid": "d0751e3f_4ea353ad",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "506bee69_ca4de351",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationServlet.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-04-30T14:51:29Z",
+      "side": 1,
+      "message": "If you want to use that, the binding in GitBlitServletModule also needs to be changed.\n\nOh, that\u0027s in a follow-up change? If this change is supposed to do what its commit message says, (getting rid of special Wicket/Rome versions), then the binding should also be in this change.",
       "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
