@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "506bee69_8a3b6b7d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-04-30T16:05:52Z",
+      "side": 1,
+      "message": "indentation, and still missing @Override.",
+      "revId": "379054efe39fcaf623f4789b4d4474102c30e18c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
