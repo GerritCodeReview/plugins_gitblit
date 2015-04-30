@@ -101,6 +101,7 @@ public class GitBlitServletModule extends ServletModule {
     serve("/zip/*").with(DownloadZipServlet.class);
     serve("/logo.png").with(LogoServlet.class);
     serve("/static/logo.png").with(LogoServlet.class);
+    serve('/' + WrappedSyndicationFilter.SERVLET_RELATIVE_PATH + '*').with(WrappedSyndicationServlet.class);
 
     filter("/*").through(GerritWicketFilter.class);
     filter("/pages/*").through(WrappedPagesFilter.class);

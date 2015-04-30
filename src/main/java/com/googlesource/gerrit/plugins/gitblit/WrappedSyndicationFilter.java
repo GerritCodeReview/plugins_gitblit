@@ -40,6 +40,16 @@ public class WrappedSyndicationFilter extends SyndicationFilter {
   private final GerritAuthFilter gerritAuthFilter;
   private final DynamicItem<WebSession> webSession;
   
+  /**
+   * Super class uses httpRequest.getServletPath() in getFullUrl(), but that returns an empty string. Apparently one doesn't have that path yet in a
+   * filter? Instead of trying to figure out how to determine this path here from the FilterConfig, I've taken the easy route and have hard-coded
+   * it.
+   * <p>
+   * {@link GitBlitServletModule} uses this constant to define the paths for the filter and the servlet.
+   * </p>
+   */
+  public static final String SERVLET_RELATIVE_PATH = "feed/";
+
   static class SyndicationHttpServletRequest extends HttpServletRequestWrapper {
     public SyndicationHttpServletRequest(HttpServletRequest request) {
       super(request);
