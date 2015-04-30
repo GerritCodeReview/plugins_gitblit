@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "506bee69_ca1ac327",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-04-30T14:53:27Z",
+      "side": 1,
+      "message": "... and where has the WrappedSyndicationServlet gone now? I don\u0027t see it in the follow-up change Ic00fa6a, which need it as it uses it in its module binding?",
+      "revId": "1a3ad26e56250970f59a4527a5027b4ec7e53b64",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
