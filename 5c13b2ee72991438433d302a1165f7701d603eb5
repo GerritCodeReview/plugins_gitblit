@@ -46,6 +46,30 @@
       "revId": "5c13b2ee72991438433d302a1165f7701d603eb5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_4a06734e",
+        "filename": "lib/BUCK",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-05-01T11:32:58Z",
+      "side": 1,
+      "message": "Hmm..., why are we stripping it in Maven build then?",
+      "parentUuid": "30dafaa9_e9149579",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "5c13b2ee72991438433d302a1165f7701d603eb5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
