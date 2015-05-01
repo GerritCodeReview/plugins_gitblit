@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "50d76e7e_cadee357",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-05-01T07:47:05Z",
+      "side": 1,
+      "message": "OK. Looking ...",
+      "parentUuid": "50d76e7e_2acdffb4",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506bee69_aa750f78",
         "filename": "pom.xml",
         "patchSetId": 1
