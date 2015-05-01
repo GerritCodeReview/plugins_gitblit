@@ -16,6 +16,24 @@
       "revId": "379054efe39fcaf623f4789b4d4474102c30e18c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_8ae4eb27",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-01T07:42:25Z",
+      "side": 1,
+      "message": "Fixed in the next one.",
+      "parentUuid": "506bee69_8a3b6b7d",
+      "revId": "379054efe39fcaf623f4789b4d4474102c30e18c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
