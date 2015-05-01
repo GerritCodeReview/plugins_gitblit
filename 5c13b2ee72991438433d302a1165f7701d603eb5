@@ -118,6 +118,30 @@
       "revId": "5c13b2ee72991438433d302a1165f7701d603eb5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_a931fd1f",
+        "filename": "lib/BUCK",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-01T15:26:53Z",
+      "side": 1,
+      "message": "Frankly said, I\u0027m no longer sure what the problem was. :-(\n\nFact is that it runs flawlessly on our installation with this file stripped.\n\nI just re-read the comment at https://github.com/apache/wicket/blob/build/wicket-1.4.23/wicket/src/main/java/org/apache/wicket/Initializer.java#L37 . Evidently the double registration mentioned in my comment in pom.xml is done on purpose; and I would have removed that only if I thought it caused a problem in the plugin.\n\nUnfortunately I forgot to mention in my comment what the root cause for my removing it was...\n\nSo maybe here\u0027s another approach: don\u0027t strip this file, also remove the stripping from the pom.xml, and run and test the plugin. If the eager registration has no adverse side-effects, okay, if problems are noticed, strip it in a follow-up change.",
+      "parentUuid": "30dafaa9_6909c55e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "5c13b2ee72991438433d302a1165f7701d603eb5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
