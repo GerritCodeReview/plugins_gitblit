@@ -70,6 +70,30 @@
       "revId": "5c13b2ee72991438433d302a1165f7701d603eb5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_29ffcda8",
+        "filename": "lib/BUCK",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-01T11:37:46Z",
+      "side": 1,
+      "message": "Because of my comment in pom.xml.\n\nBased on the changes between wicket 1.4.21 and 1.4.23\nhttps://github.com/apache/wicket/compare/release/wicket-1.4.21...build/wicket-1.4.23 I would say, yes, it still needs to be stripped.",
+      "parentUuid": "50d76e7e_4a06734e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "5c13b2ee72991438433d302a1165f7701d603eb5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
