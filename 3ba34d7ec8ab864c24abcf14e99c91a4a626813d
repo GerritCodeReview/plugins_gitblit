@@ -113,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "50d76e7e_0acabb9c",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-01T07:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "506bee69_aa750f78",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 15
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "506bee69_aad74fc2",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -294,6 +318,24 @@
     },
     {
       "key": {
+        "uuid": "50d76e7e_6ad7f740",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-01T07:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "506bee69_0a653bc5",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f067829d_67551220",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
         "patchSetId": 1
@@ -311,6 +353,47 @@
         "endLine": 115,
         "endChar": 11
       },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_4ad4b33a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GerritWicketFilter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-01T07:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f067829d_67551220",
+      "range": {
+        "startLine": 115,
+        "startChar": 3,
+        "endLine": 115,
+        "endChar": 11
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_a9df3d56",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationServlet.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-01T07:41:45Z",
+      "side": 1,
+      "message": "File has been completely removed as not needed.",
       "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -381,6 +464,24 @@
     },
     {
       "key": {
+        "uuid": "50d76e7e_aadf2f56",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationServlet.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-01T07:41:45Z",
+      "side": 1,
+      "message": "This file has been discontinued as not needed.",
+      "parentUuid": "506bee69_ca4de351",
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f067829d_07521639",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationServlet.java",
         "patchSetId": 1
@@ -392,6 +493,30 @@
       "writtenOn": "2015-04-30T14:19:38Z",
       "side": 1,
       "message": "tabs",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 1
+      },
+      "revId": "3ba34d7ec8ab864c24abcf14e99c91a4a626813d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_89e4f927",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/WrappedSyndicationServlet.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-01T07:41:45Z",
+      "side": 1,
+      "message": "File removed.",
+      "parentUuid": "f067829d_07521639",
       "range": {
         "startLine": 33,
         "startChar": 0,
