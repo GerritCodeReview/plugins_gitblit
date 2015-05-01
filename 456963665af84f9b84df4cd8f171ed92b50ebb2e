@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30dafaa9_09f129e1",
+        "filename": "pom.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-05-01T08:28:43Z",
+      "side": 1,
+      "message": "Probably this is not an issue, but we are dropping here some parts from Lucene distribution, but perserving the other parts. And minor version is different between gitblit and gerrit:\n\n* gitblit: 4.10.1\n* gerrit-2.11: 4.10.2",
+      "range": {
+        "startLine": 100,
+        "startChar": 14,
+        "endLine": 103,
+        "endChar": 69
+      },
+      "revId": "456963665af84f9b84df4cd8f171ed92b50ebb2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_4aeb13f3",
+        "filename": "pom.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-05-01T08:28:43Z",
+      "side": 1,
+      "message": "This might be a problem:\n\n  Excluding com.google.inject.extensions:guice-servlet:jar:4.0-gb1 from the shaded jar.\n\nJames forked guice-servlet, because of this bug: [1]. Now we are stripping his patched version and preserving our (broken) in gerrit.war.\n\n* [1] https://github.com/google/guice/issues/807",
+      "range": {
+        "startLine": 108,
+        "startChar": 14,
+        "endLine": 108,
+        "endChar": 63
+      },
+      "revId": "456963665af84f9b84df4cd8f171ed92b50ebb2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_6aeed704",
+        "filename": "pom.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-05-01T08:28:43Z",
+      "side": 1,
+      "message": "This is wrong:\n\n  [INFO] Including org.eclipse.jetty.aggregate:jetty-all:jar:9.2.3.v20140905 in the shaded jar.\n\nThe whole 9 yards Jetty is inside.",
+      "range": {
+        "startLine": 119,
+        "startChar": 14,
+        "endLine": 119,
+        "endChar": 52
+      },
+      "revId": "456963665af84f9b84df4cd8f171ed92b50ebb2e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
