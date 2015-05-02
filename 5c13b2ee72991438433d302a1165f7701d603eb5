@@ -166,6 +166,30 @@
       "revId": "5c13b2ee72991438433d302a1165f7701d603eb5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_c942716d",
+        "filename": "lib/BUCK",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-02T10:07:57Z",
+      "side": 1,
+      "message": "A quick test with the GitHub version having that file _not_ stripped showed no problems. (Other than the double wicket listener registration; but functionally everything seemed to work.)\n\nSo I suggest that we don\u0027t strip this file.",
+      "parentUuid": "30dafaa9_e92bf5ad",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "5c13b2ee72991438433d302a1165f7701d603eb5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
