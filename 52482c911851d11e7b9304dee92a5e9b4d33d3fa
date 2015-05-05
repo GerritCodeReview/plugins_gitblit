@@ -16,6 +16,24 @@
       "revId": "52482c911851d11e7b9304dee92a5e9b4d33d3fa",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_2a817f98",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T13:37:32Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "50d76e7e_4a2dd33c",
+      "revId": "52482c911851d11e7b9304dee92a5e9b4d33d3fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
