@@ -16,6 +16,23 @@
       "revId": "507481deae17952f06783c85bfe0f2addf2a6445",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_6a625788",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/ReallyNullTicketService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T14:40:06Z",
+      "side": 1,
+      "message": "Indentation...",
+      "revId": "507481deae17952f06783c85bfe0f2addf2a6445",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
