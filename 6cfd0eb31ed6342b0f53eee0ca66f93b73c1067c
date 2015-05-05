@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30dafaa9_299a2dec",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T16:28:57Z",
+      "side": 1,
+      "message": "Let\u0027s be consistent with the init step in https://gerrit-review.googlesource.com/#/c/67654/ and with Documentation/index.md.\n\n  url \u003d plugins/gitblit/\n\nand then remove the leading slash on the other entries.",
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_c9a4312f",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T16:28:57Z",
+      "side": 1,
+      "message": "stable 2.9 read either the built-in _or_ the user-supplied config. What does stable-11 do currently?",
+      "range": {
+        "startLine": 54,
+        "startChar": 105,
+        "endLine": 54,
+        "endChar": 121
+      },
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_89aa39fb",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T16:28:57Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s true for stable-11 or master.",
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_e99f75db",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T16:28:57Z",
+      "side": 1,
+      "message": "Nope, not in _this_ plugin. web.authenticateViewPages \u003d true in gitblit.properties.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 68
+      },
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
