@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "30dafaa9_29686d68",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-05T15:15:26Z",
+      "side": 1,
+      "message": "Yep, agreed. This small one-line change would then be more than enough.",
+      "parentUuid": "30dafaa9_097e492a",
+      "revId": "507481deae17952f06783c85bfe0f2addf2a6445",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50d76e7e_6a625788",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/ReallyNullTicketService.java",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2015-05-05T14:40:06Z",
       "side": 1,
       "message": "Indentation...",
+      "revId": "507481deae17952f06783c85bfe0f2addf2a6445",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_0965a98e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/ReallyNullTicketService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-05T15:15:26Z",
+      "side": 1,
+      "message": "Yep, will reformat the code.\nWill remove the \"what a mess\" comment as it may sound hurt someone ;-)",
+      "parentUuid": "50d76e7e_6a625788",
       "revId": "507481deae17952f06783c85bfe0f2addf2a6445",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
