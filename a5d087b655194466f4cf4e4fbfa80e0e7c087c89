@@ -22,6 +22,30 @@
       "revId": "a5d087b655194466f4cf4e4fbfa80e0e7c087c89",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_0ab0fb6b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/ReallyNullTicketService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-05T15:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30dafaa9_89c359db",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 3
+      },
+      "revId": "a5d087b655194466f4cf4e4fbfa80e0e7c087c89",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
