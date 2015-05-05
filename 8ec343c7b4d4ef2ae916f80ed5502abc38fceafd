@@ -70,6 +70,24 @@
       "revId": "8ec343c7b4d4ef2ae916f80ed5502abc38fceafd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_0a33dba2",
+        "filename": "src/main/resources/gitblit.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T13:08:24Z",
+      "side": 1,
+      "message": "Several, because the way GitBlit handled that service changed from 1.6.0 to 1.6.1 and then to 1.6.2 again.\n\nReallyNullTicketService was introduced in https://github.com/tomaswolf/gerrit-gitblit-plugin/commit/4a1953c4c39b9e2d17d24301a9bf0055fa23e2f7#diff-33774bc09387ea1e2b75de557a2fee4f and the mechanism to make sure it got used was then refactored in https://github.com/tomaswolf/gerrit-gitblit-plugin/commit/8962b721a170827053aa3ee1d2b8c5d49224082e#diff-fa06e3eec7b6babe10cb6580463918a5 and https://github.com/tomaswolf/gerrit-gitblit-plugin/commit/8962b721a170827053aa3ee1d2b8c5d49224082e#diff-ce1f9d2bba367d6000c4058bd6696d22 .\n\nFor the 1.7.0-SNAPSHOT-based plugin, I think you\u0027d add the ReallyNullTicketService class, bind it in the module, and additionally set the tickets.service key here to reference that class. But you\u0027d have to check yourself how 1.7.0 actually creates this service.",
+      "parentUuid": "50d76e7e_ca29c33f",
+      "revId": "8ec343c7b4d4ef2ae916f80ed5502abc38fceafd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
