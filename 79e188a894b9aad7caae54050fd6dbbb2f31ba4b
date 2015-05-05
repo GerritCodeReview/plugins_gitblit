@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50d76e7e_8a46ab11",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T12:58:07Z",
+      "side": 1,
+      "message": "I think you have a different indentation policy here...",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_aa41effd",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T12:58:07Z",
+      "side": 1,
+      "message": "About the handling of this search item, see the review comment on GitBlitTopMenu, line 69.",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_0a0c7bee",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T12:58:07Z",
+      "side": 1,
+      "message": "I originally wrote it that way because I wasn\u0027t sure whether or not the @PluginCanonicalWebUrl would end with a slash. Unfortunately the javadoc on the annotation doesn\u0027t tell...\n\nI later looked it up in the Gerrit code and I think it always ends with a slash. In the GitHub version I decided to leave it as it was, but here you could perhaps simplify this a little bit.",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_891fd915",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T12:58:07Z",
+      "side": 1,
+      "message": "That\u0027s my understanding (I even tried to inject some JavaScript via the config, but didn\u0027t manage). Can you or somebody else confirm that the above comment is indeed true?",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_6a19b72c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T12:58:07Z",
+      "side": 1,
+      "message": "This shows the \"Search\" sub-menu item only if it has been explicitly configured. With the GitHub version, I never tested search in GitBlit, and have never configured any project to be indexed via GitBlit, so I thought it might make sense to require some admin to explicitly configure this link (and then also enable Lucene indexing in GitBlit for some projects).\n\nMaybe that\u0027s the right strategy also for this official plugin, but maybe you want to reconsider this.",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_4a1673fc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T12:58:07Z",
+      "side": 1,
+      "message": "Any comment on this comment?",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
