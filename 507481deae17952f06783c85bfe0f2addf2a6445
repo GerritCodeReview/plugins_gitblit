@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30dafaa9_097e492a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T14:36:02Z",
+      "side": 1,
+      "message": "Ok... so you bypass the com.gitblit.guice.ITicketServiceProvider in 1.7.0 completely, and thus you also bypass the tickets.service property in gitblit.properties completely (there\u0027s no other place that reads that property, and no direct injection of that ITicketServiceProvider anywhere in gitblit 1.7.0, right?). Is that correct? If so, why do you still set tickets.service to an empty value in gitblit.properties? As far as I see, this property is completely ignored in the plugin now.",
+      "revId": "507481deae17952f06783c85bfe0f2addf2a6445",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
