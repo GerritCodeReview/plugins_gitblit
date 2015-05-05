@@ -59,6 +59,24 @@
     },
     {
       "key": {
+        "uuid": "30dafaa9_8946b911",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T13:33:53Z",
+      "side": 1,
+      "message": "I often leave comments in my own code to clarify things I find non-obvious, so that I don\u0027t trip over them when I revisit the code some time later (or somebody else does so).\n\nWhether *you* need this comment or whether it is even against your project guidelines to make such comments is something only you can answer.\n\nIn any case the comment is not directed at a Gerrit user, but at a programmer.",
+      "parentUuid": "30dafaa9_c929d13f",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50d76e7e_2a369f92",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
         "patchSetId": 1
@@ -104,6 +122,24 @@
       "writtenOn": "2015-05-05T13:11:24Z",
       "side": 1,
       "message": "De we really need this?",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_8a718b5f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T13:33:53Z",
+      "side": 1,
+      "message": "I just thought a naked [plugin \"gitblit\"] in gerrit.config looked rather strange, so I decided to clean up properly.",
+      "parentUuid": "50d76e7e_ca40a3f7",
       "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
