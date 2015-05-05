@@ -19,6 +19,63 @@
     },
     {
       "key": {
+        "uuid": "50d76e7e_ea3be77b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-05T13:11:24Z",
+      "side": 1,
+      "message": "Tabs to Spaces :-)",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 1
+      },
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_c929d13f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-05T13:11:24Z",
+      "side": 1,
+      "message": "Do we really need this comment? Is it something we need to tell the user about? If yes why not just printing it?",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_2a369f92",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-05T13:11:24Z",
+      "side": 1,
+      "message": "Better to refactor the top-menu item configuration steps into a separate private method for improved readability.",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50d76e7e_aa41effd",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
         "patchSetId": 1
@@ -30,6 +87,23 @@
       "writtenOn": "2015-05-05T12:58:07Z",
       "side": 1,
       "message": "About the handling of this search item, see the review comment on GitBlitTopMenu, line 69.",
+      "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_ca40a3f7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitInitStep.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-05T13:11:24Z",
+      "side": 1,
+      "message": "De we really need this?",
       "revId": "79e188a894b9aad7caae54050fd6dbbb2f31ba4b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
