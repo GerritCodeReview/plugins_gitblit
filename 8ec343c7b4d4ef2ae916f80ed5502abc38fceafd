@@ -34,6 +34,24 @@
       "revId": "8ec343c7b4d4ef2ae916f80ed5502abc38fceafd",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50d76e7e_4a39539f",
+        "filename": "src/main/resources/gitblit.properties",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-05T09:21:21Z",
+      "side": 1,
+      "message": "With GitBlit 1.6.2 the NullTicketService was not a real null implementation. I still got a tickets directory created; to prevent that I had to override more methods in ReallyNullTicketsService. Don\u0027t know if the behavior of 1.7.0-SNAPSHOT is still the same.",
+      "parentUuid": "30dafaa9_895239ec",
+      "revId": "8ec343c7b4d4ef2ae916f80ed5502abc38fceafd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
