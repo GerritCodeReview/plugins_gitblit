@@ -22,6 +22,30 @@
       "revId": "ed4f280be1f3a1a2e71589abb2e91b7950e56f3c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30dafaa9_e947752c",
+        "filename": "pom.xml",
+        "patchSetId": 12
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-05-05T08:07:03Z",
+      "side": 1,
+      "message": "The problem is guice-servlet here. I left comment on the previous ps about the bug that James fixed there and that wasn\u0027t accepted upstream. For that reason snapshot giblet depends on forked guice-servlet: [1]. James knows better, why it\u0027s needed and what deployment is broken with vanilla guice-servlet distribution.\n\n* [1] https://github.com/gitblit/gitblit/blob/develop/build.moxie#L117",
+      "parentUuid": "50d76e7e_6a6537c5",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 20
+      },
+      "revId": "ed4f280be1f3a1a2e71589abb2e91b7950e56f3c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
