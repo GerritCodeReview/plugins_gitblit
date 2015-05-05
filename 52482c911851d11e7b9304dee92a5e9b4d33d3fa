@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50d76e7e_4a2dd33c",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitTopMenu.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-05T13:10:54Z",
+      "side": 1,
+      "message": "Your assumption is correct :-) Shall we just remove the comment then?",
+      "revId": "52482c911851d11e7b9304dee92a5e9b4d33d3fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
