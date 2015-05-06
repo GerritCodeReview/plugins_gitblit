@@ -16,6 +16,24 @@
       "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d0019f0_5b61630e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T10:56:54Z",
+      "side": 1,
+      "message": "It is correct. The Gerrit\u0027s \"anonymous browsing\" is completely different from GitBlit authenticateViewPages \u003d false.\n\nWhen GitBlit is told to not authenticateViewPages, it gives you access to everything without authentication, which is not what most people wants.\n\nWhen Gerrit is told to allow anonymous browsing, it actually identifies you as \"anonymous user\" with associated access permissions. We need to keep the Gerrit way to be sure to apply the relevant security policies when allowing repository browsing.\n\nDoes it make sense?",
+      "parentUuid": "4d119541_1a32bd20",
+      "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
