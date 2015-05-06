@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d0019f0_bb7987c1",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T11:12:43Z",
+      "side": 1,
+      "message": "Really? See https://gerrit.googlesource.com/plugins/gitblit/+/stable-2.11/src/main/java/com/googlesource/gerrit/plugins/gitblit/app/GitBlitSettings.java lines 97ff.\n\nAlso, that sentence doesn\u0027t make sense anymore. \"The internal... takes precedence over the pre-defined...\"? I thought the internal settings _are_ the predefined ones?",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 16
+      },
+      "revId": "9099e7a535baac90c163833089da7b513b84b9d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d0019f0_db6c5305",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T11:12:43Z",
+      "side": 1,
+      "message": "...in the GitBlit...",
+      "revId": "9099e7a535baac90c163833089da7b513b84b9d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
