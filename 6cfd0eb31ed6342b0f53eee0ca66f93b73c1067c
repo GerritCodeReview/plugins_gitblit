@@ -198,6 +198,30 @@
       "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d0019f0_bb07474b",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T07:59:42Z",
+      "side": 1,
+      "message": "Fixed in Id53a9625f\n\nUsing web.authenticateViewPages \u003d true is a potential security hole because not necessarily ALL Gerrit projects should be visible. Gerrit\u0027s ACLs need to be honoured.",
+      "parentUuid": "4d119541_5a0f1568",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 68
+      },
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
