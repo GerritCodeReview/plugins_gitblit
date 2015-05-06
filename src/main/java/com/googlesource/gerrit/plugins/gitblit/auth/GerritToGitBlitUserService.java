@@ -142,14 +142,15 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
     String gerritUsername =
         (String) httpRequest.getAttribute("gerrit-username");
     String gerritToken = (String) httpRequest.getAttribute("gerrit-token");
-    if (Strings.isNullOrEmpty(gerritUsername)
-        || Strings.isNullOrEmpty(gerritToken)) {
-      return null;
-    }
-
     httpRequest.getSession().setAttribute(Constants.AUTHENTICATION_TYPE,
         AuthenticationType.CONTAINER);
-    return authenticateSSO(gerritUsername, gerritToken);
+    
+    if (Strings.isNullOrEmpty(gerritUsername)
+        || Strings.isNullOrEmpty(gerritToken)) {
+      return GerritToGitBlitUserModel.getAnonymous(projectControl);
+    } else {      
+      return authenticateSSO(gerritUsername, gerritToken);
+    }
   }
 
   @Override
