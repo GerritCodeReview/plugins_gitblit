@@ -190,6 +190,24 @@
     },
     {
       "key": {
+        "uuid": "6d0019f0_9b1dab91",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T09:13:19Z",
+      "side": 1,
+      "message": "Oh gosh, you are right :-)\nWill fix the documentation then.",
+      "parentUuid": "6d0019f0_bb2067c7",
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30dafaa9_e99f75db",
         "filename": "src/main/resources/Documentation/index.md",
         "patchSetId": 1
