@@ -70,6 +70,24 @@
       "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d119541_da9e8565",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T16:36:14Z",
+      "side": 1,
+      "message": "I didn\u0027t want to suggest you change it; I just explained why I was confused about that web.authenticateViewPages setting.\n\nThe user experience is different. IIRC (can\u0027t test with stable-2.11 at the moment), an anonymous user was reported as \"$anonymous\" in GitBlit (top right on the screen) and had to go to a normal Gerrit screen to log in, whereas with my implementation, he just gets the normal GitBlit login form top right and if that is used, he\u0027s logged in via Gerrit.\n\nIt\u0027s no big deal. Just leave it as it is.",
+      "parentUuid": "6d0019f0_bb52a737",
+      "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
