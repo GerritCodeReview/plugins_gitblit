@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d119541_1a32bd20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T08:13:13Z",
+      "side": 1,
+      "message": "Over in https://gerrit-review.googlesource.com/#/c/67655/ the documentation still says \"By default, the built-in configuration does allow anonymous browsing...\" but in src/resources/gitblit.properties, the key is still set to web.authenticateViewPages \u003d true?",
+      "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
