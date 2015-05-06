@@ -172,6 +172,24 @@
     },
     {
       "key": {
+        "uuid": "6d0019f0_bb2067c7",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T08:55:29Z",
+      "side": 1,
+      "message": "Because the gitblit.properties is in the final jar at root, not in /static. So why does it work? What am I missing?",
+      "parentUuid": "4d119541_3a66a128",
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30dafaa9_e99f75db",
         "filename": "src/main/resources/Documentation/index.md",
         "patchSetId": 1
