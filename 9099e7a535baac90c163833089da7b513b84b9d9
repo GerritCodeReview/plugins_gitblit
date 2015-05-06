@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d0019f0_5b4a8388",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T14:47:33Z",
+      "side": 1,
+      "message": "The code you\u0027re pointing to is more the NOT-customisable part of the config :-D \n\nYou cannot modify in the gitblit.properties:\n- Git repository directory\n- Users realm\n\nIf you customise it, the plugin just wouldn\u0027t work anymore. \n\nWorth mentioning it in the notes.",
+      "parentUuid": "6d0019f0_bb7987c1",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 16
+      },
+      "revId": "9099e7a535baac90c163833089da7b513b84b9d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d0019f0_db6c5305",
         "filename": "src/main/resources/Documentation/index.md",
         "patchSetId": 5
