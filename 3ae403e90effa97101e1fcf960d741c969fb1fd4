@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6d0019f0_3b2d77c2",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T08:45:25Z",
+      "side": 1,
+      "message": "Valid feedback, but it is not this change :-)",
+      "parentUuid": "4d119541_da2325d3",
+      "revId": "3ae403e90effa97101e1fcf960d741c969fb1fd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d0019f0_7b33ff27",
         "filename": "pom.xml",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6d0019f0_1b32bb20",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T08:45:25Z",
+      "side": 1,
+      "message": "You\u0027re right, it should be 1.7 but will not modify it in this change (that was about Documentation)",
+      "parentUuid": "6d0019f0_7b33ff27",
+      "revId": "3ae403e90effa97101e1fcf960d741c969fb1fd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d119541_5a383500",
         "filename": "src/main/resources/Documentation/index.md",
         "patchSetId": 3
@@ -47,6 +83,30 @@
       "writtenOn": "2015-05-06T08:06:53Z",
       "side": 1,
       "message": "Leftover from the GitHub version; not true and meaningless in stable-2.11. In stable-2.11, people will have to include the built-in config in their own one, and then can adapt it (and mess it up :-) ) in any way they want.",
+      "range": {
+        "startLine": 62,
+        "startChar": 36,
+        "endLine": 62,
+        "endChar": 111
+      },
+      "revId": "3ae403e90effa97101e1fcf960d741c969fb1fd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d0019f0_fb26efe4",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T08:45:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d119541_5a383500",
       "range": {
         "startLine": 62,
         "startChar": 36,
