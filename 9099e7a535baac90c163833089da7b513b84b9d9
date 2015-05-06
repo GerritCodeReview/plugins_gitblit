@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4d119541_ba52b137",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T14:55:27Z",
+      "side": 1,
+      "message": "The code I was pointing to (line 97ff) is _not_ about the fixed properties but about loading gitblit.properties. If $GERRIT_SITE/etc/gitblit.properties exists, it\u0027ll load (only) that one. Only if that does not exist, it\u0027ll load the gitblit properties from the jar.\n\nSo what exactly is \"The internal JAR gitblit.properties takes precedence over the pre-defined configuration settings.\" supposed to mean? What\u0027s internal, and what\u0027s pre-defined, and where do user-defined properties from $GERRIT_SITE/etc/gitblit.properties enter the picture?",
+      "parentUuid": "6d0019f0_5b4a8388",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 16
+      },
+      "revId": "9099e7a535baac90c163833089da7b513b84b9d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d0019f0_db6c5305",
         "filename": "src/main/resources/Documentation/index.md",
         "patchSetId": 5
