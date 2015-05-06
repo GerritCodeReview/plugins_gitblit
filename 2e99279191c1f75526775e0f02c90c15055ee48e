@@ -34,6 +34,24 @@
       "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d0019f0_fb6f0ff7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T11:06:55Z",
+      "side": 1,
+      "message": "Ok. I forgot that the authentication in stable-2.11 works differently from the GitHub version. (In my GitHub version, anon is really anon in gitblit, but still subject to Gerrit\u0027s ACL. In your version, anon in gitblit is actually a fake Gerrit $anonymous user, so always seen as \"logged in\" by gitblit.)",
+      "parentUuid": "6d0019f0_5b61630e",
+      "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
