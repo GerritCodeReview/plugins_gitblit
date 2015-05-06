@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4d119541_7aae599a",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T15:14:11Z",
+      "side": 1,
+      "message": "Oh yes, is the other way around.\nThe $GERRIT_SITE/etc/gitblit.properties takes precedence over the pre-defined one.",
+      "parentUuid": "4d119541_ba52b137",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 16
+      },
+      "revId": "9099e7a535baac90c163833089da7b513b84b9d9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d0019f0_db6c5305",
         "filename": "src/main/resources/Documentation/index.md",
         "patchSetId": 5
