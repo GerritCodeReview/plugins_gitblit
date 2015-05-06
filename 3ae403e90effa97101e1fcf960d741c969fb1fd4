@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "4d119541_9a1dad91",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T08:48:22Z",
+      "side": 1,
+      "message": "I _did_ write \"in a follow-up change\"...",
+      "parentUuid": "6d0019f0_3b2d77c2",
+      "revId": "3ae403e90effa97101e1fcf960d741c969fb1fd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d0019f0_7b33ff27",
         "filename": "pom.xml",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "You\u0027re right, it should be 1.7 but will not modify it in this change (that was about Documentation)",
       "parentUuid": "6d0019f0_7b33ff27",
+      "revId": "3ae403e90effa97101e1fcf960d741c969fb1fd4",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d119541_7a5c195a",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-06T08:48:22Z",
+      "side": 1,
+      "message": "Of course that\u0027s also for a follow-up change.",
+      "parentUuid": "6d0019f0_1b32bb20",
       "revId": "3ae403e90effa97101e1fcf960d741c969fb1fd4",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
