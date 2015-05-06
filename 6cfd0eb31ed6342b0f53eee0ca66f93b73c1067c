@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6d0019f0_9beb6bf1",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T07:35:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30dafaa9_299a2dec",
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adf69149_7db89709",
         "filename": "pom.xml",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-05-05T16:34:37Z",
       "side": 1,
       "message": "What does the buck build do? Does it pick this up?",
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d119541_3a146178",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T07:35:37Z",
+      "side": 1,
+      "message": "Not really yet as this change is Maven specific isn\u0027t it?\n\nI am not really a BUCK expert and I would leave it to DavidO if he volunteers :-D",
+      "parentUuid": "adf69149_7db89709",
       "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "6d0019f0_7b0adf59",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T07:35:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30dafaa9_c9a4312f",
+      "range": {
+        "startLine": 54,
+        "startChar": 105,
+        "endLine": 54,
+        "endChar": 121
+      },
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30dafaa9_89aa39fb",
         "filename": "src/main/resources/Documentation/index.md",
         "patchSetId": 1
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "4d119541_7a0ad959",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T07:35:37Z",
+      "side": 1,
+      "message": "I was convinced I changed that ... will double-check, thanks.",
+      "parentUuid": "30dafaa9_89aa39fb",
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30dafaa9_e99f75db",
         "filename": "src/main/resources/Documentation/index.md",
         "patchSetId": 1
@@ -87,6 +165,30 @@
       "writtenOn": "2015-05-05T16:28:57Z",
       "side": 1,
       "message": "Nope, not in _this_ plugin. web.authenticateViewPages \u003d true in gitblit.properties.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 68
+      },
+      "revId": "6cfd0eb31ed6342b0f53eee0ca66f93b73c1067c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d119541_5a0f1568",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-06T07:35:37Z",
+      "side": 1,
+      "message": "Even this was supposed to work: if it doesn\u0027t then I\u0027ll fix it.",
+      "parentUuid": "30dafaa9_e99f75db",
       "range": {
         "startLine": 61,
         "startChar": 0,
