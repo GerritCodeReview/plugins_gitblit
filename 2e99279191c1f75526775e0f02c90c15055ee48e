@@ -106,6 +106,24 @@
       "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d0019f0_fb038f0f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-07T07:46:10Z",
+      "side": 1,
+      "message": "I guess you\u0027re right. I _think_ you could simply get rid of that \"$anonymous\" display by setting in gitblit.properties\n\n  web.displayUserPanel \u003d false\n\nSee https://github.com/gitblit/gitblit/commit/afb98a261 ; should be in Gitblit 1.7.0.",
+      "parentUuid": "4d119541_ba84f10f",
+      "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
