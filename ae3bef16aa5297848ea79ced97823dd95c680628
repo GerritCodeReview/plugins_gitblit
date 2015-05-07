@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d119541_3afa2189",
+        "filename": "src/main/resources/Documentation/index.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-07T07:53:02Z",
+      "side": 1,
+      "message": "Is it worth mentioning here that the GitBlit ticket system and GitBlit\u0027s own plugin mechanism have been disabled?",
+      "revId": "ae3bef16aa5297848ea79ced97823dd95c680628",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
