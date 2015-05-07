@@ -88,6 +88,24 @@
       "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d119541_ba84f10f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-05-07T07:17:07Z",
+      "side": 1,
+      "message": "I see, however I find confusing that a viewer (that is the current usage of GitBlit here) allows the user to login using a different user experience and (potentially) failing because the user-auth is not username/password based.\n\nLet\u0027s say you are using OAuth with Gerrit, how the login form could possibly work and provide the same Gerrit/OAuth user experience? I think your implementation was working in your specific case (LDAP auth?) but wouldn\u0027t work for non username/password based auth mechanisms.\n\nI see your point of the misleading \"$anonymous\" user in GitBlit: possibly worth a fix on GitBlit to define an AnonymousUser subclass?",
+      "parentUuid": "4d119541_da9e8565",
+      "revId": "2e99279191c1f75526775e0f02c90c15055ee48e",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
