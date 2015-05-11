@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adc05116_6dbd75f8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-11T21:54:33Z",
+      "side": 1,
+      "message": "Apparently this is not enough in GitBlit 1.7.0-SNAPSHOT. In my tests, visiting a project summary page in GitBlit still created the tickets/lucene directory, containing one file named write.lock.\n\nAppears to be caused by https://github.com/gitblit/gitblit/blob/develop/src/main/java/com/gitblit/wicket/pages/RepositoryPage.java#L339\n\nProbably a binding for ITicketServiceProvider is needed, too.\n\nMoreover, that tickets directory was created at $GERRIT_SITE/tickets, which is not good. A plugin should not mess with $GERRIT_SITE.",
+      "revId": "fd80d9b7270683ce3d53dfdb6e89e0b994869ce2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
