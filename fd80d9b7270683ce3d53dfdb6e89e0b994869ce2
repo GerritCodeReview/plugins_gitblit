@@ -16,6 +16,24 @@
       "revId": "fd80d9b7270683ce3d53dfdb6e89e0b994869ce2",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad677130_75c2a888",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/GitBlitServletModule.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1019877
+      },
+      "writtenOn": "2015-05-12T04:49:02Z",
+      "side": 1,
+      "message": "Scratch that. Everything\u0027s fine. I was testing changes 67670 and 67655 and overlooked that those are not based on this one and thus do not include the ReallyNullTicketService. So when I ran those, of course I did get the tickets directory. :-(",
+      "parentUuid": "adc05116_6dbd75f8",
+      "revId": "fd80d9b7270683ce3d53dfdb6e89e0b994869ce2",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
