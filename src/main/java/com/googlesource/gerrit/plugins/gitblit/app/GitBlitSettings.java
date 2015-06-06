@@ -57,7 +57,7 @@ public class GitBlitSettings extends IStoredSettings {
     this.properties = new Properties();
     this.repoManager = repoManager;
     this.config = new GitBlitUrlsConfig(config);
-    this.etcDir = sitePaths.etc_dir;
+    this.etcDir = sitePaths.etc_dir.toFile();
     load();
   }
 
@@ -77,8 +77,8 @@ public class GitBlitSettings extends IStoredSettings {
     try {
       properties = new Properties();
       properties.load(resin);
-      properties.put("git.repositoriesFolder", repoManager.getBasePath()
-          .getAbsolutePath());
+      properties.put("git.repositoriesFolder",
+          getBasePath().getAbsolutePath());
       properties.put("realm.userService",
           GerritToGitBlitUserService.class.getName());
       if (properties.get("web.otherUrls") != null) {
@@ -112,7 +112,7 @@ public class GitBlitSettings extends IStoredSettings {
   }
 
   public File getBasePath() {
-    return repoManager.getBasePath();
+    return repoManager.getBasePath().toFile();
   }
 
   @Override
