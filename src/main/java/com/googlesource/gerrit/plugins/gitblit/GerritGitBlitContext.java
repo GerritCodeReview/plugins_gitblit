@@ -60,7 +60,7 @@ class GerritGitBlitContext extends GitblitContext {
 
   void init(ServletContext context) {
     // Manually configure IRuntimeManager
-    runtime.setBaseFolder(sitePaths.site_path);
+    runtime.setBaseFolder(sitePaths.site_path.toFile());
     runtime.getStatus().servletContainer = context.getServerInfo();
     runtime.start();
 
