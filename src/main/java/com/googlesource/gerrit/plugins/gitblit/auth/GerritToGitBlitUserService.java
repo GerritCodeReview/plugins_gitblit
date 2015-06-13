@@ -154,11 +154,6 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   }
 
   @Override
-  public UserModel authenticate(String username) {
-    return null;
-  }
-
-  @Override
   public UserModel authenticate(String username, SshKey key) {
     return null;
   }
