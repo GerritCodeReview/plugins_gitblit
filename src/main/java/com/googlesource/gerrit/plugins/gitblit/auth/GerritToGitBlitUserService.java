@@ -345,4 +345,9 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   public boolean supportsRoleChanges(TeamModel team, Role role) {
     return false;
   }
+
+  @Override
+  public UserModel authenticate(String username) {
+    return null;
+  }
 }
