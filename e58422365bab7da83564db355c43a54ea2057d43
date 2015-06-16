@@ -22,6 +22,30 @@
       "revId": "e58422365bab7da83564db355c43a54ea2057d43",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9a1cc0d_2ef987c1",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-06-16T06:19:24Z",
+      "side": 1,
+      "message": "Ha, just saw the latest change in this series. When you put this method on line 157, you will get a conflict during the merge, and by reslving it, you wouldn\u0027t need to extra commit to remove duplicate authenticate method. That\u0027s much cleaner.",
+      "parentUuid": "d9a1cc0d_ee0e5f6c",
+      "range": {
+        "startLine": 344,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 3
+      },
+      "revId": "e58422365bab7da83564db355c43a54ea2057d43",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
