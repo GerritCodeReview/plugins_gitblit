@@ -18,6 +18,8 @@ import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.gitblit.AvatarGenerator;
+import com.gitblit.GravatarGenerator;
 import com.gitblit.IStoredSettings;
 import com.gitblit.guice.IPublicKeyManagerProvider;
 import com.gitblit.guice.ITicketServiceProvider;
@@ -73,6 +75,7 @@ public class GitBlitServletModule extends ServletModule {
     log.info("Configuring Gitblit core services");
     bind(IStoredSettings.class).to(GitBlitSettings.class);
     bind(XssFilter.class).to(JSoupXssFilter.class);
+    bind(AvatarGenerator.class).to(GravatarGenerator.class);
 
     // bind complex providers
     bind(IPublicKeyManager.class).toProvider(IPublicKeyManagerProvider.class);
