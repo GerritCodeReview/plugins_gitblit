@@ -16,6 +16,24 @@
       "revId": "8eda033ef76d92a48cc49bdfe11adba1c358527b",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d019a3c_b1ed6001",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2015-07-23T13:57:39Z",
+      "side": 1,
+      "message": "It WAS manualli :o) I\u0027ve regnerated it with the --log option.",
+      "parentUuid": "ed6c0e17_5610548c",
+      "revId": "8eda033ef76d92a48cc49bdfe11adba1c358527b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
