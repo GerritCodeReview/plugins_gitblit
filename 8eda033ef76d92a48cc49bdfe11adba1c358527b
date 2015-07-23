@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed6c0e17_5610548c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2015-07-23T13:53:00Z",
+      "side": 1,
+      "message": "Missing blank line after the subject.\n\nWas this generated with the --log option on git merge, or manually?",
+      "revId": "8eda033ef76d92a48cc49bdfe11adba1c358527b",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
