@@ -11,7 +11,7 @@ maven_jar(
 maven_jar(
   name = 'gitblit-jar',
   id = 'com.gitblit:gitblit:1.7.0-SNAPSHOT',
-  sha1 = 'bf24e3a78f5421908326ec4e5a522a0bc7af3903',
+  sha1 = '72bda6de3fa76bad61b52f17e8120120d9b5870d',
   license = 'Apache2.0',
   repository = GERRITFORGE,
 )
