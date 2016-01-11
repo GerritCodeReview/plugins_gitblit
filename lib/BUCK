@@ -1,5 +1,5 @@
 include_defs('//lib/maven.defs')
-GERRITFORGE = 'http://gerritforge.com/snapshot'
+GITBLIT = 'https://gitblit.github.io/gitblit-maven'
 
 maven_jar(
   name = 'pf4j',
@@ -10,10 +10,10 @@ maven_jar(
 
 maven_jar(
   name = 'gitblit-jar',
-  id = 'com.gitblit:gitblit:1.7.0-SNAPSHOT',
-  sha1 = '72bda6de3fa76bad61b52f17e8120120d9b5870d',
+  id = 'com.gitblit:gitblit:1.7.1',
+  sha1 = '9dafec39c3bd2ad61b5c346654eee0169b031b3f',
   license = 'Apache2.0',
-  repository = GERRITFORGE,
+  repository = GITBLIT,
 )
 
 maven_jar(

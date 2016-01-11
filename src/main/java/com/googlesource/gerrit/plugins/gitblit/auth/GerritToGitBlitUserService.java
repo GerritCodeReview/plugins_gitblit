@@ -67,7 +67,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   }
 
   @Override
-  public UserModel authenticate(String username, char[] password) {
+  public UserModel authenticate(String username, char[] password, String remoteIP) {
     String passwordString = new String(password);
 
     if (username.equals(GerritToGitBlitUserModel.ANONYMOUS_USER)) {
@@ -142,7 +142,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
     String gerritUsername =
         (String) httpRequest.getAttribute("gerrit-username");
     String gerritToken = (String) httpRequest.getAttribute("gerrit-token");
-    httpRequest.getSession().setAttribute(Constants.AUTHENTICATION_TYPE,
+    httpRequest.getSession().setAttribute(Constants.ATTRIB_AUTHTYPE,
         AuthenticationType.CONTAINER);
 
     if (Strings.isNullOrEmpty(gerritUsername)
