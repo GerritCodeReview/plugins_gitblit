@@ -91,6 +91,7 @@ public class GitBlitServletModule extends ServletModule {
     bind(IRepositoryManager.class).to(RepositoryManager.class);
     bind(IProjectManager.class).to(ProjectManager.class);
     bind(IFederationManager.class).to(FederationManager.class);
+    bind(IFilestoreManager.class).to(FilestoreManager.class);
 
     // the monolithic manager
     bind(IGitblit.class).to(GitblitManager.class);

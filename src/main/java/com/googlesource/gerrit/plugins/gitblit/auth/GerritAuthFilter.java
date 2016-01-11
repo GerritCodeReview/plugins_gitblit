@@ -63,7 +63,7 @@ public class GerritAuthFilter {
 
     user =
         gitBlit.authenticate(username,
-            (GerritToGitBlitUserService.SESSIONAUTH + token).toCharArray());
+            (GerritToGitBlitUserService.SESSIONAUTH + token).toCharArray(), null);
     if (user != null) {
       return user;
     }
