@@ -28,6 +28,7 @@ import com.gitblit.manager.FederationManager;
 import com.gitblit.manager.GitblitManager;
 import com.gitblit.manager.IAuthenticationManager;
 import com.gitblit.manager.IFederationManager;
+import com.gitblit.manager.IFilestoreManager;
 import com.gitblit.manager.IGitblit;
 import com.gitblit.manager.INotificationManager;
 import com.gitblit.manager.IPluginManager;
@@ -91,6 +92,7 @@ public class GitBlitServletModule extends ServletModule {
     bind(IRepositoryManager.class).to(RepositoryManager.class);
     bind(IProjectManager.class).to(ProjectManager.class);
     bind(IFederationManager.class).to(FederationManager.class);
+    bind(IFilestoreManager.class).to(FilestoreManager.class);
 
     // the monolithic manager
     bind(IGitblit.class).to(GitblitManager.class);
