@@ -42,22 +42,22 @@ public class GitBlitSettings extends IStoredSettings {
   private static final Logger log = LoggerFactory.getLogger(GitBlitSettings.class);
   private static final String GITBLIT_GERRIT_PROPERTIES = "/gitblit.properties";
 
-  private final LocalDiskRepositoryManager repoManager;
   private final GitBlitUrlsConfig config;
   private final File etcDir;
+  private final File basePath;
 
   private Properties properties;
   private File gitblitPropertiesFile;
 
   @Inject
-  public GitBlitSettings(final LocalDiskRepositoryManager repoManager,
-      final @GerritServerConfig Config config, final SitePaths sitePaths)
+  public GitBlitSettings(@GerritServerConfig Config config,
+      SitePaths sitePaths)
       throws IOException {
     super(GitBlitSettings.class);
     this.properties = new Properties();
-    this.repoManager = repoManager;
     this.config = new GitBlitUrlsConfig(config);
     this.etcDir = sitePaths.etc_dir.toFile();
+    this.basePath = sitePaths.data_dir.toFile();
     load();
   }
 
@@ -112,7 +112,7 @@ public class GitBlitSettings extends IStoredSettings {
   }
 
   public File getBasePath() {
-    return repoManager.getBasePath().toFile();
+    return basePath;
   }
 
   @Override
