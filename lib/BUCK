@@ -11,9 +11,8 @@ maven_jar(
 maven_jar(
   name = 'gitblit-jar',
   id = 'com.gitblit:gitblit:1.7.1',
-  sha1 = '9dafec39c3bd2ad61b5c346654eee0169b031b3f',
   license = 'Apache2.0',
-  repository = GITBLIT,
+  repository = MAVEN_LOCAL,
 )
 
 maven_jar(

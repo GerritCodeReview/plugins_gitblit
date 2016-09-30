@@ -20,7 +20,7 @@ limitations under the License.
   <artifactId>gitblit-plugin</artifactId>
   <description>GitBlit for Gerrit integrated as a plugin</description>
   <name>Gerrit - GitBlit Plugin</name>
-  <version>2.11-SNAPSHOT</version>
+  <version>2.11.10</version>
   <licenses>
     <license>
       <name>Apache License 2.0</name>
@@ -35,7 +35,7 @@ limitations under the License.
     <Gerrit-Module>com.googlesource.gerrit.plugins.gitblit.GitBlitModule</Gerrit-Module>
     <Gerrit-HttpModule>com.googlesource.gerrit.plugins.gitblit.GitBlitServletModule</Gerrit-HttpModule>
     <wicket.version>1.4.23</wicket.version>
-    <GitBlit-Version>1.7.0-SNAPSHOT</GitBlit-Version>
+    <GitBlit-Version>1.7.1</GitBlit-Version>
   </properties>
   <dependencies>
     <dependency>
