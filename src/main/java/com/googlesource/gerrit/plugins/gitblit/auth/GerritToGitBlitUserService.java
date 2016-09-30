@@ -96,7 +96,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
       return null;
     }
 
-    if (!session.getCurrentUser().getUserName().equals(username)) {
+    if (!session.getUser().getUserName().equals(username)) {
       log.warn("Gerrit session " + session.getSessionId()
           + " is not assigned to user " + username);
       return null;
@@ -118,7 +118,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
     try {
       AuthResult authResp = accountManager.authenticate(who);
       webSession.get().login(authResp, false);
-    } catch (AccountException e) {
+    } catch (Exception e) {
       log.warn("Authentication failed for '" + username + "'", e);
       return null;
     }
