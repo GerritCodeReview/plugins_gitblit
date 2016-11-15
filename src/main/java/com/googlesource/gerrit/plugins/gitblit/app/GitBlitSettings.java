@@ -31,7 +31,6 @@ import org.slf4j.LoggerFactory;
 import com.gitblit.IStoredSettings;
 import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.SitePaths;
-import com.google.gerrit.server.git.LocalDiskRepositoryManager;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.gitblit.GitBlitUrlsConfig;
