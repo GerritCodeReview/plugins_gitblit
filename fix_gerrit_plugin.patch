@@ -1,0 +1,451 @@
+From b3e1f04d7d8c07a709c6645f4505162a91da8eef Mon Sep 17 00:00:00 2001
+From: David Ignjic <ignjic@gmail.com>
+Date: Tue, 20 Dec 2016 21:33:55 +0100
+Subject: [PATCH] Gerrit plugin compatibility
+
+---
+ .classpath                                         |  27 ++---
+ build.moxie                                        |   2 +-
+ gitblit.iml                                        | 112 +++++++++++++++++----
+ .../java/com/gitblit/service/LuceneService.java    |  24 ++---
+ .../java/com/gitblit/tickets/TicketIndexer.java    |  30 +++---
+ 5 files changed, 130 insertions(+), 65 deletions(-)
+
+diff --git a/.classpath b/.classpath
+index ccf6a4e..6617b6a 100644
+--- a/.classpath
++++ b/.classpath
+@@ -20,13 +20,19 @@
+ 	<classpathentry kind="lib" path="ext/wicket-1.4.22.jar" sourcepath="ext/src/wicket-1.4.22.jar" />
+ 	<classpathentry kind="lib" path="ext/wicket-auth-roles-1.4.22.jar" sourcepath="ext/src/wicket-auth-roles-1.4.22.jar" />
+ 	<classpathentry kind="lib" path="ext/wicket-extensions-1.4.22.jar" sourcepath="ext/src/wicket-extensions-1.4.22.jar" />
+-	<classpathentry kind="lib" path="ext/lucene-core-4.10.4.jar" sourcepath="ext/src/lucene-core-4.10.4.jar" />
+-	<classpathentry kind="lib" path="ext/lucene-analyzers-common-4.10.4.jar" sourcepath="ext/src/lucene-analyzers-common-4.10.4.jar" />
+-	<classpathentry kind="lib" path="ext/lucene-highlighter-4.10.4.jar" sourcepath="ext/src/lucene-highlighter-4.10.4.jar" />
+-	<classpathentry kind="lib" path="ext/lucene-memory-4.10.4.jar" sourcepath="ext/src/lucene-memory-4.10.4.jar" />
+-	<classpathentry kind="lib" path="ext/lucene-queries-4.10.4.jar" sourcepath="ext/src/lucene-queries-4.10.4.jar" />
+-	<classpathentry kind="lib" path="ext/lucene-queryparser-4.10.4.jar" sourcepath="ext/src/lucene-queryparser-4.10.4.jar" />
+-	<classpathentry kind="lib" path="ext/lucene-sandbox-4.10.4.jar" sourcepath="ext/src/lucene-sandbox-4.10.4.jar" />
++	<classpathentry kind="lib" path="ext/lucene-core-5.5.0.jar" sourcepath="ext/src/lucene-core-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-analyzers-common-5.5.0.jar" sourcepath="ext/src/lucene-analyzers-common-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-highlighter-5.5.0.jar" sourcepath="ext/src/lucene-highlighter-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-join-5.5.0.jar" sourcepath="ext/src/lucene-join-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-grouping-5.5.0.jar" sourcepath="ext/src/lucene-grouping-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-queries-5.5.0.jar" sourcepath="ext/src/lucene-queries-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-memory-5.5.0.jar" sourcepath="ext/src/lucene-memory-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-queryparser-5.5.0.jar" sourcepath="ext/src/lucene-queryparser-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-sandbox-5.5.0.jar" sourcepath="ext/src/lucene-sandbox-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-spatial-5.5.0.jar" sourcepath="ext/src/lucene-spatial-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-misc-5.5.0.jar" sourcepath="ext/src/lucene-misc-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/lucene-spatial3d-5.5.0.jar" sourcepath="ext/src/lucene-spatial3d-5.5.0.jar" />
++	<classpathentry kind="lib" path="ext/spatial4j-0.5.jar" sourcepath="ext/src/spatial4j-0.5.jar" />
+ 	<classpathentry kind="lib" path="ext/jakarta-regexp-1.4.jar" />
+ 	<classpathentry kind="lib" path="ext/pegdown-1.5.0.jar" sourcepath="ext/src/pegdown-1.5.0.jar" />
+ 	<classpathentry kind="lib" path="ext/parboiled-java-1.1.7.jar" sourcepath="ext/src/parboiled-java-1.1.7.jar" />
+@@ -48,7 +54,7 @@
+ 	<classpathentry kind="lib" path="ext/httpcore-4.3.3.jar" sourcepath="ext/src/httpcore-4.3.3.jar" />
+ 	<classpathentry kind="lib" path="ext/commons-logging-1.1.3.jar" sourcepath="ext/src/commons-logging-1.1.3.jar" />
+ 	<classpathentry kind="lib" path="ext/commons-codec-1.7.jar" sourcepath="ext/src/commons-codec-1.7.jar" />
+-	<classpathentry kind="lib" path="ext/org.eclipse.jdt.annotation-1.1.0.jar" />
++	<classpathentry kind="lib" path="ext/org.eclipse.jdt.annotation-1.1.0.jar" sourcepath="ext/src/org.eclipse.jdt.annotation-1.1.0.jar" />
+ 	<classpathentry kind="lib" path="ext/org.eclipse.jgit.http.server-4.1.1.201511131810-r.jar" sourcepath="ext/src/org.eclipse.jgit.http.server-4.1.1.201511131810-r.jar" />
+ 	<classpathentry kind="lib" path="ext/bcprov-jdk15on-1.52.jar" sourcepath="ext/src/bcprov-jdk15on-1.52.jar" />
+ 	<classpathentry kind="lib" path="ext/bcmail-jdk15on-1.52.jar" sourcepath="ext/src/bcmail-jdk15on-1.52.jar" />
+@@ -93,10 +99,5 @@
+ 	<classpathentry kind="lib" path="ext/mockito-core-1.10.19.jar" sourcepath="ext/src/mockito-core-1.10.19.jar" />
+ 	<classpathentry kind="lib" path="ext/objenesis-2.1.jar" sourcepath="ext/src/objenesis-2.1.jar" />
+ 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" />
+-	<classpathentry kind="src" path="src/main/dagger">
+-		<attributes>
+-			<attribute name="optional" value="true"/>
+-		</attributes>
+-	</classpathentry>
+ 	<classpathentry kind="output" path="bin/classes" />
+ </classpath>
+diff --git a/build.moxie b/build.moxie
+index e1dbdd5..ff01570 100644
+--- a/build.moxie
++++ b/build.moxie
+@@ -105,7 +105,7 @@ properties: {
+   jetty.version  : 9.2.13.v20150730
+   slf4j.version  : 1.7.12
+   wicket.version : 1.4.22
+-  lucene.version : 4.10.4
++  lucene.version : 5.5.0
+   jgit.version   : 4.1.1.201511131810-r
+   groovy.version : 2.4.4
+   bouncycastle.version : 1.52
+diff --git a/gitblit.iml b/gitblit.iml
+index 93331b2..fcdafcd 100644
+--- a/gitblit.iml
++++ b/gitblit.iml
+@@ -179,79 +179,145 @@
+       </library>
+     </orderEntry>
+     <orderEntry type="module-library">
+-      <library name="lucene-core-4.10.4.jar">
++      <library name="lucene-core-5.5.0.jar">
+         <CLASSES>
+-          <root url="jar://$MODULE_DIR$/ext/lucene-core-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/lucene-core-5.5.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+         <SOURCES>
+-          <root url="jar://$MODULE_DIR$/ext/src/lucene-core-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-core-5.5.0.jar!/" />
+         </SOURCES>
+       </library>
+     </orderEntry>
+     <orderEntry type="module-library">
+-      <library name="lucene-analyzers-common-4.10.4.jar">
++      <library name="lucene-analyzers-common-5.5.0.jar">
+         <CLASSES>
+-          <root url="jar://$MODULE_DIR$/ext/lucene-analyzers-common-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/lucene-analyzers-common-5.5.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+         <SOURCES>
+-          <root url="jar://$MODULE_DIR$/ext/src/lucene-analyzers-common-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-analyzers-common-5.5.0.jar!/" />
+         </SOURCES>
+       </library>
+     </orderEntry>
+     <orderEntry type="module-library">
+-      <library name="lucene-highlighter-4.10.4.jar">
++      <library name="lucene-highlighter-5.5.0.jar">
+         <CLASSES>
+-          <root url="jar://$MODULE_DIR$/ext/lucene-highlighter-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/lucene-highlighter-5.5.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+         <SOURCES>
+-          <root url="jar://$MODULE_DIR$/ext/src/lucene-highlighter-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-highlighter-5.5.0.jar!/" />
+         </SOURCES>
+       </library>
+     </orderEntry>
+     <orderEntry type="module-library">
+-      <library name="lucene-memory-4.10.4.jar">
++      <library name="lucene-join-5.5.0.jar">
+         <CLASSES>
+-          <root url="jar://$MODULE_DIR$/ext/lucene-memory-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/lucene-join-5.5.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+         <SOURCES>
+-          <root url="jar://$MODULE_DIR$/ext/src/lucene-memory-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-join-5.5.0.jar!/" />
+         </SOURCES>
+       </library>
+     </orderEntry>
+     <orderEntry type="module-library">
+-      <library name="lucene-queries-4.10.4.jar">
++      <library name="lucene-grouping-5.5.0.jar">
+         <CLASSES>
+-          <root url="jar://$MODULE_DIR$/ext/lucene-queries-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/lucene-grouping-5.5.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+         <SOURCES>
+-          <root url="jar://$MODULE_DIR$/ext/src/lucene-queries-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-grouping-5.5.0.jar!/" />
+         </SOURCES>
+       </library>
+     </orderEntry>
+     <orderEntry type="module-library">
+-      <library name="lucene-queryparser-4.10.4.jar">
++      <library name="lucene-queries-5.5.0.jar">
+         <CLASSES>
+-          <root url="jar://$MODULE_DIR$/ext/lucene-queryparser-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/lucene-queries-5.5.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+         <SOURCES>
+-          <root url="jar://$MODULE_DIR$/ext/src/lucene-queryparser-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-queries-5.5.0.jar!/" />
+         </SOURCES>
+       </library>
+     </orderEntry>
+     <orderEntry type="module-library">
+-      <library name="lucene-sandbox-4.10.4.jar">
++      <library name="lucene-memory-5.5.0.jar">
+         <CLASSES>
+-          <root url="jar://$MODULE_DIR$/ext/lucene-sandbox-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/lucene-memory-5.5.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+         <SOURCES>
+-          <root url="jar://$MODULE_DIR$/ext/src/lucene-sandbox-4.10.4.jar!/" />
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-memory-5.5.0.jar!/" />
++        </SOURCES>
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library name="lucene-queryparser-5.5.0.jar">
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/ext/lucene-queryparser-5.5.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES>
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-queryparser-5.5.0.jar!/" />
++        </SOURCES>
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library name="lucene-sandbox-5.5.0.jar">
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/ext/lucene-sandbox-5.5.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES>
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-sandbox-5.5.0.jar!/" />
++        </SOURCES>
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library name="lucene-spatial-5.5.0.jar">
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/ext/lucene-spatial-5.5.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES>
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-spatial-5.5.0.jar!/" />
++        </SOURCES>
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library name="lucene-misc-5.5.0.jar">
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/ext/lucene-misc-5.5.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES>
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-misc-5.5.0.jar!/" />
++        </SOURCES>
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library name="lucene-spatial3d-5.5.0.jar">
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/ext/lucene-spatial3d-5.5.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES>
++          <root url="jar://$MODULE_DIR$/ext/src/lucene-spatial3d-5.5.0.jar!/" />
++        </SOURCES>
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library name="spatial4j-0.5.jar">
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/ext/spatial4j-0.5.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES>
++          <root url="jar://$MODULE_DIR$/ext/src/spatial4j-0.5.jar!/" />
+         </SOURCES>
+       </library>
+     </orderEntry>
+@@ -490,7 +556,9 @@
+           <root url="jar://$MODULE_DIR$/ext/org.eclipse.jdt.annotation-1.1.0.jar!/" />
+         </CLASSES>
+         <JAVADOC />
+-        <SOURCES />
++        <SOURCES>
++          <root url="jar://$MODULE_DIR$/ext/src/org.eclipse.jdt.annotation-1.1.0.jar!/" />
++        </SOURCES>
+       </library>
+     </orderEntry>
+     <orderEntry type="module-library">
+diff --git a/src/main/java/com/gitblit/service/LuceneService.java b/src/main/java/com/gitblit/service/LuceneService.java
+index 097a39b..2dee6e3 100644
+--- a/src/main/java/com/gitblit/service/LuceneService.java
++++ b/src/main/java/com/gitblit/service/LuceneService.java
+@@ -125,8 +125,6 @@ public class LuceneService implements Runnable {
+ 	private static final String CONF_ALIAS = "aliases";
+ 	private static final String CONF_BRANCH = "branches";
+ 
+-	private static final Version LUCENE_VERSION = Version.LUCENE_4_10_0;
+-
+ 	private final Logger logger = LoggerFactory.getLogger(LuceneService.class);
+ 
+ 	private final IStoredSettings storedSettings;
+@@ -267,7 +265,7 @@ public class LuceneService implements Runnable {
+ 		// close all writers
+ 		for (String writer : writers.keySet()) {
+ 			try {
+-				writers.get(writer).close(true);
++				writers.get(writer).close();
+ 			} catch (Throwable t) {
+ 				logger.error("Failed to close Lucene writer for " + writer, t);
+ 			}
+@@ -722,8 +720,8 @@ public class LuceneService implements Runnable {
+ 		String q = MessageFormat.format(pattern, SearchObjectType.blob.name(), branch, path);
+ 
+ 		BooleanQuery query = new BooleanQuery();
+-		StandardAnalyzer analyzer = new StandardAnalyzer(LUCENE_VERSION);
+-		QueryParser qp = new QueryParser(LUCENE_VERSION, FIELD_SUMMARY, analyzer);
++		StandardAnalyzer analyzer = new StandardAnalyzer();
++		QueryParser qp = new QueryParser(FIELD_SUMMARY, analyzer);
+ 		query.add(qp.parse(q), Occur.MUST);
+ 
+ 		IndexWriter writer = getIndexWriter(repositoryName);
+@@ -968,14 +966,14 @@ public class LuceneService implements Runnable {
+ 		IndexWriter indexWriter = writers.get(repository);
+ 		File repositoryFolder = FileKey.resolve(new File(repositoriesFolder, repository), FS.DETECTED);
+ 		File indexFolder = new File(repositoryFolder, LUCENE_DIR);
+-		Directory directory = FSDirectory.open(indexFolder);
++		Directory directory = FSDirectory.open(indexFolder.toPath());
+ 
+ 		if (indexWriter == null) {
+ 			if (!indexFolder.exists()) {
+ 				indexFolder.mkdirs();
+ 			}
+-			StandardAnalyzer analyzer = new StandardAnalyzer(LUCENE_VERSION);
+-			IndexWriterConfig config = new IndexWriterConfig(LUCENE_VERSION, analyzer);
++			StandardAnalyzer analyzer = new StandardAnalyzer();
++			IndexWriterConfig config = new IndexWriterConfig( analyzer);
+ 			config.setOpenMode(OpenMode.CREATE_OR_APPEND);
+ 			indexWriter = new IndexWriter(directory, config);
+ 			writers.put(repository, indexWriter);
+@@ -1028,16 +1026,16 @@ public class LuceneService implements Runnable {
+ 			return null;
+ 		}
+ 		Set<SearchResult> results = new LinkedHashSet<SearchResult>();
+-		StandardAnalyzer analyzer = new StandardAnalyzer(LUCENE_VERSION);
++		StandardAnalyzer analyzer = new StandardAnalyzer();
+ 		try {
+ 			// default search checks summary and content
+ 			BooleanQuery query = new BooleanQuery();
+ 			QueryParser qp;
+-			qp = new QueryParser(LUCENE_VERSION, FIELD_SUMMARY, analyzer);
++			qp = new QueryParser(FIELD_SUMMARY, analyzer);
+ 			qp.setAllowLeadingWildcard(true);
+ 			query.add(qp.parse(text), Occur.SHOULD);
+ 
+-			qp = new QueryParser(LUCENE_VERSION, FIELD_CONTENT, analyzer);
++			qp = new QueryParser( FIELD_CONTENT, analyzer);
+ 			qp.setAllowLeadingWildcard(true);
+ 			query.add(qp.parse(text), Occur.SHOULD);
+ 
+@@ -1060,7 +1058,7 @@ public class LuceneService implements Runnable {
+ 			Query rewrittenQuery = searcher.rewrite(query);
+ 			logger.debug(rewrittenQuery.toString());
+ 
+-			TopScoreDocCollector collector = TopScoreDocCollector.create(5000, true);
++			TopScoreDocCollector collector = TopScoreDocCollector.create(5000);
+ 			searcher.search(rewrittenQuery, collector);
+ 			int offset = Math.max(0, (page - 1) * pageSize);
+ 			ScoreDoc[] hits = collector.topDocs(offset, pageSize).scoreDocs;
+@@ -1225,7 +1223,7 @@ public class LuceneService implements Runnable {
+ 	 */
+ 	private class MultiSourceReader extends MultiReader {
+ 
+-		MultiSourceReader(IndexReader [] readers) {
++		MultiSourceReader(IndexReader [] readers) throws IOException {
+ 			super(readers, false);
+ 		}
+ 
+diff --git a/src/main/java/com/gitblit/tickets/TicketIndexer.java b/src/main/java/com/gitblit/tickets/TicketIndexer.java
+index e2d53af..9140d83 100644
+--- a/src/main/java/com/gitblit/tickets/TicketIndexer.java
++++ b/src/main/java/com/gitblit/tickets/TicketIndexer.java
+@@ -167,8 +167,6 @@ public class TicketIndexer {
+ 
+ 	private final Logger log = LoggerFactory.getLogger(getClass());
+ 
+-	private final Version luceneVersion = Version.LUCENE_46;
+-
+ 	private final File luceneDir;
+ 
+ 	private IndexWriter writer;
+@@ -201,8 +199,8 @@ public class TicketIndexer {
+ 	public boolean deleteAll(RepositoryModel repository) {
+ 		try {
+ 			IndexWriter writer = getWriter();
+-			StandardAnalyzer analyzer = new StandardAnalyzer(luceneVersion);
+-			QueryParser qp = new QueryParser(luceneVersion, Lucene.rid.name(), analyzer);
++			StandardAnalyzer analyzer = new StandardAnalyzer();
++			QueryParser qp = new QueryParser( Lucene.rid.name(), analyzer);
+ 			BooleanQuery query = new BooleanQuery();
+ 			query.add(qp.parse(repository.getRID()), Occur.MUST);
+ 
+@@ -287,8 +285,8 @@ public class TicketIndexer {
+ 	 * @return true, if deleted, false if no record was deleted
+ 	 */
+ 	private boolean delete(String repository, long ticketId, IndexWriter writer) throws Exception {
+-		StandardAnalyzer analyzer = new StandardAnalyzer(luceneVersion);
+-		QueryParser qp = new QueryParser(luceneVersion, Lucene.did.name(), analyzer);
++		StandardAnalyzer analyzer = new StandardAnalyzer();
++		QueryParser qp = new QueryParser( Lucene.did.name(), analyzer);
+ 		BooleanQuery query = new BooleanQuery();
+ 		query.add(qp.parse(StringUtils.getSHA1(repository + ticketId)), Occur.MUST);
+ 
+@@ -331,21 +329,21 @@ public class TicketIndexer {
+ 			return Collections.emptyList();
+ 		}
+ 		Set<QueryResult> results = new LinkedHashSet<QueryResult>();
+-		StandardAnalyzer analyzer = new StandardAnalyzer(luceneVersion);
++		StandardAnalyzer analyzer = new StandardAnalyzer();
+ 		try {
+ 			// search the title, description and content
+ 			BooleanQuery query = new BooleanQuery();
+ 			QueryParser qp;
+ 
+-			qp = new QueryParser(luceneVersion, Lucene.title.name(), analyzer);
++			qp = new QueryParser( Lucene.title.name(), analyzer);
+ 			qp.setAllowLeadingWildcard(true);
+ 			query.add(qp.parse(text), Occur.SHOULD);
+ 
+-			qp = new QueryParser(luceneVersion, Lucene.body.name(), analyzer);
++			qp = new QueryParser( Lucene.body.name(), analyzer);
+ 			qp.setAllowLeadingWildcard(true);
+ 			query.add(qp.parse(text), Occur.SHOULD);
+ 
+-			qp = new QueryParser(luceneVersion, Lucene.content.name(), analyzer);
++			qp = new QueryParser( Lucene.content.name(), analyzer);
+ 			qp.setAllowLeadingWildcard(true);
+ 			query.add(qp.parse(text), Occur.SHOULD);
+ 
+@@ -354,7 +352,7 @@ public class TicketIndexer {
+ 
+ 			log.debug(rewrittenQuery.toString());
+ 
+-			TopScoreDocCollector collector = TopScoreDocCollector.create(5000, true);
++			TopScoreDocCollector collector = TopScoreDocCollector.create(5000);
+ 			searcher.search(rewrittenQuery, collector);
+ 			int offset = Math.max(0, (page - 1) * pageSize);
+ 			ScoreDoc[] hits = collector.topDocs(offset, pageSize).scoreDocs;
+@@ -392,9 +390,9 @@ public class TicketIndexer {
+ 		}
+ 
+ 		Set<QueryResult> results = new LinkedHashSet<QueryResult>();
+-		StandardAnalyzer analyzer = new StandardAnalyzer(luceneVersion);
++		StandardAnalyzer analyzer = new StandardAnalyzer();
+ 		try {
+-			QueryParser qp = new QueryParser(luceneVersion, Lucene.content.name(), analyzer);
++			QueryParser qp = new QueryParser(Lucene.content.name(), analyzer);
+ 			Query query = qp.parse(queryText);
+ 
+ 			IndexSearcher searcher = getSearcher();
+@@ -443,14 +441,14 @@ public class TicketIndexer {
+ 
+ 	private IndexWriter getWriter() throws IOException {
+ 		if (writer == null) {
+-			Directory directory = FSDirectory.open(luceneDir);
++			Directory directory = FSDirectory.open(luceneDir.toPath());
+ 
+ 			if (!luceneDir.exists()) {
+ 				luceneDir.mkdirs();
+ 			}
+ 
+-			StandardAnalyzer analyzer = new StandardAnalyzer(luceneVersion);
+-			IndexWriterConfig config = new IndexWriterConfig(luceneVersion, analyzer);
++			StandardAnalyzer analyzer = new StandardAnalyzer();
++			IndexWriterConfig config = new IndexWriterConfig( analyzer);
+ 			config.setOpenMode(OpenMode.CREATE_OR_APPEND);
+ 			writer = new IndexWriter(directory, config);
+ 		}
+-- 
+1.9.1
+
