@@ -11,6 +11,7 @@ gerrit_plugin(
   deps = [
     ':gitblit-properties-jar',
     '//lib/httpcomponents:httpcore',
+    '//plugins/gitblit/lib:commons-io',
     '//plugins/gitblit/lib:confluence-core',
     '//plugins/gitblit/lib:force-partner-api',
     '//plugins/gitblit/lib:freemarker',
@@ -21,8 +22,6 @@ gerrit_plugin(
     '//plugins/gitblit/lib:jdom',
     '//plugins/gitblit/lib:jsoup',
     '//plugins/gitblit/lib:libpam4j',
-    '//plugins/gitblit/lib:lucene-highlighter',
-    '//plugins/gitblit/lib:lucene-memory',
     '//plugins/gitblit/lib:markdownpapers',
     '//plugins/gitblit/lib:mediawiki-core',
     '//plugins/gitblit/lib:pf4j',
@@ -40,7 +39,6 @@ gerrit_plugin(
   provided_deps = [
     '//lib/commons:codec',
     '//lib/commons:net',
-    '//plugins/gitblit/lib:lucene-core',
   ]
 )
 
