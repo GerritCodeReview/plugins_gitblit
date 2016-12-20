@@ -17,33 +17,20 @@ needed for a Gerrit plugin to work properly.
 ### Gitblit
 
 You need to clone Gitblit from GitHub and build it locally
-using the installMaven ANT target.
+(with Lucene upgrade Pull-Request) using the installMaven ANT target.
 
     $ git clone https://github.com/gitblit/gitblit.git
-    $ git checkout develop
+    $ git checkout master && git fetch origin refs/pull/1168/head && git cherry-pick FETCH_HEAD
     $ ant -DresourceFolderPrefix=static installMaven
 
 ### Gitblit plugin
 
-You are ready now to clone and build the Gitblit plugin: the
-Wicket and Giblit dependencies will be taken from your local
-Maven repository.
-
-    $ mvn package
+How to build look into gerrit guide. 
 
 Configuration
 -------------
-In order to use GitBlit as GitWeb replacement, please apply
-the following configuration to your Gerrit config.
+In order to use GitBlit as GitWeb replacement, run the gerrit init after having
+installed the gitblit.jar into the /plugins directory.
 
-    [gitweb]
-        type = custom
-        linkname = Gitblit
-        url = plugins/gitblit/
-        revision = commit/?r=${project}&h=${commit}
-        project = summary/?r=${project}
-        branch = log/?r=${project}&h=${branch}
-        filehistory = history/?f=${file}&r=${project}&h=${branch}
-        file = blob/?r=${project}&h=${commit}&f=${file}
-        roottree = tree/?r=${project}&h=${commit}
+You will be prompted to enable Gitblit as code viewer and browser.
 
