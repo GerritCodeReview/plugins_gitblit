@@ -11,6 +11,7 @@ gerrit_plugin(
   deps = [
     ':gitblit-properties-jar',
     '//lib/httpcomponents:httpcore',
+    '//plugins/gitblit/lib:commons-io',
     '//plugins/gitblit/lib:confluence-core',
     '//plugins/gitblit/lib:force-partner-api',
     '//plugins/gitblit/lib:freemarker',

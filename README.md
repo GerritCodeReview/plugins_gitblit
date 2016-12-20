@@ -17,19 +17,16 @@ needed for a Gerrit plugin to work properly.
 ### Gitblit
 
 You need to clone Gitblit from GitHub and build it locally
-using the installMaven ANT target.
+(with provided patch) using the installMaven ANT target.
 
     $ git clone https://github.com/gitblit/gitblit.git
-    $ git checkout develop
+    $ git checkout v1.8.0
+    $ git apply --stat fix_gerrit_plugin.patch
     $ ant -DresourceFolderPrefix=static installMaven
 
 ### Gitblit plugin
 
-You are ready now to clone and build the Gitblit plugin: the
-Wicket and Giblit dependencies will be taken from your local
-Maven repository.
-
-    $ mvn package
+How to build look into gerrit guide. 
 
 Configuration
 -------------
