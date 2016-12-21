@@ -16,6 +16,24 @@
       "revId": "3a78dcaf5021eab7e73ec5c4889e4bc8ac7526cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa132f0f_37af1263",
+        "filename": "fix_gerrit_plugin.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-12-21T07:20:54Z",
+      "side": 1,
+      "message": "I already opened a PR a while ago but it was firstly accepted and then reverted :-( updating Lucene involves index migration or regeneration and James wanted to avoid it.\n\nIs it worth trying again?",
+      "parentUuid": "fa132f0f_d78e9e11",
+      "revId": "3a78dcaf5021eab7e73ec5c4889e4bc8ac7526cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
