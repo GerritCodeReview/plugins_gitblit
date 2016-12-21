@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa132f0f_d78e9e11",
+        "filename": "fix_gerrit_plugin.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-21T05:51:25Z",
+      "side": 1,
+      "message": "Was this uploaded as PR to gitblit project on GH or as a ticket to their review system (https://dev.gitblit.com/summary/gitblit.git)?",
+      "revId": "3a78dcaf5021eab7e73ec5c4889e4bc8ac7526cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
