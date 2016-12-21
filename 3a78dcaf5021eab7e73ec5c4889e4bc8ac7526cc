@@ -52,6 +52,42 @@
       "revId": "3a78dcaf5021eab7e73ec5c4889e4bc8ac7526cc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa132f0f_17d3f6ee",
+        "filename": "fix_gerrit_plugin.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017787
+      },
+      "writtenOn": "2016-12-21T08:48:01Z",
+      "side": 1,
+      "message": "So you propose to write as  its described in github.\nAnd reject this patch ?",
+      "parentUuid": "fa132f0f_57b60eb8",
+      "revId": "3a78dcaf5021eab7e73ec5c4889e4bc8ac7526cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1ba32a_3821c514",
+        "filename": "fix_gerrit_plugin.patch",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1017787
+      },
+      "writtenOn": "2016-12-21T08:48:01Z",
+      "side": 1,
+      "message": "No its just patch to make working plugin again in gerrit 2.13.4",
+      "parentUuid": "fa132f0f_d78e9e11",
+      "revId": "3a78dcaf5021eab7e73ec5c4889e4bc8ac7526cc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
