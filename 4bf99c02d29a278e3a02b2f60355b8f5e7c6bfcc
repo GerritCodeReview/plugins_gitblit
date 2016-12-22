@@ -16,6 +16,47 @@
       "revId": "4bf99c02d29a278e3a02b2f60355b8f5e7c6bfcc",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa132f0f_576e0e1b",
+        "filename": "BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-22T07:05:38Z",
+      "side": 1,
+      "message": "Nope. Gerrit code itself (Buck driven build) doesn\u0027t use it. Only replication plugin uses this dependency:\n\n  [...]\n      deps \u003d [\n      \u0027:commons-io\u0027,\n    ],\n  )\n\n  maven_jar(\n    name \u003d \u0027commons-io\u0027,\n    id \u003d \u0027commons-io:commons-io:1.4\u0027,\n    sha1 \u003d \u0027a8762d07e76cfde2395257a5da47ba7c1dbd3dce\u0027,\n    license \u003d \u0027Apache2.0\u0027,\n  )",
+      "parentUuid": "fa132f0f_d7c69e00",
+      "revId": "4bf99c02d29a278e3a02b2f60355b8f5e7c6bfcc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1ba32a_1864c939",
+        "filename": "README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-12-22T07:05:38Z",
+      "side": 1,
+      "message": "Nit: trailing space.",
+      "range": {
+        "startLine": 28,
+        "startChar": 36,
+        "endLine": 28,
+        "endChar": 37
+      },
+      "revId": "4bf99c02d29a278e3a02b2f60355b8f5e7c6bfcc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
