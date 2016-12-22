@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa132f0f_d7c69e00",
+        "filename": "BUCK",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2016-12-22T00:59:30Z",
+      "side": 1,
+      "message": "Isn\u0027t this provided by Gerrit Plugin API as well?",
+      "revId": "4bf99c02d29a278e3a02b2f60355b8f5e7c6bfcc",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
