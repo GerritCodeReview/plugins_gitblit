@@ -25,25 +25,59 @@ using the installMaven ANT target.
 
 ### Gitblit plugin
 
-You are ready now to clone and build the Gitblit plugin: the
-Wicket and Giblit dependencies will be taken from your local
-Maven repository.
+This gitblit plugin is built with Bazel.
+Only the Gerrit in-tree build is supported.
 
-    $ mvn package
+Clone or link this plugin to the plugins directory of Gerrit's source
+tree.
+
+```
+  git clone https://gerrit.googlesource.com/gerrit
+  git clone https://gerrit.googlesource.com/plugins/gitblit
+  cd gerrit/plugins
+  ln -s ../../gitblit .
+  rm external_plugin_deps.bzl
+  ln -s gitblit/external_plugin_deps.bzl .
+  cd ../
+```
+
+From Gerrit source tree issue the command:
+
+```
+  bazel build plugins/gitblit
+```
+
+The output is created in
+
+```
+  bazel-genfiles/plugins/gitblit/gitblit.jar
+```
+
+This project can be imported into the Eclipse IDE.
+Add the plugin name to the `CUSTOM_PLUGINS` set in
+Gerrit core in `tools/bzl/plugins.bzl`, and execute:
+
+```
+  ./tools/eclipse/project.py
+```
 
 Configuration
 -------------
-In order to use GitBlit as GitWeb replacement, please apply
-the following configuration to your Gerrit config.
+In order to use GitBlit as GitWeb replacement, run the Gerrit init
+again and answer 'Y' when asked during the Gitblit-specific initialisation.
 
-    [gitweb]
-        type = custom
-        linkname = Gitblit
-        url = plugins/gitblit/
-        revision = commit/?r=${project}&h=${commit}
-        project = summary/?r=${project}
-        branch = log/?r=${project}&h=${branch}
-        filehistory = history/?f=${file}&r=${project}&h=${branch}
-        file = blob/?r=${project}&h=${commit}&f=${file}
-        roottree = tree/?r=${project}&h=${commit}
+Example:
+
+```
+*** GitBlit Integration
+***
+
+Do you want to use GitBlit as your GitWeb viewer? [Y/n]? y
+Link name                      [GitBlit]:
+"Repositories" submenu title   [Repositories]:
+"Activity" submenu title       [Activity]:
+"Documentation" submenu title  [Documentation]:
+"Search" submenu title (makes only sense to set if some projects are indexed in GitBlit; single dash unsets) [Search]:
+"Browse" submenu title for the "Projects" top-level menu [Browse]:
+```
 
