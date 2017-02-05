@@ -22,6 +22,76 @@
       "revId": "3933989cc5ae0a8b0f037f4455bb13b9c8976bb5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "808e71fd_54bf45ae",
+        "filename": "BUILD",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 4, 2017 10:26:00 PM",
+      "side": 1,
+      "message": "You could do:\n\n  java_import(\n    name \u003d \"gitblit-properties-jar\",\n    jars \u003d [\":gitblit-properties\"],\n  )\n  genrule(\n    name \u003d \"gitblit-properties\",\n    srcs \u003d [\"src/main/resources/gitblit.properties\"],\n    cmd \u003d \" \u0026\u0026 \".join([\n      \"ROOT\u003d$$PWD\",\n      \"TMP\u003d$$(mktemp -d || mktemp -d -t bazel-tmp)\",\n      \"cp $\u003c $$TMP\",\n      \"cd $$TMP\",\n      \"zip -q $$ROOT/gitblit-properties.zip *\",\n      \"mv $$ROOT/gitblit-properties.zip $$ROOT/$@\",\n    ]),\n    outs \u003d [\"gitblit-properties.jar\"],\n  )\n\nand add \":gitblit-properties-jar\" to the dependencies, but now I think, it\u0027s exactly the same as to add:\n\n  resources \u003d glob([\"src/main/resources/**/*\"]),\n\nto gitblit_plugin rule.",
+      "parentUuid": "53af4c71_0f3594a4",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 1
+      },
+      "revId": "3933989cc5ae0a8b0f037f4455bb13b9c8976bb5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32f8f5bf_7fc6bee5",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 4, 2017 10:26:00 PM",
+      "side": 1,
+      "message": "Is included in gerrit core now and should be removed here.",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 3
+      },
+      "revId": "3933989cc5ae0a8b0f037f4455bb13b9c8976bb5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c915145_61e8cd85",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 4, 2017 10:26:00 PM",
+      "side": 1,
+      "message": "Is included in gerrit core now and should be removed here.",
+      "range": {
+        "startLine": 90,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 3
+      },
+      "revId": "3933989cc5ae0a8b0f037f4455bb13b9c8976bb5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
