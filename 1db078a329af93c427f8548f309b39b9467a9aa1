@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b5896fa3_04086a92",
+        "filename": "WORKSPACE",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 4, 2017 10:32:58 PM",
+      "side": 1,
+      "message": "I would rather not add standalone build mode in this change. If at all, it can be added later. So remove this and all other files thar are only needed for standalone build mode.",
+      "revId": "1db078a329af93c427f8548f309b39b9467a9aa1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34c8d5b3_90be9ba9",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Feb 4, 2017 10:32:58 PM",
+      "side": 1,
+      "message": "Only standalone build mode.",
+      "range": {
+        "startLine": 6,
+        "startChar": 31,
+        "endLine": 6,
+        "endChar": 41
+      },
+      "revId": "1db078a329af93c427f8548f309b39b9467a9aa1",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
