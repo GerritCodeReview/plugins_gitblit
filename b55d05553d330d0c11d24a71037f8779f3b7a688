@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "adce5f2b_174c021b",
+        "filename": "BUILD",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-09T13:15:20Z",
+      "side": 1,
+      "message": "Typo. No \"-\" char in this context.",
+      "range": {
+        "startLine": 16,
+        "startChar": 10,
+        "endLine": 16,
+        "endChar": 27
+      },
+      "revId": "b55d05553d330d0c11d24a71037f8779f3b7a688",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64f6e62c_1dfd1864",
+        "filename": "BUILD",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-09T13:15:20Z",
+      "side": 1,
+      "message": "Sort alphabetically? Run through buildifier?",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 38
+      },
+      "revId": "b55d05553d330d0c11d24a71037f8779f3b7a688",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d88b950_bb6b49e8",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-09T13:15:20Z",
+      "side": 1,
+      "message": "On Gerrit master, we use 5.5.2, here we try to use 4.10.2?\n\n  LUCENE_VERS \u003d \"5.5.2\"\n  maven_jar(\n      name \u003d \"lucene_core\",\n      artifact \u003d \"org.apache.lucene:lucene-core:\" + LUCENE_VERS,\n      sha1 \u003d \"de5e5c3161ea01e89f2a09a14391f9b7ed66cdbb\",\n  )\n\n\nI see, that upstream has already upgraded to 4.10.4:\n\n  https://github.com/gitblit/gitblit/blob/master/build.moxie#L109",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "b55d05553d330d0c11d24a71037f8779f3b7a688",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8414131_51c6f025",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 13
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-09T13:15:20Z",
+      "side": 1,
+      "message": "Here it was written correct.",
+      "range": {
+        "startLine": 133,
+        "startChar": 12,
+        "endLine": 133,
+        "endChar": 29
+      },
+      "revId": "b55d05553d330d0c11d24a71037f8779f3b7a688",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
