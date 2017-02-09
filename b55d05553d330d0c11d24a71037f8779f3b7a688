@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "9ed9face_ea94e430",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-09T13:32:17Z",
+      "side": 1,
+      "message": "Who are \"we\"? giblet plugin? But the plugin is deployed in master, and it use 5.x and giblet tries to use 4.x. And we probably get a class path collision?",
+      "parentUuid": "edb99d05_83a18d16",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 3
+      },
+      "revId": "b55d05553d330d0c11d24a71037f8779f3b7a688",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8414131_51c6f025",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 13
