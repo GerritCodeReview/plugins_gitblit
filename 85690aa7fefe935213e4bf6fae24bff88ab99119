@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a744460c_53fe73d0",
+        "filename": "BUILD",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-09T13:02:58Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "31323d31_49217d62",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 48
+      },
+      "revId": "85690aa7fefe935213e4bf6fae24bff88ab99119",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "461c1be9_a842a77b",
         "filename": "BUILD",
         "patchSetId": 12
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3eebab02_b6444aa9",
+        "filename": "BUILD",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-09T13:02:58Z",
+      "side": 1,
+      "message": "Yep.",
+      "parentUuid": "461c1be9_a842a77b",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 37
+      },
+      "revId": "85690aa7fefe935213e4bf6fae24bff88ab99119",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4fb7d374_761e9a98",
         "filename": "lib/BUILD",
         "patchSetId": 12
@@ -59,6 +107,24 @@
       "writtenOn": "2017-02-09T09:24:29Z",
       "side": 1,
       "message": "Same here, don\u0027t use Wrapper. Use external package directly.",
+      "revId": "85690aa7fefe935213e4bf6fae24bff88ab99119",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a86b43f_d77e35dc",
+        "filename": "lib/BUILD",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2017-02-09T13:02:58Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "4fb7d374_761e9a98",
       "revId": "85690aa7fefe935213e4bf6fae24bff88ab99119",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
