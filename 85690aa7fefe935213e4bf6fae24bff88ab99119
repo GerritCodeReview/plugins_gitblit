@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31323d31_49217d62",
+        "filename": "BUILD",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-09T09:24:29Z",
+      "side": 1,
+      "message": "Use all this directly from external package:\n\n  \"@confluence_core//jar\"\n\nNote: no\"-\" char allowed in WORKSPACE. See this bug report: [1].\n\n* [1] https://github.com/bazelbuild/bazel/issues/2047",
+      "range": {
+        "startLine": 15,
+        "startChar": 8,
+        "endLine": 15,
+        "endChar": 48
+      },
+      "revId": "85690aa7fefe935213e4bf6fae24bff88ab99119",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "461c1be9_a842a77b",
+        "filename": "BUILD",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-09T09:24:29Z",
+      "side": 1,
+      "message": "You see, you use it fro external package anyway, but still defines a wrapper for it and all other dips in lib/BUILD.",
+      "range": {
+        "startLine": 41,
+        "startChar": 8,
+        "endLine": 41,
+        "endChar": 37
+      },
+      "revId": "85690aa7fefe935213e4bf6fae24bff88ab99119",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fb7d374_761e9a98",
+        "filename": "lib/BUILD",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2017-02-09T09:24:29Z",
+      "side": 1,
+      "message": "Same here, don\u0027t use Wrapper. Use external package directly.",
+      "revId": "85690aa7fefe935213e4bf6fae24bff88ab99119",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
