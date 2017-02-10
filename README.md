@@ -20,7 +20,8 @@ You need to clone Gitblit from GitHub and build it locally
 using the installMaven ANT target.
 
     $ git clone https://github.com/gitblit/gitblit.git
-    $ git checkout develop
+    $ cd gitblit
+    $ git fetch origin refs/pull/1168/head && git merge --no-edit FETCH_HEAD
     $ ant -DresourceFolderPrefix=static installMaven
 
 ### Gitblit plugin
@@ -80,4 +81,3 @@ Link name                      [GitBlit]:
 "Search" submenu title (makes only sense to set if some projects are indexed in GitBlit; single dash unsets) [Search]:
 "Browse" submenu title for the "Projects" top-level menu [Browse]:
 ```
-
