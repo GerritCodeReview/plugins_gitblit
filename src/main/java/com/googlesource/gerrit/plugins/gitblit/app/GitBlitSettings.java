@@ -56,7 +56,8 @@ public class GitBlitSettings extends IStoredSettings {
     this.properties = new Properties();
     this.config = new GitBlitUrlsConfig(config);
     this.etcDir = sitePaths.etc_dir.toFile();
-    this.basePath = sitePaths.data_dir.toFile();
+    this.basePath =
+      sitePaths.resolve(config.getString("gerrit", null, "basePath")).toFile();
     load();
   }
 
