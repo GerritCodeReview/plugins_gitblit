@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7edcba60_34c19a4a",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-10T09:23:45Z",
+      "side": 1,
+      "message": "Hold on: what\u0027s the rationale of giving build documentation from this location? If they can see this file it means that the plugin has been already built and loaded.\n\nLet me move it to the README.md",
+      "revId": "c901be6dbe1d37354e32180f4250f785b35c7c17",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
