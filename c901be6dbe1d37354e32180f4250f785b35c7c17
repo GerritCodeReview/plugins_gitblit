@@ -16,6 +16,24 @@
       "revId": "c901be6dbe1d37354e32180f4250f785b35c7c17",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5380f9d_231ad7e2",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-02-10T09:30:04Z",
+      "side": 1,
+      "message": "Build documentation is included at this locations in all the plugins, isn\u0027t it?",
+      "parentUuid": "7edcba60_34c19a4a",
+      "revId": "c901be6dbe1d37354e32180f4250f785b35c7c17",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
