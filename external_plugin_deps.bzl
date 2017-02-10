@@ -11,7 +11,7 @@ def external_plugin_deps():
 
   maven_jar(
     name = 'gitblit_jar',
-    artifact = 'com.gitblit:gitblit:1.8.1-SNAPSHOT',
+    artifact = 'com.gitblit:gitblit:1.9.0-SNAPSHOT',
     repository = MAVEN_LOCAL,
   )
 
