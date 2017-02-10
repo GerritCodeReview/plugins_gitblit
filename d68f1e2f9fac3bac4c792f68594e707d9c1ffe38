@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8534f644_25032211",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/GitBlitSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-10T23:19:10Z",
+      "side": 1,
+      "message": "Wrap long line.",
+      "revId": "d68f1e2f9fac3bac4c792f68594e707d9c1ffe38",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
