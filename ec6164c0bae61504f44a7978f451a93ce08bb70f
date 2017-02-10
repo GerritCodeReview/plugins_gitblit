@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c2a303a_cc94ddd7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/app/GitBlitSettings.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-10T22:09:45Z",
+      "side": 1,
+      "message": "Let put this into a separate change.",
+      "revId": "ec6164c0bae61504f44a7978f451a93ce08bb70f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
