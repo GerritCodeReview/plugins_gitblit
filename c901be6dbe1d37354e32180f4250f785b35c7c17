@@ -34,6 +34,24 @@
       "revId": "c901be6dbe1d37354e32180f4250f785b35c7c17",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a844594_895d2683",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2017-02-10T09:32:21Z",
+      "side": 1,
+      "message": "Yes, and it has been discussed many times that ... it doesn\u0027t make any sense.\n\nWhen you typically discover a new project on GitHub and you need to build it, where are you typically looking at?\n\nIt\u0027s the chicken-and-egg problem",
+      "parentUuid": "f5380f9d_231ad7e2",
+      "revId": "c901be6dbe1d37354e32180f4250f785b35c7c17",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
