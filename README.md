@@ -22,6 +22,11 @@ using the installMaven ANT target.
     $ git clone https://github.com/gitblit/gitblit.git
     $ cd gitblit && git checkout master
     $ git fetch origin refs/pull/1168/head && git merge --no-edit FETCH_HEAD
+    $ git fetch origin refs/pull/1213/head && git merge --no-edit FETCH_HEAD
+    $ git fetch origin refs/pull/1214/head && git merge --no-edit FETCH_HEAD
+    $ git fetch origin refs/pull/1215/head && git merge --no-edit FETCH_HEAD
+    $ git fetch origin refs/pull/1216/head && git merge --no-edit FETCH_HEAD
+    $ git fetch origin refs/pull/1217/head && git merge --no-edit FETCH_HEAD
     $ ant -DresourceFolderPrefix=static installMaven
 
 ### Gitblit plugin
