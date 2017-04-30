@@ -73,7 +73,7 @@ public class GerritToGitBlitUserModel extends UserModel {
 
     try {
       ProjectControl control =
-          projectControlFactory.validateFor(new NameKey(repositoryName));
+          projectControlFactory.controlFor(new NameKey(repositoryName));
       result = control != null;
     } catch (NoSuchProjectException e) {
       result = false;
@@ -89,7 +89,7 @@ public class GerritToGitBlitUserModel extends UserModel {
 
     try {
       ProjectControl control =
-          projectControlFactory.validateFor(new NameKey(
+          projectControlFactory.controlFor(new NameKey(
               getRepositoryName(repository.name)));
 
       if (control == null) {
@@ -98,7 +98,7 @@ public class GerritToGitBlitUserModel extends UserModel {
 
       switch (ifRestriction) {
         case VIEW:
-          return control.isVisible();
+          return !control.isHidden();
         case CLONE:
           return control.canRunUploadPack();
         case PUSH:
@@ -127,8 +127,8 @@ public class GerritToGitBlitUserModel extends UserModel {
     try {
       name = getRepositoryName(name);
       ProjectControl control =
-          projectControlFactory.validateFor(new NameKey(name));
-      result = control != null && control.isVisible();
+          projectControlFactory.controlFor(new NameKey(name));
+      result = control != null && !control.isHidden();
     } catch (NoSuchProjectException e) {
       result = false;
     }
