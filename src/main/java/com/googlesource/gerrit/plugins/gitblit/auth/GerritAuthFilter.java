@@ -89,7 +89,7 @@ public class GerritAuthFilter {
 
   public boolean filterSessionAuth(final DynamicItem<WebSession> webSession,
       HttpServletRequest request) {
-    request.setAttribute("gerrit-username", webSession.get().getCurrentUser()
+    request.setAttribute("gerrit-username", webSession.get().getUser()
         .getUserName());
     request.setAttribute("gerrit-token", webSession.get().getSessionId());
     return true;
