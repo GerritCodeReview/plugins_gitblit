@@ -98,7 +98,7 @@ public class GerritToGitBlitUserModel extends UserModel {
 
       switch (ifRestriction) {
         case VIEW:
-          return !control.isHidden();
+          return !control.getProject().getState().equals(ProjectState.HIDDEN);
         case CLONE:
           return control.canRunUploadPack();
         case PUSH:
@@ -128,7 +128,7 @@ public class GerritToGitBlitUserModel extends UserModel {
       name = getRepositoryName(name);
       ProjectControl control =
           projectControlFactory.controlFor(new NameKey(name));
-      result = control != null && !control.isHidden();
+      result = control != null && !control.getProject().getState().equals(ProjectState.HIDDEN);
     } catch (NoSuchProjectException e) {
       result = false;
     }
