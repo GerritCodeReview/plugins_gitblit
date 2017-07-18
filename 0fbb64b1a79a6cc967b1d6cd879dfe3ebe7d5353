@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e814e227_ddeb21cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-07-18T05:16:03Z",
+      "side": 1,
+      "message": "Add some context?  What is the change that was being pulled, and why don\u0027t we need it any more?",
+      "revId": "0fbb64b1a79a6cc967b1d6cd879dfe3ebe7d5353",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
