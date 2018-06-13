@@ -22,9 +22,13 @@ import com.gitblit.models.UserModel;
 import com.gitblit.utils.StringUtils;
 import com.google.gerrit.extensions.client.ProjectState;
 import com.google.gerrit.reviewdb.client.Project.NameKey;
+import com.google.gerrit.server.CurrentUser;
+import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.ProjectPermission;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.gerrit.server.project.ProjectControl.Factory;
+import com.google.inject.Provider;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -46,24 +50,34 @@ public class GerritToGitBlitUserModel extends UserModel {
   public final Set<TeamModel> teams = new HashSet<TeamModel>();
 
   private final transient ProjectControl.Factory projectControlFactory;
+  private final transient Provider<CurrentUser> userProvider;
+  private final transient PermissionBackend permissionBackend;
 
   // non-persisted fields
   public boolean isAuthenticated;
 
   public GerritToGitBlitUserModel(String username) {
-    this(username, null);
+    this(username, null, null, null);
   }
 
-  public GerritToGitBlitUserModel(String username, ProjectControl.Factory projectControlFactory) {
+  public GerritToGitBlitUserModel(
+      String username,
+      ProjectControl.Factory projectControlFactory,
+      Provider<CurrentUser> userProvider,
+      PermissionBackend persmissionBackend) {
     super(username);
     this.username = username;
     this.isAuthenticated = true;
     this.projectControlFactory = projectControlFactory;
+    this.userProvider = userProvider;
+    this.permissionBackend = persmissionBackend;
   }
 
   public GerritToGitBlitUserModel(ProjectControl.Factory projectControlFactory) {
     super(ANONYMOUS_USER);
     this.projectControlFactory = projectControlFactory;
+    this.userProvider = null;
+    this.permissionBackend = null;
   }
 
   @Deprecated
@@ -88,8 +102,8 @@ public class GerritToGitBlitUserModel extends UserModel {
     boolean result = false;
 
     try {
-      ProjectControl control =
-          projectControlFactory.controlFor(new NameKey(getRepositoryName(repository.name)));
+      NameKey project = new NameKey(getRepositoryName(repository.name));
+      ProjectControl control = projectControlFactory.controlFor(project);
 
       if (control == null) {
         return false;
@@ -99,9 +113,15 @@ public class GerritToGitBlitUserModel extends UserModel {
         case VIEW:
           return !control.getProject().getState().equals(ProjectState.HIDDEN);
         case CLONE:
-          return control.canRunUploadPack();
+          return permissionBackend
+              .user(userProvider)
+              .project(project)
+              .testOrFalse(ProjectPermission.RUN_UPLOAD_PACK);
         case PUSH:
-          return control.canRunReceivePack();
+          permissionBackend
+              .user(userProvider)
+              .project(project)
+              .testOrFalse(ProjectPermission.RUN_RECEIVE_PACK);
         default:
           return true;
       }
@@ -199,6 +219,6 @@ public class GerritToGitBlitUserModel extends UserModel {
   }
 
   public static UserModel getAnonymous(Factory projectControl) {
-    return new GerritToGitBlitUserModel(ANONYMOUS_USER, projectControl);
+    return new GerritToGitBlitUserModel(ANONYMOUS_USER, projectControl, null, null);
   }
 }

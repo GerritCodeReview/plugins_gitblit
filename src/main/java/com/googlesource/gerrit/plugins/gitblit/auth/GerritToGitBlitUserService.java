@@ -27,11 +27,14 @@ import com.gitblit.transport.ssh.SshKey;
 import com.google.common.base.Strings;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
+import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.account.AccountManager;
 import com.google.gerrit.server.account.AuthRequest;
 import com.google.gerrit.server.account.AuthResult;
+import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.google.inject.Singleton;
 import java.util.Collection;
 import java.util.Collections;
@@ -45,6 +48,8 @@ import org.slf4j.LoggerFactory;
 public class GerritToGitBlitUserService implements IAuthenticationManager, IUserManager {
   private static final Logger log = LoggerFactory.getLogger(GerritToGitBlitUserService.class);
 
+  private final Provider<CurrentUser> userProvider;
+  private final PermissionBackend permissionBackend;
   private final ProjectControl.Factory projectControl;
   private final AccountManager accountManager;
   private final DynamicItem<WebSession> webSession;
@@ -53,9 +58,13 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
 
   @Inject
   public GerritToGitBlitUserService(
+      Provider<CurrentUser> userProvider,
+      PermissionBackend permissionBackend,
       ProjectControl.Factory projectControl,
       AccountManager accountManager,
       DynamicItem<WebSession> webSession) {
+    this.userProvider = userProvider;
+    this.permissionBackend = permissionBackend;
     this.projectControl = projectControl;
     this.accountManager = accountManager;
     this.webSession = webSession;
@@ -93,7 +102,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
       return null;
     }
 
-    return new GerritToGitBlitUserModel(username, projectControl);
+    return new GerritToGitBlitUserModel(username, projectControl, userProvider, permissionBackend);
   }
 
   public UserModel authenticateBasicAuth(String username, String password) {
@@ -113,7 +122,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
       return null;
     }
 
-    return new GerritToGitBlitUserModel(username, projectControl);
+    return new GerritToGitBlitUserModel(username, projectControl, userProvider, permissionBackend);
   }
 
   @Override
@@ -211,7 +220,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
 
   @Override
   public UserModel getUserModel(String username) {
-    return new GerritToGitBlitUserModel(username, projectControl);
+    return new GerritToGitBlitUserModel(username, projectControl, userProvider, permissionBackend);
   }
 
   @Override
