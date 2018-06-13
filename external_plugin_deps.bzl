@@ -10,7 +10,7 @@ def external_plugin_deps():
   )
 
   maven_jar(
-    name = 'gitblit_jar',
+    name = 'gitblit-jar',
     artifact = 'com.gitblit:gitblit:1.9.0-SNAPSHOT',
     repository = MAVEN_LOCAL,
   )
@@ -22,13 +22,13 @@ def external_plugin_deps():
   )
 
   maven_jar(
-    name = 'wicket_auth_roles',
+    name = 'wicket-auth-roles',
     artifact = 'org.apache.wicket:wicket-auth-roles:1.4.23',
     sha1 = '1b130dbf5578ace37507430a4a523f6594bf34fa',
   )
 
   maven_jar(
-    name = 'wicket_extensions',
+    name = 'wicket-extensions',
     artifact = 'org.apache.wicket:wicket-extensions:1.4.23',
     sha1 = '9ca61ca2273289d648dbb430e9033693c9b5eed3',
   )
@@ -70,37 +70,37 @@ def external_plugin_deps():
   )
 
   maven_jar(
-    name = 'wikitext_core',
+    name = 'wikitext-core',
     artifact = 'org.fusesource.wikitext:wikitext-core:1.4',
     sha1 = 'b877ee61d064c01cbf9834ab1b7146cd44acad65',
   )
 
   maven_jar(
-    name = 'twiki_core',
+    name = 'twiki-core',
     artifact = 'org.fusesource.wikitext:twiki-core:1.4',
     sha1 = '00c392027ae056d555040af2d1e0ed217fa94712',
   )
 
   maven_jar(
-    name = 'textile_core',
+    name = 'textile-core',
     artifact = 'org.fusesource.wikitext:textile-core:1.4',
     sha1 = '9169c4a2865232c7b22137d759fb7ee2cbf019de',
   )
 
   maven_jar(
-    name = 'tracwiki_core',
+    name = 'tracwiki-core',
     artifact = 'org.fusesource.wikitext:tracwiki-core:1.4',
     sha1 = 'e2c8a5597695dc82256f2a97a505783e5ab5b0cb',
   )
 
   maven_jar(
-    name = 'mediawiki_core',
+    name = 'mediawiki-core',
     artifact = 'org.fusesource.wikitext:mediawiki-core:1.4',
     sha1 = '30d1b5551bbf97a17abc22d51fe8dd3b4d27f1ab',
   )
 
   maven_jar(
-    name = 'confluence_core',
+    name = 'confluence-core',
     artifact = 'org.fusesource.wikitext:confluence-core:1.4',
     sha1 = '08210b4af6f055ada934753facd27d7abf9d01a8',
   )
@@ -112,7 +112,7 @@ def external_plugin_deps():
   )
 
   maven_jar(
-    name = 'force_partner_api',
+    name = 'force-partner-api',
     artifact = 'com.force.api:force-partner-api:24.0.0',
     sha1 = 'ce3cd3e2ccd51735f27a83e90018123e8bd10314',
   )
@@ -124,7 +124,7 @@ def external_plugin_deps():
   )
 
   maven_jar(
-    name = 'waffle_jna',
+    name = 'waffle-jna',
     artifact = 'com.github.dblock.waffle:waffle-jna:1.7.3',
     sha1 = '94ba74d3fa15bb61d4901b062b8fd5046c9e99b9',
   )
