@@ -65,9 +65,7 @@ public class GitBlitServletModule extends ServletModule {
 
   @Inject
   public GitBlitServletModule(
-      @PluginName final String name,
-      @GerritServerConfig final Config gerritConfig,
-      final SitePaths sitePaths) {
+      @PluginName String name, @GerritServerConfig Config gerritConfig, SitePaths sitePaths) {
     log.info("Create GitBlitModule with name='" + name);
   }
 

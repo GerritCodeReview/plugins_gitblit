@@ -70,7 +70,7 @@ public class GerritAuthFilter {
   }
 
   public boolean doFilter(
-      final DynamicItem<WebSession> webSession,
+      DynamicItem<WebSession> webSession,
       ServletRequest request,
       ServletResponse response,
       FilterChain chain)
@@ -87,8 +87,7 @@ public class GerritAuthFilter {
     }
   }
 
-  public boolean filterSessionAuth(
-      final DynamicItem<WebSession> webSession, HttpServletRequest request) {
+  public boolean filterSessionAuth(DynamicItem<WebSession> webSession, HttpServletRequest request) {
     request.setAttribute("gerrit-username", webSession.get().getUser().getUserName());
     request.setAttribute("gerrit-token", webSession.get().getSessionId());
     return true;
@@ -103,7 +102,7 @@ public class GerritAuthFilter {
       return false;
     }
 
-    final byte[] decoded = new Base64().decode(hdr.substring(LIT_BASIC.length()).getBytes());
+    byte[] decoded = new Base64().decode(hdr.substring(LIT_BASIC.length()).getBytes());
     String usernamePassword =
         new String(decoded, MoreObjects.firstNonNull(request.getCharacterEncoding(), "UTF-8"));
     int splitPos = usernamePassword.indexOf(':');

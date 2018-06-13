@@ -53,9 +53,9 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
 
   @Inject
   public GerritToGitBlitUserService(
-      final ProjectControl.Factory projectControl,
+      ProjectControl.Factory projectControl,
       AccountManager accountManager,
-      final DynamicItem<WebSession> webSession) {
+      DynamicItem<WebSession> webSession) {
     this.projectControl = projectControl;
     this.accountManager = accountManager;
     this.webSession = webSession;

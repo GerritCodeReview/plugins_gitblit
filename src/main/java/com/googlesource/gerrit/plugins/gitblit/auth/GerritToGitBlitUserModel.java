@@ -54,15 +54,14 @@ public class GerritToGitBlitUserModel extends UserModel {
     this(username, null);
   }
 
-  public GerritToGitBlitUserModel(
-      String username, final ProjectControl.Factory projectControlFactory) {
+  public GerritToGitBlitUserModel(String username, ProjectControl.Factory projectControlFactory) {
     super(username);
     this.username = username;
     this.isAuthenticated = true;
     this.projectControlFactory = projectControlFactory;
   }
 
-  public GerritToGitBlitUserModel(final ProjectControl.Factory projectControlFactory) {
+  public GerritToGitBlitUserModel(ProjectControl.Factory projectControlFactory) {
     super(ANONYMOUS_USER);
     this.projectControlFactory = projectControlFactory;
   }
