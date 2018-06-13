@@ -134,3 +134,15 @@ def external_plugin_deps():
     artifact = 'org.kohsuke:libpam4j:1.8',
     sha1 = '548d4a1177adad8242fe03a6930c335669d669ad',
   )
+
+  maven_jar(
+    name = 'lucene-highlighter',
+    artifact = 'org.apache.lucene:lucene-highlighter:5.5.4',
+    sha1 = '433f53f03f1b14337c08d54e507a5410905376fa',
+  )
+
+  maven_jar(
+    name = 'lucene-memory',
+    artifact = 'org.apache.lucene:lucene-memory:5.5.4',
+    sha1 = '4dbdc2e1a24837722294762a9edb479f79092ab9',
+  )
