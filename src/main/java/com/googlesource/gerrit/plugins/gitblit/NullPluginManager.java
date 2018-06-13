@@ -14,20 +14,18 @@
 
 package com.googlesource.gerrit.plugins.gitblit;
 
-import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-
-import ro.fortsoft.pf4j.PluginState;
-import ro.fortsoft.pf4j.PluginWrapper;
-import ro.fortsoft.pf4j.Version;
-
 import com.gitblit.manager.IManager;
 import com.gitblit.manager.IPluginManager;
 import com.gitblit.models.PluginRegistry.InstallState;
 import com.gitblit.models.PluginRegistry.PluginRegistration;
 import com.gitblit.models.PluginRegistry.PluginRelease;
 import com.google.inject.Singleton;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
+import ro.fortsoft.pf4j.PluginState;
+import ro.fortsoft.pf4j.PluginWrapper;
+import ro.fortsoft.pf4j.Version;
 
 @Singleton
 public class NullPluginManager implements IPluginManager {
@@ -48,12 +46,10 @@ public class NullPluginManager implements IPluginManager {
   }
 
   @Override
-  public void startPlugins() {
-  }
+  public void startPlugins() {}
 
   @Override
-  public void stopPlugins() {
-  }
+  public void stopPlugins() {}
 
   @Override
   public PluginState startPlugin(String pluginId) {
@@ -111,14 +107,13 @@ public class NullPluginManager implements IPluginManager {
   }
 
   @Override
-  public boolean installPlugin(String url, boolean verifyChecksum)
-      throws IOException {
+  public boolean installPlugin(String url, boolean verifyChecksum) throws IOException {
     return false;
   }
 
   @Override
-  public boolean upgradePlugin(String pluginId, String url,
-      boolean verifyChecksum) throws IOException {
+  public boolean upgradePlugin(String pluginId, String url, boolean verifyChecksum)
+      throws IOException {
     return false;
   }
 

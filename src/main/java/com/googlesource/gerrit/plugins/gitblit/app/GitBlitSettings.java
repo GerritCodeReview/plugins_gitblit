@@ -14,6 +14,13 @@
 
 package com.googlesource.gerrit.plugins.gitblit.app;
 
+import com.gitblit.IStoredSettings;
+import com.google.gerrit.server.config.GerritServerConfig;
+import com.google.gerrit.server.config.SitePaths;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.googlesource.gerrit.plugins.gitblit.GitBlitUrlsConfig;
+import com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,18 +30,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.Properties;
-
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.gitblit.IStoredSettings;
-import com.google.gerrit.server.config.GerritServerConfig;
-import com.google.gerrit.server.config.SitePaths;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
-import com.googlesource.gerrit.plugins.gitblit.GitBlitUrlsConfig;
-import com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService;
 
 @Singleton
 public class GitBlitSettings extends IStoredSettings {
@@ -49,15 +47,13 @@ public class GitBlitSettings extends IStoredSettings {
   private File gitblitPropertiesFile;
 
   @Inject
-  public GitBlitSettings(@GerritServerConfig Config config,
-      SitePaths sitePaths)
+  public GitBlitSettings(@GerritServerConfig Config config, SitePaths sitePaths)
       throws IOException {
     super(GitBlitSettings.class);
     this.properties = new Properties();
     this.config = new GitBlitUrlsConfig(config);
     this.etcDir = sitePaths.etc_dir.toFile();
-    this.basePath =
-      sitePaths.resolve(config.getString("gerrit", null, "basePath")).toFile();
+    this.basePath = sitePaths.resolve(config.getString("gerrit", null, "basePath")).toFile();
     load();
   }
 
@@ -77,17 +73,17 @@ public class GitBlitSettings extends IStoredSettings {
     try {
       properties = new Properties();
       properties.load(resin);
-      properties.put("git.repositoriesFolder",
-          getBasePath().getAbsolutePath());
-      properties.put("realm.userService",
-          GerritToGitBlitUserService.class.getName());
+      properties.put("git.repositoriesFolder", getBasePath().getAbsolutePath());
+      properties.put("realm.userService", GerritToGitBlitUserService.class.getName());
       if (properties.get("web.otherUrls") != null) {
-        properties.put("web.otherUrls",
-            (config.getGitHttpUrl() + " " + config.getGitSshUrl()).trim() + " "
+        properties.put(
+            "web.otherUrls",
+            (config.getGitHttpUrl() + " " + config.getGitSshUrl()).trim()
+                + " "
                 + properties.get("web.otherUrls"));
       } else {
-        properties.put("web.otherUrls",
-            (config.getGitHttpUrl() + " " + config.getGitSshUrl()).trim());
+        properties.put(
+            "web.otherUrls", (config.getGitHttpUrl() + " " + config.getGitSshUrl()).trim());
       }
     } finally {
       resin.close();
@@ -105,8 +101,7 @@ public class GitBlitSettings extends IStoredSettings {
         throw new IllegalStateException(e);
       }
     } else {
-      gitblitPropertiesIn =
-          getClass().getResourceAsStream(GITBLIT_GERRIT_PROPERTIES);
+      gitblitPropertiesIn = getClass().getResourceAsStream(GITBLIT_GERRIT_PROPERTIES);
     }
     return gitblitPropertiesIn;
   }
@@ -119,13 +114,13 @@ public class GitBlitSettings extends IStoredSettings {
   public String toString() {
     StringBuilder stringSettings = new StringBuilder();
     if (!gitblitPropertiesFile.exists()) {
-      stringSettings.append(GITBLIT_GERRIT_PROPERTIES
-          + " from gitblit plugin jar");
+      stringSettings.append(GITBLIT_GERRIT_PROPERTIES + " from gitblit plugin jar");
     } else {
-      stringSettings.append(gitblitPropertiesFile.getAbsolutePath()
-          + " (lastModified: "
-          + new SimpleDateFormat().format(new Date(gitblitPropertiesFile
-              .lastModified())) + ")");
+      stringSettings.append(
+          gitblitPropertiesFile.getAbsolutePath()
+              + " (lastModified: "
+              + new SimpleDateFormat().format(new Date(gitblitPropertiesFile.lastModified()))
+              + ")");
     }
 
     stringSettings.append(" with values ");

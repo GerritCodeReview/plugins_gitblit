@@ -14,8 +14,6 @@
 
 package com.googlesource.gerrit.plugins.gitblit;
 
-import javax.servlet.ServletContext;
-
 import com.gitblit.manager.IAuthenticationManager;
 import com.gitblit.manager.IGitblit;
 import com.gitblit.manager.INotificationManager;
@@ -27,6 +25,7 @@ import com.gitblit.servlet.GitblitContext;
 import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import javax.servlet.ServletContext;
 
 @Singleton
 class GerritGitBlitContext extends GitblitContext {
@@ -40,12 +39,13 @@ class GerritGitBlitContext extends GitblitContext {
   private final IGitblit gitblit;
 
   @Inject
-  GerritGitBlitContext(SitePaths sitePaths, 
+  GerritGitBlitContext(
+      SitePaths sitePaths,
       IRuntimeManager runtime,
-      INotificationManager notificationManager, 
+      INotificationManager notificationManager,
       IUserManager userManager,
       IAuthenticationManager authenticationManager,
-      IRepositoryManager repositoryManager, 
+      IRepositoryManager repositoryManager,
       IProjectManager projectManager,
       IGitblit gitblit) {
     this.sitePaths = sitePaths;

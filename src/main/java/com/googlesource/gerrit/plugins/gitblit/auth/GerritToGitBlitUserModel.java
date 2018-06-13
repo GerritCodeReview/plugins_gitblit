@@ -14,9 +14,6 @@
 
 package com.googlesource.gerrit.plugins.gitblit.auth;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.gitblit.Constants.AccessPermission;
 import com.gitblit.Constants.AccessRestrictionType;
 import com.gitblit.models.RepositoryModel;
@@ -28,6 +25,8 @@ import com.google.gerrit.reviewdb.client.Project.NameKey;
 import com.google.gerrit.server.project.NoSuchProjectException;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.gerrit.server.project.ProjectControl.Factory;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GerritToGitBlitUserModel extends UserModel {
   public static final String ANONYMOUS_USER = "$anonymous";
@@ -46,7 +45,7 @@ public class GerritToGitBlitUserModel extends UserModel {
   public final Set<String> repositories = new HashSet<String>();
   public final Set<TeamModel> teams = new HashSet<TeamModel>();
 
-  private transient final ProjectControl.Factory projectControlFactory;
+  private final transient ProjectControl.Factory projectControlFactory;
 
   // non-persisted fields
   public boolean isAuthenticated;
@@ -55,8 +54,8 @@ public class GerritToGitBlitUserModel extends UserModel {
     this(username, null);
   }
 
-  public GerritToGitBlitUserModel(String username,
-      final ProjectControl.Factory projectControlFactory) {
+  public GerritToGitBlitUserModel(
+      String username, final ProjectControl.Factory projectControlFactory) {
     super(username);
     this.username = username;
     this.isAuthenticated = true;
@@ -73,8 +72,7 @@ public class GerritToGitBlitUserModel extends UserModel {
     boolean result = false;
 
     try {
-      ProjectControl control =
-          projectControlFactory.controlFor(new NameKey(repositoryName));
+      ProjectControl control = projectControlFactory.controlFor(new NameKey(repositoryName));
       result = control != null;
     } catch (NoSuchProjectException e) {
       result = false;
@@ -84,14 +82,15 @@ public class GerritToGitBlitUserModel extends UserModel {
   }
 
   @Override
-  protected boolean canAccess(RepositoryModel repository,
-      AccessRestrictionType ifRestriction, AccessPermission requirePermission) {
+  protected boolean canAccess(
+      RepositoryModel repository,
+      AccessRestrictionType ifRestriction,
+      AccessPermission requirePermission) {
     boolean result = false;
 
     try {
       ProjectControl control =
-          projectControlFactory.controlFor(new NameKey(
-              getRepositoryName(repository.name)));
+          projectControlFactory.controlFor(new NameKey(getRepositoryName(repository.name)));
 
       if (control == null) {
         return false;
@@ -127,8 +126,7 @@ public class GerritToGitBlitUserModel extends UserModel {
 
     try {
       name = getRepositoryName(name);
-      ProjectControl control =
-          projectControlFactory.controlFor(new NameKey(name));
+      ProjectControl control = projectControlFactory.controlFor(new NameKey(name));
       result = control != null && !control.getProject().getState().equals(ProjectState.HIDDEN);
     } catch (NoSuchProjectException e) {
       result = false;
