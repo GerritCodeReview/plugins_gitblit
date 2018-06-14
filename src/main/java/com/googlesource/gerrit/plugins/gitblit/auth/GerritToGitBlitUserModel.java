@@ -118,7 +118,7 @@ public class GerritToGitBlitUserModel extends UserModel {
               .project(project)
               .testOrFalse(ProjectPermission.RUN_UPLOAD_PACK);
         case PUSH:
-          permissionBackend
+          return permissionBackend
               .user(userProvider)
               .project(project)
               .testOrFalse(ProjectPermission.RUN_RECEIVE_PACK);
