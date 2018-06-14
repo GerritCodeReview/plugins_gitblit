@@ -49,14 +49,11 @@ import com.gitblit.utils.JSoupXssFilter;
 import com.gitblit.utils.WorkQueue;
 import com.gitblit.utils.XssFilter;
 import com.google.gerrit.extensions.annotations.PluginName;
-import com.google.gerrit.server.config.GerritServerConfig;
-import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
 import com.google.inject.servlet.ServletModule;
 import com.googlesource.gerrit.plugins.gitblit.app.GitBlitSettings;
 import com.googlesource.gerrit.plugins.gitblit.app.ReallyNullTicketService;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService;
-import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,8 +61,7 @@ public class GitBlitServletModule extends ServletModule {
   private static final Logger log = LoggerFactory.getLogger(GitBlitServletModule.class);
 
   @Inject
-  public GitBlitServletModule(
-      @PluginName String name, @GerritServerConfig Config gerritConfig, SitePaths sitePaths) {
+  public GitBlitServletModule(@PluginName String name) {
     log.info("Create GitBlitModule with name='" + name);
   }
 

@@ -24,7 +24,6 @@ import com.gitblit.wicket.GitblitWicketFilter;
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
-import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
@@ -63,7 +62,6 @@ public class GerritWicketFilter extends GitblitWicketFilter {
       DynamicItem<WebSession> webSession,
       GerritAuthFilter gerritAuthFilter,
       GerritGitBlitContext gerritGitblitContext,
-      SitePaths sitePaths,
       IStoredSettings settings,
       IRuntimeManager runtimeManager,
       IRepositoryManager repositoryManager,
@@ -124,7 +122,7 @@ public class GerritWicketFilter extends GitblitWicketFilter {
         httpServletRequest = new StaticHttpServletRequest(httpServletRequest);
       }
       super.doFilter(httpServletRequest, response, chain);
-    } else if (gerritAuthFilter.doFilter(webSession, httpServletRequest, response, chain)) {
+    } else if (gerritAuthFilter.doFilter(webSession, httpServletRequest, response)) {
       super.doFilter(httpServletRequest, response, chain);
     }
   }
@@ -137,9 +135,8 @@ public class GerritWicketFilter extends GitblitWicketFilter {
     int requestPathLastDot = requestPathInfo.lastIndexOf('.');
     if (requestPathLastDot < 0) {
       return "";
-    } else {
-      return requestPathInfo.substring(requestPathLastDot + 1);
     }
+    return requestPathInfo.substring(requestPathLastDot + 1);
   }
 
   class CustomFilterConfig implements FilterConfig {
@@ -147,7 +144,7 @@ public class GerritWicketFilter extends GitblitWicketFilter {
     private FilterConfig parentFilterConfig;
 
     private HashMap<String, String> getGitblitInitParams() {
-      HashMap<String, String> props = new HashMap<String, String>();
+      HashMap<String, String> props = new HashMap<>();
       props.put("filterMappingUrlPattern", "/*");
       props.put("ignorePaths", "pages/,feed/");
       return props;
@@ -157,20 +154,24 @@ public class GerritWicketFilter extends GitblitWicketFilter {
       this.parentFilterConfig = parent;
     }
 
+    @Override
     public String getFilterName() {
       return "gerritWicketFilter";
     }
 
+    @Override
     public ServletContext getServletContext() {
       return parentFilterConfig.getServletContext();
     }
 
+    @Override
     public String getInitParameter(String paramString) {
       return gitBlitParams.get(paramString);
     }
 
+    @Override
     public Enumeration<String> getInitParameterNames() {
-      return new Vector<String>(gitBlitParams.keySet()).elements();
+      return new Vector<>(gitBlitParams.keySet()).elements();
     }
 
     class ParamEnum implements Enumeration<String> {
@@ -182,10 +183,12 @@ public class GerritWicketFilter extends GitblitWicketFilter {
         this.iter = this.items.iterator();
       }
 
+      @Override
       public boolean hasMoreElements() {
         return iter.hasNext();
       }
 
+      @Override
       public String nextElement() {
         return iter.next();
       }

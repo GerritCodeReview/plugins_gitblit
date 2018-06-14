@@ -69,8 +69,7 @@ public class GitBlitSettings extends IStoredSettings {
   }
 
   private void load() throws IOException {
-    InputStream resin = openPropertiesFile();
-    try {
+    try (InputStream resin = openPropertiesFile()) {
       properties = new Properties();
       properties.load(resin);
       properties.put("git.repositoriesFolder", getBasePath().getAbsolutePath());
@@ -85,25 +84,20 @@ public class GitBlitSettings extends IStoredSettings {
         properties.put(
             "web.otherUrls", (config.getGitHttpUrl() + " " + config.getGitSshUrl()).trim());
       }
-    } finally {
-      resin.close();
     }
   }
 
   private InputStream openPropertiesFile() {
-    InputStream gitblitPropertiesIn;
     gitblitPropertiesFile = new File(etcDir, GITBLIT_GERRIT_PROPERTIES);
     if (gitblitPropertiesFile.exists()) {
       try {
-        gitblitPropertiesIn = new FileInputStream(gitblitPropertiesFile);
+        return new FileInputStream(gitblitPropertiesFile);
       } catch (FileNotFoundException e) {
         // this would never happen as we checked for file existence before
         throw new IllegalStateException(e);
       }
-    } else {
-      gitblitPropertiesIn = getClass().getResourceAsStream(GITBLIT_GERRIT_PROPERTIES);
     }
-    return gitblitPropertiesIn;
+    return getClass().getResourceAsStream(GITBLIT_GERRIT_PROPERTIES);
   }
 
   public File getBasePath() {

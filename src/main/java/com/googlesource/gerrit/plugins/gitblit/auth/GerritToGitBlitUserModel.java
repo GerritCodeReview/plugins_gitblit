@@ -44,8 +44,8 @@ public class GerritToGitBlitUserModel extends UserModel {
   public String emailAddress;
   public boolean canAdmin;
   public boolean excludeFromFederation;
-  public final Set<String> repositories = new HashSet<String>();
-  public final Set<TeamModel> teams = new HashSet<TeamModel>();
+  public final Set<String> repositories = new HashSet<>();
+  public final Set<TeamModel> teams = new HashSet<>();
 
   private final transient Provider<CurrentUser> userProvider;
   private final transient PermissionBackend permissionBackend;
@@ -97,6 +97,7 @@ public class GerritToGitBlitUserModel extends UserModel {
         return projectPermissions.testOrFalse(ProjectPermission.RUN_UPLOAD_PACK);
       case PUSH:
         return projectPermissions.testOrFalse(ProjectPermission.RUN_RECEIVE_PACK);
+      case NONE:
       default:
         return true;
     }
@@ -131,6 +132,7 @@ public class GerritToGitBlitUserModel extends UserModel {
     repositories.remove(name.toLowerCase());
   }
 
+  @Override
   public boolean isTeamMember(String teamname) {
     for (TeamModel team : teams) {
       if (team.name.equalsIgnoreCase(teamname)) {
@@ -140,6 +142,7 @@ public class GerritToGitBlitUserModel extends UserModel {
     return false;
   }
 
+  @Override
   public TeamModel getTeam(String teamname) {
     if (teams == null) {
       return null;
@@ -157,6 +160,7 @@ public class GerritToGitBlitUserModel extends UserModel {
     return username;
   }
 
+  @Override
   public String getDisplayName() {
     if (StringUtils.isEmpty(displayName)) {
       return username;
