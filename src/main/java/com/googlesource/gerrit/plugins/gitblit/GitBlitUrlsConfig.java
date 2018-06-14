@@ -91,9 +91,8 @@ public class GitBlitUrlsConfig {
             e);
       }
       return InetAddress.getLocalHost().getCanonicalHostName();
-    } else {
-      return hostname;
     }
+    return hostname;
   }
 
   public String getGitHttpUrl() throws UnknownHostException {

@@ -139,9 +139,8 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
 
     if (Strings.isNullOrEmpty(gerritUsername) || Strings.isNullOrEmpty(gerritToken)) {
       return GerritToGitBlitUserModel.getAnonymous();
-    } else {
-      return authenticateSSO(gerritUsername, gerritToken);
     }
+    return authenticateSSO(gerritUsername, gerritToken);
   }
 
   @Override

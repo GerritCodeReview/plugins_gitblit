@@ -65,7 +65,7 @@ public class WrappedSyndicationFilter extends SyndicationFilter {
   @Override
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
-    if (gerritAuthFilter.doFilter(webSession, request, response, chain)) {
+    if (gerritAuthFilter.doFilter(webSession, request, response)) {
       super.doFilter(
           new SyndicationHttpServletRequest((HttpServletRequest) request), response, chain);
     }
@@ -74,7 +74,9 @@ public class WrappedSyndicationFilter extends SyndicationFilter {
   @Override
   protected UserModel getUser(HttpServletRequest httpRequest) {
     UserModel userModel = gerritAuthFilter.getUser(httpRequest);
-    if (userModel == null) return super.getUser(httpRequest);
-    else return userModel;
+    if (userModel == null) {
+      return super.getUser(httpRequest);
+    }
+    return userModel;
   }
 }

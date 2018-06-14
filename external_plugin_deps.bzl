@@ -135,14 +135,17 @@ def external_plugin_deps():
     sha1 = '548d4a1177adad8242fe03a6930c335669d669ad',
   )
 
+  # Lucene version must be aligned with the version in core Gerrit
+  LUCENE_VERS = "5.5.4"
+
   maven_jar(
     name = 'lucene-highlighter',
-    artifact = 'org.apache.lucene:lucene-highlighter:5.5.4',
+    artifact = 'org.apache.lucene:lucene-highlighter:' + LUCENE_VERS,
     sha1 = '433f53f03f1b14337c08d54e507a5410905376fa',
   )
 
   maven_jar(
     name = 'lucene-memory',
-    artifact = 'org.apache.lucene:lucene-memory:5.5.4',
+    artifact = 'org.apache.lucene:lucene-memory:' + LUCENE_VERS,
     sha1 = '4dbdc2e1a24837722294762a9edb479f79092ab9',
   )
