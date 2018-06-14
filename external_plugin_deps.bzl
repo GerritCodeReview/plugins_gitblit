@@ -134,3 +134,18 @@ def external_plugin_deps():
     artifact = 'org.kohsuke:libpam4j:1.8',
     sha1 = '548d4a1177adad8242fe03a6930c335669d669ad',
   )
+
+  # Lucene version must be aligned with the version in core Gerrit
+  LUCENE_VERS = "5.5.2"
+
+  maven_jar(
+    name = "lucene-highlighter",
+    artifact = "org.apache.lucene:lucene-highlighter:" + LUCENE_VERS,
+    sha1 = "d127ac514e9df965ab0b57d92bbe0c68d3d145b8",
+  )
+
+  maven_jar(
+    name = "lucene-memory",
+    artifact = "org.apache.lucene:lucene-memory:" + LUCENE_VERS,
+    sha1 = "7409db9863d8fbc265c27793c6cc7511304182c2",
+  )
