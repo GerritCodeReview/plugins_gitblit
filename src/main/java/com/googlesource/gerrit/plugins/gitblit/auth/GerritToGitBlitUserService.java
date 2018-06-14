@@ -38,6 +38,7 @@ import com.google.inject.Singleton;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -93,7 +94,13 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
       return null;
     }
 
-    if (!session.getUser().getUserName().equals(username)) {
+    Optional<String> sessionUsername = session.getUser().getUserName();
+
+    if (!sessionUsername.isPresent()) {
+      log.warn("User with session " + session.getSessionId() + " doesn't have username");
+    }
+
+    if (!session.getUser().getUserName().get().equals(username)) {
       log.warn("Gerrit session " + session.getSessionId() + " is not assigned to user " + username);
       return null;
     }
@@ -131,16 +138,17 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
     return null;
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public UserModel authenticate(HttpServletRequest httpRequest) {
-    String gerritUsername = (String) httpRequest.getAttribute("gerrit-username");
+    Optional<String> gerritUsername = (Optional<String>) httpRequest.getAttribute("gerrit-username");
     String gerritToken = (String) httpRequest.getAttribute("gerrit-token");
     httpRequest.getSession().setAttribute(Constants.ATTRIB_AUTHTYPE, AuthenticationType.CONTAINER);
 
-    if (Strings.isNullOrEmpty(gerritUsername) || Strings.isNullOrEmpty(gerritToken)) {
+    if (!gerritUsername.isPresent() || Strings.isNullOrEmpty(gerritToken)) {
       return GerritToGitBlitUserModel.getAnonymous();
     } else {
-      return authenticateSSO(gerritUsername, gerritToken);
+      return authenticateSSO(gerritUsername.get(), gerritToken);
     }
   }
 
