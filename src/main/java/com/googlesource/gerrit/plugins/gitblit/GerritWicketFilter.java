@@ -163,18 +163,22 @@ public class GerritWicketFilter extends GitblitWicketFilter {
       this.parentFilterConfig = parent;
     }
 
+    @Override
     public String getFilterName() {
       return "gerritWicketFilter";
     }
 
+    @Override
     public ServletContext getServletContext() {
       return parentFilterConfig.getServletContext();
     }
 
+    @Override
     public String getInitParameter(String paramString) {
       return gitBlitParams.get(paramString);
     }
 
+    @Override
     public Enumeration<String> getInitParameterNames() {
       return new Vector<>(gitBlitParams.keySet()).elements();
     }
@@ -188,10 +192,12 @@ public class GerritWicketFilter extends GitblitWicketFilter {
         this.iter = this.items.iterator();
       }
 
+      @Override
       public boolean hasMoreElements() {
         return iter.hasNext();
       }
 
+      @Override
       public String nextElement() {
         return iter.next();
       }

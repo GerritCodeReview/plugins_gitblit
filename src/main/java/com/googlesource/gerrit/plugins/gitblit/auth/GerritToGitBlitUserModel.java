@@ -157,6 +157,7 @@ public class GerritToGitBlitUserModel extends UserModel {
     repositories.remove(name.toLowerCase());
   }
 
+  @Override
   public boolean isTeamMember(String teamname) {
     for (TeamModel team : teams) {
       if (team.name.equalsIgnoreCase(teamname)) {
@@ -166,6 +167,7 @@ public class GerritToGitBlitUserModel extends UserModel {
     return false;
   }
 
+  @Override
   public TeamModel getTeam(String teamname) {
     if (teams == null) {
       return null;
@@ -183,6 +185,7 @@ public class GerritToGitBlitUserModel extends UserModel {
     return username;
   }
 
+  @Override
   public String getDisplayName() {
     if (StringUtils.isEmpty(displayName)) {
       return username;
