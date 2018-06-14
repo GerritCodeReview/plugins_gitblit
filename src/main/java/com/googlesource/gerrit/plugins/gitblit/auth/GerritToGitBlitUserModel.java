@@ -103,6 +103,7 @@ public class GerritToGitBlitUserModel extends UserModel {
           return control.canRunUploadPack();
         case PUSH:
           return control.canRunReceivePack();
+        case NONE:
         default:
           return true;
       }
