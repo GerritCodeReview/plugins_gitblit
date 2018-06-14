@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d84648d1_cec1ca09",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserModel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-06-14T03:41:05Z",
+      "side": 1,
+      "message": "return statement was missed here. This should have been:\n\n  return permissionBackend.user(userProvider)...",
+      "revId": "0ebcef8ae56800af4d5901af15d093a8768b9859",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
