@@ -42,7 +42,6 @@ import com.gitblit.wicket.GitblitWicketFilter;
 import com.google.common.collect.ImmutableSet;
 import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
-import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
@@ -66,7 +65,6 @@ public class GerritWicketFilter extends GitblitWicketFilter {
       DynamicItem<WebSession> webSession,
       GerritAuthFilter gerritAuthFilter,
       GerritGitBlitContext gerritGitblitContext,
-      SitePaths sitePaths,
       IStoredSettings settings,
       IRuntimeManager runtimeManager,
       IRepositoryManager repositoryManager,
