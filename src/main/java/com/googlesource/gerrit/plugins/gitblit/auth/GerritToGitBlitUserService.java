@@ -32,7 +32,6 @@ import com.google.gerrit.server.account.AccountManager;
 import com.google.gerrit.server.account.AuthRequest;
 import com.google.gerrit.server.account.AuthResult;
 import com.google.gerrit.server.permissions.PermissionBackend;
-import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
@@ -50,7 +49,6 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
 
   private final Provider<CurrentUser> userProvider;
   private final PermissionBackend permissionBackend;
-  private final ProjectControl.Factory projectControl;
   private final AccountManager accountManager;
   private final DynamicItem<WebSession> webSession;
 
@@ -60,12 +58,10 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
   public GerritToGitBlitUserService(
       Provider<CurrentUser> userProvider,
       PermissionBackend permissionBackend,
-      ProjectControl.Factory projectControl,
       AccountManager accountManager,
       DynamicItem<WebSession> webSession) {
     this.userProvider = userProvider;
     this.permissionBackend = permissionBackend;
-    this.projectControl = projectControl;
     this.accountManager = accountManager;
     this.webSession = webSession;
   }
@@ -75,7 +71,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
     String passwordString = new String(password);
 
     if (username.equals(GerritToGitBlitUserModel.ANONYMOUS_USER)) {
-      return GerritToGitBlitUserModel.getAnonymous(projectControl);
+      return GerritToGitBlitUserModel.getAnonymous();
     } else if (passwordString.startsWith(GerritToGitBlitUserService.SESSIONAUTH)) {
       return authenticateSSO(
           username, passwordString.substring(GerritToGitBlitUserService.SESSIONAUTH.length()));
@@ -102,7 +98,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
       return null;
     }
 
-    return new GerritToGitBlitUserModel(username, projectControl, userProvider, permissionBackend);
+    return new GerritToGitBlitUserModel(username, userProvider, permissionBackend);
   }
 
   public UserModel authenticateBasicAuth(String username, String password) {
@@ -122,7 +118,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
       return null;
     }
 
-    return new GerritToGitBlitUserModel(username, projectControl, userProvider, permissionBackend);
+    return new GerritToGitBlitUserModel(username, userProvider, permissionBackend);
   }
 
   @Override
@@ -142,7 +138,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
     httpRequest.getSession().setAttribute(Constants.ATTRIB_AUTHTYPE, AuthenticationType.CONTAINER);
 
     if (Strings.isNullOrEmpty(gerritUsername) || Strings.isNullOrEmpty(gerritToken)) {
-      return GerritToGitBlitUserModel.getAnonymous(projectControl);
+      return GerritToGitBlitUserModel.getAnonymous();
     } else {
       return authenticateSSO(gerritUsername, gerritToken);
     }
@@ -220,7 +216,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
 
   @Override
   public UserModel getUserModel(String username) {
-    return new GerritToGitBlitUserModel(username, projectControl, userProvider, permissionBackend);
+    return new GerritToGitBlitUserModel(username, userProvider, permissionBackend);
   }
 
   @Override
