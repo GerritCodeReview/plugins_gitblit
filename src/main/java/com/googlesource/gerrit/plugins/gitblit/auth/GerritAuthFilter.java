@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -73,7 +72,7 @@ public class GerritAuthFilter {
 
   public boolean doFilter(final DynamicItem<WebSession> webSession,
       ServletRequest request, ServletResponse response, FilterChain chain)
-      throws IOException, ServletException {
+      throws IOException {
     HttpServletRequest httpRequest = (HttpServletRequest) request;
 
     String hdr = httpRequest.getHeader("Authorization");
