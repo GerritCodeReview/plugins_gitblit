@@ -153,7 +153,7 @@ public class GerritWicketFilter extends GitblitWicketFilter {
     private FilterConfig parentFilterConfig;
 
     private HashMap<String, String> getGitblitInitParams() {
-      HashMap<String, String> props = new HashMap<String, String>();
+      HashMap<String, String> props = new HashMap<>();
       props.put("filterMappingUrlPattern", "/*");
       props.put("ignorePaths", "pages/,feed/");
       return props;
@@ -176,7 +176,7 @@ public class GerritWicketFilter extends GitblitWicketFilter {
     }
 
     public Enumeration<String> getInitParameterNames() {
-      return new Vector<String>(gitBlitParams.keySet()).elements();
+      return new Vector<>(gitBlitParams.keySet()).elements();
     }
 
     class ParamEnum implements Enumeration<String> {

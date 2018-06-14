@@ -42,8 +42,8 @@ public class GerritToGitBlitUserModel extends UserModel {
   public String emailAddress;
   public boolean canAdmin;
   public boolean excludeFromFederation;
-  public final Set<String> repositories = new HashSet<String>();
-  public final Set<TeamModel> teams = new HashSet<TeamModel>();
+  public final Set<String> repositories = new HashSet<>();
+  public final Set<TeamModel> teams = new HashSet<>();
 
   private transient final ProjectControl.Factory projectControlFactory;
 
