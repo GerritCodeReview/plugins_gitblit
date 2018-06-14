@@ -23,5 +23,4 @@ public class GitBlitModule extends AbstractModule {
   protected void configure() {
     DynamicSet.bind(binder(), TopMenu.class).to(GitBlitTopMenu.class);
   }
-
 }

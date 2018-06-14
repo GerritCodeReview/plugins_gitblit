@@ -14,24 +14,6 @@
 
 package com.googlesource.gerrit.plugins.gitblit;
 
-import java.io.IOException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.Vector;
-
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.gitblit.Constants;
 import com.gitblit.IStoredSettings;
 import com.gitblit.manager.IProjectManager;
@@ -45,14 +27,29 @@ import com.google.gerrit.httpd.WebSession;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.Vector;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Singleton
 public class GerritWicketFilter extends GitblitWicketFilter {
-  private static final Logger log = LoggerFactory
-      .getLogger(GerritWicketFilter.class);
+  private static final Logger log = LoggerFactory.getLogger(GerritWicketFilter.class);
   private static final Set<String> RESOURCES_SUFFIXES =
-      new ImmutableSet.Builder<String>().add("css", "js", "png", "gif", "ttf",
-          "swf", "afm", "eot", "otf", "scss", "svg", "woff").build();
+      new ImmutableSet.Builder<String>()
+          .add("css", "js", "png", "gif", "ttf", "swf", "afm", "eot", "otf", "scss", "svg", "woff")
+          .build();
 
   private final DynamicItem<WebSession> webSession;
 
@@ -115,26 +112,23 @@ public class GerritWicketFilter extends GitblitWicketFilter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response,
-      FilterChain chain) throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
     HttpServletRequest httpServletRequest = (HttpServletRequest) request;
     String requestPathInfo = httpServletRequest.getPathInfo();
 
     if (isStaticResourceRequest(requestPathInfo)) {
-      if (!requestPathInfo.startsWith("/static")
-          && !requestPathInfo.startsWith("/resources")) {
+      if (!requestPathInfo.startsWith("/static") && !requestPathInfo.startsWith("/resources")) {
         httpServletRequest = new StaticHttpServletRequest(httpServletRequest);
       }
       super.doFilter(httpServletRequest, response, chain);
-    } else if (gerritAuthFilter.doFilter(webSession, httpServletRequest,
-        response)) {
+    } else if (gerritAuthFilter.doFilter(webSession, httpServletRequest, response)) {
       super.doFilter(httpServletRequest, response, chain);
     }
   }
 
   private boolean isStaticResourceRequest(String requestPathInfo) {
-    return RESOURCES_SUFFIXES.contains(getResourceSuffix(requestPathInfo)
-        .toLowerCase());
+    return RESOURCES_SUFFIXES.contains(getResourceSuffix(requestPathInfo).toLowerCase());
   }
 
   private String getResourceSuffix(String requestPathInfo) {

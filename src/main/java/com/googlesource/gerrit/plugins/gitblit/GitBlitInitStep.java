@@ -13,8 +13,6 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.gitblit;
 
-import org.eclipse.jgit.lib.Config;
-
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.pgm.init.api.ConsoleUI;
 import com.google.gerrit.pgm.init.api.InitFlags;
@@ -22,6 +20,7 @@ import com.google.gerrit.pgm.init.api.InitStep;
 import com.google.gerrit.pgm.init.api.Section;
 import com.google.gerrit.pgm.init.api.Section.Factory;
 import com.google.inject.Inject;
+import org.eclipse.jgit.lib.Config;
 
 public class GitBlitInitStep implements InitStep {
   private final ConsoleUI ui;
@@ -30,10 +29,8 @@ public class GitBlitInitStep implements InitStep {
   private final Config cfg;
 
   @Inject
-  public GitBlitInitStep(ConsoleUI ui,
-      Section.Factory sections,
-      @PluginName String pluginName,
-      InitFlags flags) {
+  public GitBlitInitStep(
+      ConsoleUI ui, Section.Factory sections, @PluginName String pluginName, InitFlags flags) {
     this.ui = ui;
     this.pluginName = pluginName;
     this.sections = sections;
@@ -76,18 +73,16 @@ public class GitBlitInitStep implements InitStep {
   private void initGitBlitPluginConfig() {
     Section pluginCfg = sections.get("plugin", pluginName);
     // These values are displayed in the UI.
-    pluginCfg.string("\"Repositories\" submenu title", "repositories",
-        "Repositories", true);
-    pluginCfg
-        .string("\"Activity\" submenu title", "activity", "Activity", true);
-    pluginCfg.string("\"Documentation\" submenu title", "documentation",
-        "Documentation", true);
+    pluginCfg.string("\"Repositories\" submenu title", "repositories", "Repositories", true);
+    pluginCfg.string("\"Activity\" submenu title", "activity", "Activity", true);
+    pluginCfg.string("\"Documentation\" submenu title", "documentation", "Documentation", true);
     String originalValue = pluginCfg.get("search");
     if (originalValue == null) {
-      pluginCfg
-          .string(
-              "\"Search\" submenu title (makes only sense to set if some projects are indexed in GitBlit)",
-              "search", "", true);
+      pluginCfg.string(
+          "\"Search\" submenu title (makes only sense to set if some projects are indexed in GitBlit)",
+          "search",
+          "",
+          true);
     } else {
       String newValue =
           ui.readString(
@@ -101,8 +96,7 @@ public class GitBlitInitStep implements InitStep {
       }
     }
     pluginCfg.string(
-        "\"Browse\" submenu title for the \"Projects\" top-level menu",
-        "browse", "Browse", true);
+        "\"Browse\" submenu title for the \"Projects\" top-level menu", "browse", "Browse", true);
     // If everything is at the default, then make sure we don't have the section
     // at all.
     if (cfg.getNames("plugin", pluginName).isEmpty()) {
@@ -111,6 +105,5 @@ public class GitBlitInitStep implements InitStep {
   }
 
   @Override
-  public void postRun() throws Exception {
-  }
+  public void postRun() throws Exception {}
 }

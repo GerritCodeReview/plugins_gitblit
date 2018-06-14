@@ -14,16 +14,6 @@
 
 package com.googlesource.gerrit.plugins.gitblit.auth;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.gitblit.Constants;
 import com.gitblit.Constants.AuthenticationType;
 import com.gitblit.Constants.Role;
@@ -43,12 +33,17 @@ import com.google.gerrit.server.account.AuthResult;
 import com.google.gerrit.server.project.ProjectControl;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Singleton
-public class GerritToGitBlitUserService implements IAuthenticationManager,
-    IUserManager {
-  private static final Logger log = LoggerFactory
-      .getLogger(GerritToGitBlitUserService.class);
+public class GerritToGitBlitUserService implements IAuthenticationManager, IUserManager {
+  private static final Logger log = LoggerFactory.getLogger(GerritToGitBlitUserService.class);
 
   private final ProjectControl.Factory projectControl;
   private final AccountManager accountManager;
@@ -59,7 +54,8 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   @Inject
   public GerritToGitBlitUserService(
       final ProjectControl.Factory projectControl,
-      AccountManager accountManager, final DynamicItem<WebSession> webSession) {
+      AccountManager accountManager,
+      final DynamicItem<WebSession> webSession) {
     this.projectControl = projectControl;
     this.accountManager = accountManager;
     this.webSession = webSession;
@@ -71,11 +67,9 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
 
     if (username.equals(GerritToGitBlitUserModel.ANONYMOUS_USER)) {
       return GerritToGitBlitUserModel.getAnonymous(projectControl);
-    } else if (passwordString
-        .startsWith(GerritToGitBlitUserService.SESSIONAUTH)) {
-      return authenticateSSO(username,
-          passwordString.substring(GerritToGitBlitUserService.SESSIONAUTH
-              .length()));
+    } else if (passwordString.startsWith(GerritToGitBlitUserService.SESSIONAUTH)) {
+      return authenticateSSO(
+          username, passwordString.substring(GerritToGitBlitUserService.SESSIONAUTH.length()));
     } else {
       return authenticateBasicAuth(username, passwordString);
     }
@@ -84,8 +78,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   public UserModel authenticateSSO(String username, String sessionToken) {
     WebSession session = webSession.get();
 
-    if (session.getSessionId() == null
-        || !session.getSessionId().equals(sessionToken)) {
+    if (session.getSessionId() == null || !session.getSessionId().equals(sessionToken)) {
       log.warn("Invalid Gerrit session token for user '" + username + "'");
       return null;
     }
@@ -96,8 +89,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
     }
 
     if (!session.getUser().getUserName().equals(username)) {
-      log.warn("Gerrit session " + session.getSessionId()
-          + " is not assigned to user " + username);
+      log.warn("Gerrit session " + session.getSessionId() + " is not assigned to user " + username);
       return null;
     }
 
@@ -105,8 +97,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   }
 
   public UserModel authenticateBasicAuth(String username, String password) {
-    if (Strings.isNullOrEmpty(username) || password == null
-        || password.length() <= 0) {
+    if (Strings.isNullOrEmpty(username) || password == null || password.length() <= 0) {
       log.warn("Authentication failed: no username or password specified");
       return null;
     }
@@ -125,7 +116,6 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
     return new GerritToGitBlitUserModel(username, projectControl);
   }
 
-
   @Override
   public IManager start() {
     return null;
@@ -138,14 +128,11 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
 
   @Override
   public UserModel authenticate(HttpServletRequest httpRequest) {
-    String gerritUsername =
-        (String) httpRequest.getAttribute("gerrit-username");
+    String gerritUsername = (String) httpRequest.getAttribute("gerrit-username");
     String gerritToken = (String) httpRequest.getAttribute("gerrit-token");
-    httpRequest.getSession().setAttribute(Constants.ATTRIB_AUTHTYPE,
-        AuthenticationType.CONTAINER);
+    httpRequest.getSession().setAttribute(Constants.ATTRIB_AUTHTYPE, AuthenticationType.CONTAINER);
 
-    if (Strings.isNullOrEmpty(gerritUsername)
-        || Strings.isNullOrEmpty(gerritToken)) {
+    if (Strings.isNullOrEmpty(gerritUsername) || Strings.isNullOrEmpty(gerritToken)) {
       return GerritToGitBlitUserModel.getAnonymous(projectControl);
     }
     return authenticateSSO(gerritUsername, gerritToken);
@@ -162,8 +149,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   }
 
   @Override
-  public UserModel authenticate(HttpServletRequest httpRequest,
-      boolean requiresCertificate) {
+  public UserModel authenticate(HttpServletRequest httpRequest, boolean requiresCertificate) {
     return null;
   }
 
@@ -173,22 +159,16 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   }
 
   @Override
-  public void setCookie(HttpServletResponse response, UserModel user) {
-  }
+  public void setCookie(HttpServletResponse response, UserModel user) {}
 
   @Override
-  public void setCookie(HttpServletRequest request,
-      HttpServletResponse response, UserModel user) {
-  }
+  public void setCookie(HttpServletRequest request, HttpServletResponse response, UserModel user) {}
 
   @Override
-  public void logout(HttpServletResponse response, UserModel user) {
-  }
+  public void logout(HttpServletResponse response, UserModel user) {}
 
   @Override
-  public void logout(HttpServletRequest request, HttpServletResponse response,
-      UserModel user) {
-  }
+  public void logout(HttpServletRequest request, HttpServletResponse response, UserModel user) {}
 
   @Override
   public boolean supportsCredentialChanges(UserModel user) {
@@ -216,8 +196,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager,
   }
 
   @Override
-  public void setup(IRuntimeManager runtimeManager) {
-  }
+  public void setup(IRuntimeManager runtimeManager) {}
 
   @Override
   public String getCookie(UserModel model) {

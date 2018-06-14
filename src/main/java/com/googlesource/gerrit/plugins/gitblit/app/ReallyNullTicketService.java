@@ -13,9 +13,6 @@
 // limitations under the License.
 package com.googlesource.gerrit.plugins.gitblit.app;
 
-import java.util.Collections;
-import java.util.List;
-
 import com.gitblit.manager.INotificationManager;
 import com.gitblit.manager.IPluginManager;
 import com.gitblit.manager.IRepositoryManager;
@@ -27,24 +24,25 @@ import com.gitblit.tickets.TicketLabel;
 import com.gitblit.tickets.TicketMilestone;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.util.Collections;
+import java.util.List;
 
 /**
- * The {@link NullTicketService} of GitBlit is not really a null service. It
- * creates a TicketIndexer, and because it neglects to override some methods
- * from its base class, that even gets called sometimes, which then produces
- * exceptions.
+ * The {@link NullTicketService} of GitBlit is not really a null service. It creates a
+ * TicketIndexer, and because it neglects to override some methods from its base class, that even
+ * gets called sometimes, which then produces exceptions.
  */
 @Singleton
 public class ReallyNullTicketService extends NullTicketService {
 
   @Inject
-  public ReallyNullTicketService(IRuntimeManager runtimeManager,
+  public ReallyNullTicketService(
+      IRuntimeManager runtimeManager,
       IPluginManager pluginManager,
       INotificationManager notificationManager,
       IUserManager userManager,
       IRepositoryManager repositoryManager) {
-    super(runtimeManager, pluginManager, notificationManager, userManager,
-        repositoryManager);
+    super(runtimeManager, pluginManager, notificationManager, userManager, repositoryManager);
   }
 
   @Override

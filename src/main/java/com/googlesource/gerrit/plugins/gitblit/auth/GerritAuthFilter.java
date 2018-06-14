@@ -16,16 +16,6 @@ package com.googlesource.gerrit.plugins.gitblit.auth;
 
 import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.codec.binary.Base64;
-
 import com.gitblit.manager.IGitblit;
 import com.gitblit.models.UserModel;
 import com.google.common.base.MoreObjects;
@@ -33,6 +23,13 @@ import com.google.gerrit.extensions.registration.DynamicItem;
 import com.google.gerrit.httpd.WebSession;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.codec.binary.Base64;
 
 @Singleton
 public class GerritAuthFilter {
@@ -47,6 +44,7 @@ public class GerritAuthFilter {
 
   /**
    * Returns the user making the request, if the user has authenticated.
+   *
    * @param httpRequest
    * @return user
    */
@@ -60,8 +58,8 @@ public class GerritAuthFilter {
     }
 
     user =
-        gitBlit.authenticate(username,
-            (GerritToGitBlitUserService.SESSIONAUTH + token).toCharArray(), null);
+        gitBlit.authenticate(
+            username, (GerritToGitBlitUserService.SESSIONAUTH + token).toCharArray(), null);
     if (user != null) {
       return user;
     }
@@ -69,15 +67,14 @@ public class GerritAuthFilter {
     return null;
   }
 
-  public boolean doFilter(final DynamicItem<WebSession> webSession,
-      ServletRequest request, ServletResponse response)
+  public boolean doFilter(
+      final DynamicItem<WebSession> webSession, ServletRequest request, ServletResponse response)
       throws IOException {
     HttpServletRequest httpRequest = (HttpServletRequest) request;
 
     String hdr = httpRequest.getHeader("Authorization");
     if (hdr != null) {
-      return filterBasicAuth((HttpServletRequest) request,
-          (HttpServletResponse) response, hdr);
+      return filterBasicAuth((HttpServletRequest) request, (HttpServletResponse) response, hdr);
     } else if (webSession.get().isSignedIn()) {
       return filterSessionAuth(webSession, (HttpServletRequest) request);
     } else {
@@ -85,40 +82,34 @@ public class GerritAuthFilter {
     }
   }
 
-  public boolean filterSessionAuth(final DynamicItem<WebSession> webSession,
-      HttpServletRequest request) {
-    request.setAttribute("gerrit-username", webSession.get().getUser()
-        .getUserName());
+  public boolean filterSessionAuth(
+      final DynamicItem<WebSession> webSession, HttpServletRequest request) {
+    request.setAttribute("gerrit-username", webSession.get().getUser().getUserName());
     request.setAttribute("gerrit-token", webSession.get().getSessionId());
     return true;
   }
 
-  public boolean filterBasicAuth(HttpServletRequest request,
-      HttpServletResponse response, String hdr) throws IOException,
-      UnsupportedEncodingException {
+  public boolean filterBasicAuth(
+      HttpServletRequest request, HttpServletResponse response, String hdr)
+      throws IOException, UnsupportedEncodingException {
     if (!hdr.startsWith(LIT_BASIC)) {
       response.setHeader("WWW-Authenticate", "Basic realm=\"Gerrit Code Review\"");
       response.sendError(SC_UNAUTHORIZED);
       return false;
     }
 
-    final byte[] decoded =
-        new Base64().decode(hdr.substring(LIT_BASIC.length()).getBytes());
+    final byte[] decoded = new Base64().decode(hdr.substring(LIT_BASIC.length()).getBytes());
     String usernamePassword =
-        new String(decoded, MoreObjects.firstNonNull(
-            request.getCharacterEncoding(), "UTF-8"));
+        new String(decoded, MoreObjects.firstNonNull(request.getCharacterEncoding(), "UTF-8"));
     int splitPos = usernamePassword.indexOf(':');
     if (splitPos < 1) {
       response.setHeader("WWW-Authenticate", "Basic realm=\"Gerrit Code Review\"");
       response.sendError(SC_UNAUTHORIZED);
       return false;
     }
-    request.setAttribute("gerrit-username",
-        usernamePassword.substring(0, splitPos));
-    request.setAttribute("gerrit-password",
-        usernamePassword.substring(splitPos + 1));
+    request.setAttribute("gerrit-username", usernamePassword.substring(0, splitPos));
+    request.setAttribute("gerrit-password", usernamePassword.substring(splitPos + 1));
 
     return true;
   }
-
 }

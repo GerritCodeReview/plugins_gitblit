@@ -14,14 +14,6 @@
 
 package com.googlesource.gerrit.plugins.gitblit;
 
-import java.io.IOException;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-
 import com.gitblit.manager.IAuthenticationManager;
 import com.gitblit.manager.IRepositoryManager;
 import com.gitblit.manager.IRuntimeManager;
@@ -32,6 +24,12 @@ import com.google.gerrit.httpd.WebSession;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
+import java.io.IOException;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 @Singleton
 public class WrappedPagesFilter extends PagesFilter {
@@ -39,7 +37,8 @@ public class WrappedPagesFilter extends PagesFilter {
   private final DynamicItem<WebSession> webSession;
 
   @Inject
-  public WrappedPagesFilter(DynamicItem<WebSession> webSession,
+  public WrappedPagesFilter(
+      DynamicItem<WebSession> webSession,
       GerritAuthFilter gerritAuthFilter,
       IRuntimeManager runtimeManager,
       IAuthenticationManager authenticationManager,
@@ -51,8 +50,8 @@ public class WrappedPagesFilter extends PagesFilter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response,
-      FilterChain chain) throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
     if (gerritAuthFilter.doFilter(webSession, request, response)) {
       super.doFilter(request, response, chain);
     }

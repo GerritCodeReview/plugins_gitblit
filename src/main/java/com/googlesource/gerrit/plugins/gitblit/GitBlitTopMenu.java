@@ -14,9 +14,6 @@
 
 package com.googlesource.gerrit.plugins.gitblit;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.google.common.collect.Lists;
 import com.google.gerrit.extensions.annotations.PluginCanonicalWebUrl;
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -28,6 +25,8 @@ import com.google.gerrit.server.config.PluginConfig;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import java.util.Arrays;
+import java.util.List;
 
 public class GitBlitTopMenu implements TopMenu {
 
@@ -41,7 +40,8 @@ public class GitBlitTopMenu implements TopMenu {
   private final Provider<CurrentUser> userProvider;
 
   @Inject
-  public GitBlitTopMenu(@PluginName String pluginName,
+  public GitBlitTopMenu(
+      @PluginName String pluginName,
       @PluginCanonicalWebUrl String pluginUrl,
       Provider<CurrentUser> userProvider,
       PluginConfigFactory cfgProvider) {
@@ -56,17 +56,22 @@ public class GitBlitTopMenu implements TopMenu {
     // he'll simply end up with a funny looking menu item, but he can't inject
     // things here.
     MenuItem repositories =
-        new MenuItem(cfg.getString("repositories", "Repositories"),
-            gitBlitBaseUrl + "repositories/", "");
-    // GitBlit handles its own "/" url, so Gerrit won't produce any link, not even on the "plugins" page, that would display the documentation.
-    // I've considered simply redirecting "/" to "/Documentation/" since GitBlit's "/" screen is very similar to its "/activity/" screen, but
+        new MenuItem(
+            cfg.getString("repositories", "Repositories"), gitBlitBaseUrl + "repositories/", "");
+    // GitBlit handles its own "/" url, so Gerrit won't produce any link, not even on the "plugins"
+    // page, that would display the documentation.
+    // I've considered simply redirecting "/" to "/Documentation/" since GitBlit's "/" screen is
+    // very similar to its "/activity/" screen, but
     // decided finally to provide an explicit documentation submenu instead.
-    MenuItem documentation = new MenuItem(cfg.getString("documentation", "Documentation"), gitBlitBaseUrl + "Documentation/", "");
-    restrictedMenuEntries = new MenuEntry(GITBLIT_TOPMENU_NAME, Arrays.asList(repositories, documentation));
+    MenuItem documentation =
+        new MenuItem(
+            cfg.getString("documentation", "Documentation"), gitBlitBaseUrl + "Documentation/", "");
+    restrictedMenuEntries =
+        new MenuEntry(GITBLIT_TOPMENU_NAME, Arrays.asList(repositories, documentation));
     List<MenuItem> fullMenuItems = Lists.newArrayList();
     fullMenuItems.add(repositories);
-    fullMenuItems.add(new MenuItem(cfg.getString("activity", "Activity"),
-        gitBlitBaseUrl + "activity/", ""));
+    fullMenuItems.add(
+        new MenuItem(cfg.getString("activity", "Activity"), gitBlitBaseUrl + "activity/", ""));
     String search = cfg.getString("search");
     if (search != null && !search.isEmpty()) {
       fullMenuItems.add(new MenuItem(search, gitBlitBaseUrl + "lucene/", ""));
@@ -74,14 +79,19 @@ public class GitBlitTopMenu implements TopMenu {
     fullMenuItems.add(documentation);
     fullMenuEntries = new MenuEntry(GITBLIT_TOPMENU_NAME, fullMenuItems);
     extraProjectEntries =
-        new MenuEntry(GerritTopMenu.PROJECTS, Arrays.asList(new MenuItem(cfg
-            .getString("browse", "Browse"), gitBlitBaseUrl
-            + "summary?r=${projectName}", "")));
+        new MenuEntry(
+            GerritTopMenu.PROJECTS,
+            Arrays.asList(
+                new MenuItem(
+                    cfg.getString("browse", "Browse"),
+                    gitBlitBaseUrl + "summary?r=${projectName}",
+                    "")));
   }
 
   @Override
   public List<MenuEntry> getEntries() {
-    return Arrays.asList(userProvider.get().isIdentifiedUser()
-        ? fullMenuEntries : restrictedMenuEntries, extraProjectEntries);
+    return Arrays.asList(
+        userProvider.get().isIdentifiedUser() ? fullMenuEntries : restrictedMenuEntries,
+        extraProjectEntries);
   }
 }

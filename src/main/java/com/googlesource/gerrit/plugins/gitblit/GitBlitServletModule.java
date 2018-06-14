@@ -14,9 +14,6 @@
 
 package com.googlesource.gerrit.plugins.gitblit;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.gitblit.AvatarGenerator;
 import com.gitblit.GravatarGenerator;
 import com.gitblit.IStoredSettings;
@@ -57,10 +54,11 @@ import com.google.inject.servlet.ServletModule;
 import com.googlesource.gerrit.plugins.gitblit.app.GitBlitSettings;
 import com.googlesource.gerrit.plugins.gitblit.app.ReallyNullTicketService;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritToGitBlitUserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GitBlitServletModule extends ServletModule {
-  private static final Logger log = LoggerFactory
-      .getLogger(GitBlitServletModule.class);
+  private static final Logger log = LoggerFactory.getLogger(GitBlitServletModule.class);
 
   @Inject
   public GitBlitServletModule(@PluginName final String name) {

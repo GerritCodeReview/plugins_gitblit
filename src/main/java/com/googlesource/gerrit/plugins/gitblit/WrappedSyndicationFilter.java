@@ -14,15 +14,6 @@
 
 package com.googlesource.gerrit.plugins.gitblit;
 
-import java.io.IOException;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
-
 import com.gitblit.manager.IAuthenticationManager;
 import com.gitblit.manager.IProjectManager;
 import com.gitblit.manager.IRepositoryManager;
@@ -34,6 +25,13 @@ import com.google.gerrit.httpd.WebSession;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
+import java.io.IOException;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 
 @Singleton
 public class WrappedSyndicationFilter extends SyndicationFilter {
@@ -52,7 +50,8 @@ public class WrappedSyndicationFilter extends SyndicationFilter {
   }
 
   @Inject
-  public WrappedSyndicationFilter(DynamicItem<WebSession> webSession,
+  public WrappedSyndicationFilter(
+      DynamicItem<WebSession> webSession,
       GerritAuthFilter gerritAuthFilter,
       IRuntimeManager runtimeManager,
       IAuthenticationManager authenticationManager,
@@ -64,11 +63,11 @@ public class WrappedSyndicationFilter extends SyndicationFilter {
   }
 
   @Override
-  public void doFilter(ServletRequest request, ServletResponse response,
-      FilterChain chain) throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+      throws IOException, ServletException {
     if (gerritAuthFilter.doFilter(webSession, request, response)) {
-      super.doFilter(new SyndicationHttpServletRequest(
-          (HttpServletRequest) request), response, chain);
+      super.doFilter(
+          new SyndicationHttpServletRequest((HttpServletRequest) request), response, chain);
     }
   }
 

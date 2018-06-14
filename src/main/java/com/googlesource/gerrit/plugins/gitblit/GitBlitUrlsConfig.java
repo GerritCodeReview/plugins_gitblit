@@ -14,25 +14,22 @@
 
 package com.googlesource.gerrit.plugins.gitblit;
 
+import com.google.common.base.MoreObjects;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
-
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.common.base.MoreObjects;
 
 public class GitBlitUrlsConfig {
   private static final int SSH_DEF_PORT = 22;
   private static final String GITBLIT_REPO = "{0}";
   private static final String GITBLIT_USER = "{1}";
-  private static final Logger log = LoggerFactory
-      .getLogger(GitBlitUrlsConfig.class);
+  private static final Logger log = LoggerFactory.getLogger(GitBlitUrlsConfig.class);
 
   private String canonicalWebUrlString;
   private String sshdListenAddressString;
@@ -63,8 +60,14 @@ public class GitBlitUrlsConfig {
       String hostname = getHost(urlParts[0]);
       int port = getPort(urlParts[1]);
 
-      return "ssh://" + GITBLIT_USER + "@" + hostname
-          + (port == SSH_DEF_PORT ? "" : ":" + port) + "/" + GITBLIT_REPO + "";
+      return "ssh://"
+          + GITBLIT_USER
+          + "@"
+          + hostname
+          + (port == SSH_DEF_PORT ? "" : ":" + port)
+          + "/"
+          + GITBLIT_REPO
+          + "";
     } catch (UnknownHostException e) {
       log.error("Cannot detect localhostname");
       return "";
@@ -82,8 +85,10 @@ public class GitBlitUrlsConfig {
           return new URI(canonicalWebUrlString).getHost();
         }
       } catch (URISyntaxException e) {
-        log.error("Cannot parse canonicalWebUrl and get external hostname,"
-            + " fallback to auto-detected local hostname", e);
+        log.error(
+            "Cannot parse canonicalWebUrl and get external hostname,"
+                + " fallback to auto-detected local hostname",
+            e);
       }
       return InetAddress.getLocalHost().getCanonicalHostName();
     }
@@ -95,9 +100,9 @@ public class GitBlitUrlsConfig {
     if (httpListenUrl == null) {
       return "";
     }
-      if (!downloadSchemes.isEmpty() && !downloadSchemes.contains("http")) {
-        return "";
-      }
+    if (!downloadSchemes.isEmpty() && !downloadSchemes.contains("http")) {
+      return "";
+    }
 
     String httpUrl = MoreObjects.firstNonNull(canonicalWebUrlString, httpListenUrl);
     httpUrl = httpUrl.replace("://", "://" + GITBLIT_USER + "@");
@@ -111,9 +116,7 @@ public class GitBlitUrlsConfig {
     }
     String url = httpdListenUrlString.replaceFirst("proxy-", "");
     if (url.indexOf('*') > 0) {
-      url =
-          url.replaceFirst("\\*", InetAddress.getLocalHost()
-              .getCanonicalHostName());
+      url = url.replaceFirst("\\*", InetAddress.getLocalHost().getCanonicalHostName());
     }
     return url;
   }
