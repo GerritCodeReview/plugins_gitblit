@@ -22,7 +22,6 @@ import com.gitblit.AvatarGenerator;
 import com.gitblit.GravatarGenerator;
 import com.gitblit.IStoredSettings;
 import com.gitblit.guice.IPublicKeyManagerProvider;
-import com.gitblit.guice.ITicketServiceProvider;
 import com.gitblit.guice.WorkQueueProvider;
 import com.gitblit.manager.FederationManager;
 import com.gitblit.manager.FilestoreManager;
