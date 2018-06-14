@@ -127,7 +127,7 @@ public class GerritWicketFilter extends GitblitWicketFilter {
       }
       super.doFilter(httpServletRequest, response, chain);
     } else if (gerritAuthFilter.doFilter(webSession, httpServletRequest,
-        response, chain)) {
+        response)) {
       super.doFilter(httpServletRequest, response, chain);
     }
   }
