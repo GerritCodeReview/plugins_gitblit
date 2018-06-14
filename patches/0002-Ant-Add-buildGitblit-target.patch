@@ -1,0 +1,38 @@
+From a4776b85cd60b57a9e29100d6b06d9681ffcdd5a Mon Sep 17 00:00:00 2001
+From: David Ostrovsky <david@ostrovsky.org>
+Date: Sat, 16 Jun 2018 06:22:11 +0200
+Subject: [PATCH 2/2] Ant: Add buildGitblit target
+
+Currently gitblit.jar and gitblit-sources.jar is only built as a part of
+instalMaven target. Offer its own target to avoid deployment to Maven
+but still providing a target to build gitblit artifacts.
+---
+ build.xml | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/build.xml b/build.xml
+index f3414d7f..195975d3 100644
+--- build.xml
++++ build.xml
+@@ -989,6 +989,18 @@
+ 		</sequential>
+ 	</macrodef>
+ 
++        <!--
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++                Build Gitblit JAR as stabdalone target
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++        -->
++        <target name="buildGitblit" depends="compile" description="Install Gitblit JAR as Maven module">
++                <local name="project.jar" />
++                <property name="project.jar" value="${project.outputDirectory}/${project.artifactId}.jar" />
++                <property name="resourceFolderPrefix" value="" />
++                <mx:jar destfile="${project.jar}" packageSources="true" includeresources="true" resourceFolderPrefix="${resourceFolderPrefix}" />
++        </target>
++
+ 	<!--
+ 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 		Install Gitblit JAR for usage as Maven module
+-- 
+2.16.3
+

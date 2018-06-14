@@ -3,7 +3,6 @@ load("//tools/bzl:plugin.bzl", "gerrit_plugin")
 gerrit_plugin(
     name = "gitblit",
     srcs = glob(["src/main/java/**/*.java"]),
-    resources = glob(["src/main/resources/**/*"]),
     manifest_entries = [
         "Gerrit-PluginName: gitblit",
         "Gerrit-Module: com.googlesource.gerrit.plugins.gitblit.GitBlitModule",
@@ -11,6 +10,7 @@ gerrit_plugin(
         "Gerrit-InitStep: com.googlesource.gerrit.plugins.gitblit.GitBlitInitStep",
         "Gerrit-ReloadMode: restart",
     ],
+    resources = glob(["src/main/resources/**/*"]),
     deps = [
         "@commons-codec//jar:neverlink",
         "@commons-io//jar",
@@ -18,7 +18,7 @@ gerrit_plugin(
         "@confluence-core//jar",
         "@force-partner-api//jar",
         "@freemarker//jar",
-        "@gitblit-jar//jar",
+        "@gitblit-jar//:jar",
         "@groovy//jar",
         "@httpcore//jar:neverlink",
         "@ivy//jar",
@@ -38,8 +38,8 @@ gerrit_plugin(
         "@twiki-core//jar",
         "@unboundid//jar",
         "@waffle-jna//jar",
-        "@wicket//jar",
         "@wicket-extensions//jar",
+        "@wicket//jar",
         "@wikitext-core//jar",
     ],
 )
