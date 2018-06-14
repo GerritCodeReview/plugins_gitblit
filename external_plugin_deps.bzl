@@ -1,19 +1,47 @@
 load("//tools/bzl:maven_jar.bzl", "maven_jar", "MAVEN_LOCAL")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
 
 GITBLIT = 'https://gitblit.github.io/gitblit-maven'
 
 def external_plugin_deps():
+
+  new_git_repository(
+    name = 'gitblit-jar',
+    build_file_content =
+"""
+package(default_visibility = ['//visibility:public'])
+
+exports_files([
+    'plugins/gitblit/patches/0001-Bump-JGit-to-4.11.0.201803080745-r.93-gcbb2e65db.patch',
+    'plugins/gitblit/patches/0002-Ant-Add-buildGitblit-target.patch',
+])
+
+java_import(
+    name = 'jar',
+    jars = ['build/gitblit.jar'],
+    srcjar = 'build/gitblit-sources.jar',
+)
+""",
+    commit = 'a13f07850fccfb67c14737f1e09942e31023da66',
+    remote = 'https://github.com/gitblit/gitblit.git',
+    patches = [
+        "//plugins/gitblit/patches:0001-Bump-JGit-to-4.11.0.201803080745-r.93-gcbb2e65db.patch",
+        "//plugins/gitblit/patches:0002-Ant-Add-buildGitblit-target.patch",
+    ],
+    patch_cmds = ['ant -DresourceFolderPrefix=static buildGitblit'],
+  )
+
   maven_jar(
     name = 'pf4j',
     artifact = 'ro.fortsoft.pf4j:pf4j:0.9.0',
     sha1 = 'ff412cadfee820c50bf02723187eda6165d70379',
   )
 
-  maven_jar(
-    name = 'gitblit-jar',
-    artifact = 'com.gitblit:gitblit:1.9.0-SNAPSHOT',
-    repository = MAVEN_LOCAL,
-  )
+#  maven_jar(
+#    name = 'gitblit-jar',
+#    artifact = 'com.gitblit:gitblit:1.9.0-SNAPSHOT',
+#    repository = MAVEN_LOCAL,
+#  )
 
   maven_jar(
     name = 'wicket',
