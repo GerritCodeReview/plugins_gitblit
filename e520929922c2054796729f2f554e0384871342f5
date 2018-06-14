@@ -22,6 +22,30 @@
       "revId": "e520929922c2054796729f2f554e0384871342f5",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feea62c5_649e6c85",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/gitblit/auth/GerritToGitBlitUserModel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-06-14T05:50:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb34f72f_23d19176",
+      "range": {
+        "startLine": 61,
+        "startChar": 77,
+        "endLine": 61,
+        "endChar": 88
+      },
+      "revId": "e520929922c2054796729f2f554e0384871342f5",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
