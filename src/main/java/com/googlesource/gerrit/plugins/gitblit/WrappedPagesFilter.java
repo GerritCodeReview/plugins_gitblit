@@ -61,9 +61,9 @@ public class WrappedPagesFilter extends PagesFilter {
   @Override
   protected UserModel getUser(HttpServletRequest httpRequest) {
     UserModel userModel = gerritAuthFilter.getUser(httpRequest);
-    if (userModel == null)
+    if (userModel == null) {
       return super.getUser(httpRequest);
-    else
-      return userModel;
+    }
+    return userModel;
   }
 }

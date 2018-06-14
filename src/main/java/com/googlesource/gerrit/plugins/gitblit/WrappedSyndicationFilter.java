@@ -39,7 +39,7 @@ import com.googlesource.gerrit.plugins.gitblit.auth.GerritAuthFilter;
 public class WrappedSyndicationFilter extends SyndicationFilter {
   private final GerritAuthFilter gerritAuthFilter;
   private final DynamicItem<WebSession> webSession;
-  
+
   static class SyndicationHttpServletRequest extends HttpServletRequestWrapper {
     public SyndicationHttpServletRequest(HttpServletRequest request) {
       super(request);
@@ -75,9 +75,9 @@ public class WrappedSyndicationFilter extends SyndicationFilter {
   @Override
   protected UserModel getUser(HttpServletRequest httpRequest) {
     UserModel userModel = gerritAuthFilter.getUser(httpRequest);
-    if (userModel == null)
+    if (userModel == null) {
       return super.getUser(httpRequest);
-    else
-      return userModel;
+    }
+    return userModel;
   }
 }

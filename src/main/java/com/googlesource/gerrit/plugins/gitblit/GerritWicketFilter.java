@@ -143,9 +143,8 @@ public class GerritWicketFilter extends GitblitWicketFilter {
     int requestPathLastDot = requestPathInfo.lastIndexOf('.');
     if (requestPathLastDot < 0) {
       return "";
-    } else {
-      return requestPathInfo.substring(requestPathLastDot + 1);
     }
+    return requestPathInfo.substring(requestPathLastDot + 1);
   }
 
   class CustomFilterConfig implements FilterConfig {
