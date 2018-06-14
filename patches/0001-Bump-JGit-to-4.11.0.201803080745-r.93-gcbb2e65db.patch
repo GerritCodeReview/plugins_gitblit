@@ -1,0 +1,152 @@
+Subject: [PATCH] Bump JGit to 4.11.0.201803080745-r.93-gcbb2e65db
+
+Add gerrit maven repository to consume snpashot JGit build artifacts.
+---
+ build.moxie                                                  | 5 +++--
+ src/main/bugtraq/com/syntevo/bugtraq/BugtraqConfig.java      | 4 ++--
+ src/main/java/com/gitblit/git/PatchsetReceivePack.java       | 2 +-
+ src/main/java/com/gitblit/transport/git/GitDaemonClient.java | 6 +++---
+ src/main/java/com/gitblit/utils/RefLogUtils.java             | 2 +-
+ src/main/java/com/gitblit/wicket/pages/TicketPage.java       | 2 +-
+ src/main/java/com/gitblit/wicket/panels/BranchesPanel.java   | 4 ++--
+ 7 files changed, 13 insertions(+), 12 deletions(-)
+
+diff --git a/build.moxie b/build.moxie
+index f21241d1..29e7b264 100644
+--- build.moxie
++++ build.moxie
+@@ -97,9 +97,10 @@ registeredRepositories:
+ - { id: eclipse, url: 'http://repo.eclipse.org/content/groups/releases' }
+ - { id: eclipse-snapshots, url: 'http://repo.eclipse.org/content/groups/snapshots' }
+ - { id: gitblit, url: 'http://gitblit.github.io/gitblit-maven' }
++- { id: gerrit, url: 'http://gerrit-maven.storage.googleapis.com' }
+ 
+ # Source all dependencies from the following repositories in the specified order
+-repositories: central, eclipse-snapshots, eclipse, gitblit
++repositories: central, eclipse-snapshots, eclipse, gitblit, gerrit
+ 
+ # Convenience properties for dependencies
+ properties: {
+@@ -107,7 +108,7 @@ properties: {
+   slf4j.version  : 1.7.12
+   wicket.version : 1.4.22
+   lucene.version : 5.5.2
+-  jgit.version   : 4.1.1.201511131810-r
++  jgit.version   : 4.11.0.201803080745-r.93-gcbb2e65db
+   groovy.version : 2.4.4
+   bouncycastle.version : 1.52
+   selenium.version : 2.28.0
+diff --git a/src/main/bugtraq/com/syntevo/bugtraq/BugtraqConfig.java b/src/main/bugtraq/com/syntevo/bugtraq/BugtraqConfig.java
+index 60b4ecc0..aa0bd90e 100644
+--- src/main/bugtraq/com/syntevo/bugtraq/BugtraqConfig.java
++++ src/main/bugtraq/com/syntevo/bugtraq/BugtraqConfig.java
+@@ -190,7 +190,7 @@ public final class BugtraqConfig {
+ 			TreeWalk tw = new TreeWalk(repository);
+ 			tw.setFilter(PathFilterGroup.createFromStrings(configFileName));
+ 			try {
+-				final Ref ref = repository.getRef(Constants.HEAD);
++				final Ref ref = repository.findRef(Constants.HEAD);
+ 				if (ref == null) {
+ 					return null;
+ 				}
+@@ -270,4 +270,4 @@ public final class BugtraqConfig {
+ 
+ 		return string;
+ 	}
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/com/gitblit/git/PatchsetReceivePack.java b/src/main/java/com/gitblit/git/PatchsetReceivePack.java
+index 4a09139a..e2651c50 100644
+--- src/main/java/com/gitblit/git/PatchsetReceivePack.java
++++ src/main/java/com/gitblit/git/PatchsetReceivePack.java
+@@ -1271,7 +1271,7 @@ public class PatchsetReceivePack extends GitblitReceivePack {
+ 		String message = MessageFormat.format("Merged #{0,number,0} \"{1}\"", ticket.number, ticket.title);
+ 		Ref oldRef = null;
+ 		try {
+-			oldRef = getRepository().getRef(ticket.mergeTo);
++			oldRef = getRepository().findRef(ticket.mergeTo);
+ 		} catch (IOException e) {
+ 			LOGGER.error("failed to get ref for " + ticket.mergeTo, e);
+ 		}
+diff --git a/src/main/java/com/gitblit/transport/git/GitDaemonClient.java b/src/main/java/com/gitblit/transport/git/GitDaemonClient.java
+index bc3d4cf7..6c82d43a 100644
+--- src/main/java/com/gitblit/transport/git/GitDaemonClient.java
++++ src/main/java/com/gitblit/transport/git/GitDaemonClient.java
+@@ -44,6 +44,7 @@ package com.gitblit.transport.git;
+  */
+ 
+ import java.io.BufferedInputStream;
++import java.io.BufferedOutputStream;
+ import java.io.IOException;
+ import java.io.InputStream;
+ import java.io.OutputStream;
+@@ -54,7 +55,6 @@ import org.eclipse.jgit.transport.Daemon;
+ import org.eclipse.jgit.transport.PacketLineIn;
+ import org.eclipse.jgit.transport.resolver.ServiceNotAuthorizedException;
+ import org.eclipse.jgit.transport.resolver.ServiceNotEnabledException;
+-import org.eclipse.jgit.util.io.SafeBufferedOutputStream;
+ 
+ /** Active network client of {@link Daemon}. */
+ public class GitDaemonClient {
+@@ -108,7 +108,7 @@ public class GitDaemonClient {
+ 	void execute(final Socket sock) throws IOException,
+ 			ServiceNotEnabledException, ServiceNotAuthorizedException {
+ 		rawIn = new BufferedInputStream(sock.getInputStream());
+-		rawOut = new SafeBufferedOutputStream(sock.getOutputStream());
++		rawOut = new BufferedOutputStream(sock.getOutputStream());
+ 
+ 		if (0 < daemon.getTimeout())
+ 			sock.setSoTimeout(daemon.getTimeout() * 1000);
+@@ -128,4 +128,4 @@ public class GitDaemonClient {
+ 		sock.setSoTimeout(0);
+ 		srv.execute(this, cmd);
+ 	}
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/com/gitblit/utils/RefLogUtils.java b/src/main/java/com/gitblit/utils/RefLogUtils.java
+index 355c1208..1af066f3 100644
+--- src/main/java/com/gitblit/utils/RefLogUtils.java
++++ src/main/java/com/gitblit/utils/RefLogUtils.java
+@@ -107,7 +107,7 @@ public class RefLogUtils {
+ 	 */
+ 	public static boolean hasRefLogBranch(Repository repository) {
+ 		try {
+-			return repository.getRef(GB_REFLOG) != null;
++			return repository.findRef(GB_REFLOG) != null;
+ 		} catch(Exception e) {
+ 			LOGGER.error("failed to determine hasRefLogBranch", e);
+ 		}
+diff --git a/src/main/java/com/gitblit/wicket/pages/TicketPage.java b/src/main/java/com/gitblit/wicket/pages/TicketPage.java
+index e2133966..4e906b2a 100644
+--- src/main/java/com/gitblit/wicket/pages/TicketPage.java
++++ src/main/java/com/gitblit/wicket/pages/TicketPage.java
+@@ -1684,7 +1684,7 @@ public class TicketPage extends RepositoryPage {
+ 				boolean success = true;
+ 				
+ 				try {
+-					ref = r.getRef(refName);
++					ref = r.findRef(refName);
+ 					
+ 					if (ref != null) {
+ 						success = JGitUtils.deleteBranchRef(r, ref.getName());
+diff --git a/src/main/java/com/gitblit/wicket/panels/BranchesPanel.java b/src/main/java/com/gitblit/wicket/panels/BranchesPanel.java
+index 7a564aa5..62632821 100644
+--- src/main/java/com/gitblit/wicket/panels/BranchesPanel.java
++++ src/main/java/com/gitblit/wicket/panels/BranchesPanel.java
+@@ -202,9 +202,9 @@ public class BranchesPanel extends BasePanel {
+ 				final String branch = entry.getName();
+ 				Ref ref = null;
+ 				try {
+-					ref = r.getRef(branch);
++					ref = r.findRef(branch);
+ 					if (ref == null && !branch.startsWith(Constants.R_HEADS)) {
+-						ref = r.getRef(Constants.R_HEADS + branch);
++						ref = r.findRef(Constants.R_HEADS + branch);
+ 					}
+ 				} catch (IOException e) {
+ 				}
+-- 
+2.16.3
+
