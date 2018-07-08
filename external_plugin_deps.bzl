@@ -3,6 +3,27 @@ load("//tools/bzl:maven_jar.bzl", "maven_jar", "MAVEN_LOCAL")
 GITBLIT = 'https://gitblit.github.io/gitblit-maven'
 
 def external_plugin_deps():
+
+  JETTY_VERS = '9.3.18.v20170406'
+  maven_jar(
+    name = 'jetty-webapp',
+    artifact = 'org.eclipse.jetty:jetty-webapp:' + JETTY_VERS,
+    sha1 = '146420a295f85b81f8d0d73496779318d3ad1a62',
+  )
+
+  maven_jar(
+    name = 'jcalendar',
+    artifact = 'com.toedter:jcalendar:1.3.2',
+    sha1 = '323a672aeacb5f5f4461be3b7f7d9d3e4bda80d4',
+    attach_source = False,
+  )
+
+  maven_jar(
+    name = 'jsoup',
+    artifact = 'org.jsoup:jsoup:1.7.3',
+    sha1 = '304d9e23e52e9488308644093663b568952abd0b',
+  )  
+
   maven_jar(
     name = 'pf4j',
     artifact = 'ro.fortsoft.pf4j:pf4j:0.9.0',
@@ -112,6 +133,12 @@ def external_plugin_deps():
   )
 
   maven_jar(
+    name = 'force-wsc',
+    artifact = 'com.force.api:force-wsc:24.0.0',
+    sha1 = 'b744ee3cc6713753548f377a6125bc3fc8653dc1',
+  )
+
+  maven_jar(
     name = 'force-partner-api',
     artifact = 'com.force.api:force-partner-api:24.0.0',
     sha1 = 'ce3cd3e2ccd51735f27a83e90018123e8bd10314',
@@ -121,6 +148,12 @@ def external_plugin_deps():
     name = 'freemarker',
     artifact = 'org.freemarker:freemarker:2.3.22',
     sha1 = '473d784b3cd2dcb6d49a287ded0542b7862c7d68',
+  )
+
+  maven_jar(
+    name = 'jna-platform',
+    artifact =   'net.java.dev.jna:jna-platform:4.5.1',
+    sha1 = '117d52c9f672d8b7ea80a81464c33ef843de9254',
   )
 
   maven_jar(
@@ -148,4 +181,22 @@ def external_plugin_deps():
     name = 'lucene-memory',
     artifact = 'org.apache.lucene:lucene-memory:' + LUCENE_VERS,
     sha1 = '4dbdc2e1a24837722294762a9edb479f79092ab9',
+  )
+
+  maven_jar(
+    name = 'intellij-annotations',
+    artifact = 'com.intellij:annotations:12.0',
+    sha1 = 'bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539',
+  )
+
+  maven_jar(
+    name = 'jedis',
+    artifact = 'redis.clients:jedis:2.6.2',
+    sha1 = 'b5572df5cedcc72fb12affd338ef34b628f98eff',
+  )
+
+  maven_jar(
+    name = 'commons-pool2',
+    artifact = 'org.apache.commons:commons-pool2:2.5.0',
+    sha1 = 'cb7d05e6308ad795decc4a12ede671113c11dd98',
   )
