@@ -1,0 +1,135 @@
+package(default_visibility = ["//visibility:public"])
+
+java_library(
+    name = "gitblit",
+    srcs =
+        glob(["src/main/bugtraq/**/*.java"]) + glob([
+            "src/main/java/**/*.java",
+        ]) + [
+            ":keys",
+        ],
+    resource_jars = [
+        ":gitblit-resources",
+        ":gitblit-distrib-data",
+    ],
+    resources = glob(
+        ["src/main/java/**/*"],
+        exclude = ["src/main/java/**/*.java"],
+    ),
+    deps = [
+        "@//gerrit-plugin-api:lib-neverlink",
+        "@bcpg//jar:neverlink",
+        "@bcpkix//jar:neverlink",
+        "@bcprov//jar:neverlink",
+        "@commons-codec//jar:neverlink",
+        "@commons-io//jar",
+        "@commons-net//jar:neverlink",
+        "@commons-pool2//jar",
+        "@confluence-core//jar",
+        "@force-partner-api//jar",
+        "@force-wsc//jar",
+        "@freemarker//jar",
+        "@grappa//jar:neverlink",
+        "@groovy//jar",
+        "@httpcore//jar:neverlink",
+        "@intellij-annotations//jar",
+        "@ivy//jar",
+        "@jcalendar//jar",
+        "@jdom//jar",
+        "@jedis//jar",
+        "@jetty-continuation//jar:neverlink",
+        "@jetty-http//jar:neverlink",
+        "@jetty-io//jar:neverlink",
+        "@jetty-security//jar:neverlink",
+        "@jetty-server//jar:neverlink",
+        "@jetty-servlet//jar:neverlink",
+        "@jetty-servlets//jar:neverlink",
+        "@jetty-util//jar:neverlink",
+        "@jetty-webapp//jar",
+        "@jna-platform//jar",
+        "@jna//jar:neverlink",
+        "@jsoup//jar",
+        "@libpam4j//jar",
+        "@lucene-analyzers-common//jar:neverlink",
+        "@lucene-core//jar:neverlink",
+        "@lucene-highlighter//jar",
+        "@lucene-memory//jar",
+        "@lucene-queryparser//jar:neverlink",
+        "@mail//jar:neverlink",
+        "@markdownpapers//jar",
+        "@mediawiki-core//jar",
+        "@mina-core//jar:neverlink",
+        "@pegdown//jar:neverlink",
+        "@pf4j//jar",
+        "@rome//jar",
+        "@servlet-api-3_1//jar:neverlink",
+        "@textile-core//jar",
+        "@tika//jar",
+        "@tracwiki-core//jar",
+        "@twiki-core//jar",
+        "@unboundid//jar",
+        "@waffle-jna//jar",
+        "@wicket-extensions//jar",
+        "@wicket//jar",
+        "@wikitext-core//jar",
+    ],
+)
+
+genrule(
+    name = "gitblit-distrib-data",
+    srcs = [
+        "src/main/distrib/data/defaults.properties",
+        "src/main/distrib/data/clientapps.json",
+    ],
+    outs = ["gitblit-distrib-data.jar"],
+    cmd = " && ".join([
+        "ROOT=$$PWD",
+        "TMP=$$(mktemp -d || mktemp -d -t bazel-tmp)",
+        "cd $$ROOT",
+        "tar cf - $(SRCS) | (cd $${TMP}; tar xf -)",
+        "cd $$TMP/external/gitblit/src/main/distrib/data",
+        "zip -rq $$ROOT/$@ .",
+        "rm -rf $$TMP",
+    ]),
+)
+
+genrule(
+    name = "gitblit-resources",
+    srcs = glob(["src/main/resources/**/*"]),
+    outs = ["gitblit-resources.jar"],
+    cmd = " && ".join([
+        "ROOT=$$PWD",
+        "TMP=$$(mktemp -d || mktemp -d -t bazel-tmp)",
+        "cd $$ROOT",
+        "tar cf - $(SRCS) | (cd $${TMP}; tar xf -)",
+        "cd $$TMP/external/gitblit/src/main",
+        "mv resources static",
+        "zip -rq $$ROOT/$@ .",
+        "rm -rf $$TMP",
+    ]),
+)
+
+java_binary(
+    name = "keyGenerator",
+    srcs = ["src/main/java/com/gitblit/tools/KeysGenerator.java"],
+    main_class = "com.gitblit.tools.KeysGenerator",
+    deps = ["@args4j//jar"],
+)
+
+genrule(
+    name = "keys",
+    srcs = ["src/main/distrib/data/defaults.properties"],
+    outs = ["keys.srcjar"],
+    cmd = " && ".join([
+        "TMP=$$(mktemp -d || mktemp -d -t bazel-tmp)",
+        " ".join([
+            "$(location :keyGenerator)",
+            "-properties $(SRCS)",
+            "-classname com.gitblit.Keys",
+            "-tmp $$TMP",
+            "-out $(OUTS)",
+        ]),
+        "rm -rf $$TMP",
+    ]),
+    tools = [":keyGenerator"],
+)
