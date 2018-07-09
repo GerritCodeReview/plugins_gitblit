@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "3cf5c36a_c744cc29",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2018-07-09T07:38:10Z",
+      "side": 1,
+      "message": "Does this need to refer to a specific sha1, or can we also specify a branch so that it will always build the head of that branch?",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "7a7296efc3c79a3965269315dbcabdcb7927f6cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4c351221_9931c1c3",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 2
