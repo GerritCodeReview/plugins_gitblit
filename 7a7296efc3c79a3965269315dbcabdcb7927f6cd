@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "c7e14f56_79d73f46",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2018-07-09T07:43:14Z",
+      "side": 1,
+      "message": "In the discussion on the issue 9397 one option is to create gitblit project on gerrit-review. If we go that way, we could stop fetching it during the build, and just clone and link it to the plugin itself (possibly as git submodule?).",
+      "parentUuid": "3cf5c36a_c744cc29",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "7a7296efc3c79a3965269315dbcabdcb7927f6cd",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4c351221_9931c1c3",
         "filename": "external_plugin_deps.bzl",
         "patchSetId": 2
