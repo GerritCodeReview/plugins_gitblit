@@ -50,7 +50,7 @@ From Gerrit source tree issue the command:
 The output is created in
 
 ```
-  bazel-genfiles/plugins/gitblit/gitblit.jar
+  bazel-bin/plugins/gitblit/gitblit.jar
 ```
 
 This project can be imported into the Eclipse IDE.
