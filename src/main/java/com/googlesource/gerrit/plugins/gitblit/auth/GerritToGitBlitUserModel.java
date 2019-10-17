@@ -20,7 +20,7 @@ import com.gitblit.models.RepositoryModel;
 import com.gitblit.models.TeamModel;
 import com.gitblit.models.UserModel;
 import com.gitblit.utils.StringUtils;
-import com.google.gerrit.reviewdb.client.Project.NameKey;
+import com.google.gerrit.entities.Project.NameKey;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackend.ForProject;
