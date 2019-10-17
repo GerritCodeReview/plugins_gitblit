@@ -20,7 +20,7 @@ import com.gitblit.models.RepositoryModel;
 import com.gitblit.models.TeamModel;
 import com.gitblit.models.UserModel;
 import com.gitblit.utils.StringUtils;
-import com.google.gerrit.reviewdb.client.Project.NameKey;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.server.CurrentUser;
 import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackend.ForProject;
@@ -75,8 +75,8 @@ public class GerritToGitBlitUserModel extends UserModel {
   @Override
   public boolean canView(RepositoryModel repository, String ref) {
     return permissionBackend
-        .user(userProvider)
-        .project(new NameKey(StringUtils.stripDotGit(repository.name)))
+        .user(userProvider.get())
+        .project(Project.nameKey(StringUtils.stripDotGit(repository.name)))
         .ref(ref)
         .testOrFalse(RefPermission.READ);
   }
@@ -88,8 +88,8 @@ public class GerritToGitBlitUserModel extends UserModel {
       AccessPermission requirePermission) {
     ForProject projectPermissions =
         permissionBackend
-            .user(userProvider)
-            .project(new NameKey(StringUtils.stripDotGit(repository.name)));
+            .user(userProvider.get())
+            .project(Project.nameKey(StringUtils.stripDotGit(repository.name)));
     switch (ifRestriction) {
       case VIEW:
         return projectPermissions.testOrFalse(ProjectPermission.ACCESS);
@@ -105,8 +105,8 @@ public class GerritToGitBlitUserModel extends UserModel {
   @Override
   public boolean hasRepositoryPermission(String name) {
     return permissionBackend
-        .user(userProvider)
-        .project(new NameKey(StringUtils.stripDotGit(name)))
+        .user(userProvider.get())
+        .project(Project.nameKey(StringUtils.stripDotGit(name)))
         .testOrFalse(ProjectPermission.ACCESS);
   }
 
