@@ -1,4 +1,4 @@
-load("//tools/bzl:maven_jar.bzl", "maven_jar", "MAVEN_LOCAL")
+load("//tools/bzl:maven_jar.bzl", "maven_jar")
 
 GITBLIT = 'https://gitblit.github.io/gitblit-maven'
 
@@ -11,8 +11,9 @@ def external_plugin_deps():
 
   maven_jar(
     name = 'gitblit-jar',
-    artifact = 'com.gitblit:gitblit:1.9.0-SNAPSHOT',
-    repository = MAVEN_LOCAL,
+    artifact = 'com.gitblit:gitblit:1.9.2',
+    repository = GITBLIT,
+    sha1 = '3ad191d590678f2f61066ed466cd1915c4b9f97a',
   )
 
   maven_jar(

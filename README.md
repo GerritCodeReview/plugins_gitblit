@@ -8,22 +8,6 @@ Purpose of this plugin is to use Gitblit as web-based viewer
 
 How to build
 ------------
-As pre-requisites you need to make a custom-build of Gitblit
-and Wicket: the standard JARs downloaded from a public Maven
-repository aren't enough as they are missing some specific
-build parameters and constraints (i.e. shaded-jar) that are
-needed for a Gerrit plugin to work properly.
-
-### Gitblit
-
-You need to clone Gitblit from GitHub and build it locally
-using the installMaven ANT target.
-
-    $ git clone https://github.com/gitblit/gitblit.git
-    $ cd gitblit && git checkout master
-    $ ant -DresourceFolderPrefix=static installMaven
-
-### Gitblit plugin
 
 This gitblit plugin is built with Bazel.
 Only the Gerrit in-tree build is supported.
@@ -33,11 +17,9 @@ tree.
 
 ```
   git clone https://gerrit.googlesource.com/gerrit
-  git clone https://gerrit.googlesource.com/plugins/gitblit
   cd gerrit/plugins
-  ln -s ../../gitblit .
-  rm external_plugin_deps.bzl
-  ln -s gitblit/external_plugin_deps.bzl .
+  git clone https://gerrit.googlesource.com/plugins/gitblit
+  ln -sf gitblit/external_plugin_deps.bzl .
   cd ../
 ```
 
