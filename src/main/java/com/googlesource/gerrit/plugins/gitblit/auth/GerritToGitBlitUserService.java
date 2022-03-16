@@ -51,6 +51,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
   private final PermissionBackend permissionBackend;
   private final AccountManager accountManager;
   private final DynamicItem<WebSession> webSession;
+  private final AuthRequest.Factory authRequestFactory;
 
   public static final String SESSIONAUTH = "sessionid:";
 
@@ -59,11 +60,13 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
       Provider<CurrentUser> userProvider,
       PermissionBackend permissionBackend,
       AccountManager accountManager,
-      DynamicItem<WebSession> webSession) {
+      DynamicItem<WebSession> webSession,
+      AuthRequest.Factory authRequestFactory) {
     this.userProvider = userProvider;
     this.permissionBackend = permissionBackend;
     this.accountManager = accountManager;
     this.webSession = webSession;
+    this.authRequestFactory = authRequestFactory;
   }
 
   @Override
@@ -107,7 +110,7 @@ public class GerritToGitBlitUserService implements IAuthenticationManager, IUser
       return null;
     }
 
-    AuthRequest who = AuthRequest.forUser(username);
+    AuthRequest who = authRequestFactory.createForUser(username);
     who.setPassword(new String(password));
 
     try {
