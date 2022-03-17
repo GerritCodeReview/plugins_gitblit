@@ -24,6 +24,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff7af2ba_6f2f16ee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1010516
+      },
+      "writtenOn": "2022-03-17T17:06:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d24afe1_e4dc520e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "7bd2cdda75158d34b9ca3b000a5e798516f9b777",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9ae78c0_0ee26c1b",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-16T22:42:55Z",
       "side": 1,
       "message": "This should also be mentioned in the commit message",
+      "range": {
+        "startLine": 14,
+        "startChar": 36,
+        "endLine": 14,
+        "endChar": 41
+      },
+      "revId": "7bd2cdda75158d34b9ca3b000a5e798516f9b777",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0808b384_42b2d8a3",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1010516
+      },
+      "writtenOn": "2022-03-17T17:06:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9ae78c0_0ee26c1b",
       "range": {
         "startLine": 14,
         "startChar": 36,
