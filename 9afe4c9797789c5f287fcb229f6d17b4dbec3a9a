@@ -33,6 +33,24 @@
       "message": "Anobody? 😞",
       "revId": "9afe4c9797789c5f287fcb229f6d17b4dbec3a9a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc745698_a9993ea3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010516
+      },
+      "writtenOn": "2022-04-27T06:24:37Z",
+      "side": 1,
+      "message": "*Anybody",
+      "parentUuid": "45a63624_d8a4386d",
+      "revId": "9afe4c9797789c5f287fcb229f6d17b4dbec3a9a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
