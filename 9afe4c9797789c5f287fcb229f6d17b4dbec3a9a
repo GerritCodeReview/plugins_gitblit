@@ -104,6 +104,24 @@
       "message": "Anybody? 😢",
       "revId": "9afe4c9797789c5f287fcb229f6d17b4dbec3a9a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25dc75fc_139e0104",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1006192
+      },
+      "writtenOn": "2022-06-08T13:14:59Z",
+      "side": 1,
+      "message": "Sorry, but I have no time at the moment to work on this plugin I\u0027ve created :-(",
+      "parentUuid": "405801b4_9ce926e5",
+      "revId": "9afe4c9797789c5f287fcb229f6d17b4dbec3a9a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
