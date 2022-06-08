@@ -157,6 +157,24 @@
       "parentUuid": "25dc75fc_139e0104",
       "revId": "9afe4c9797789c5f287fcb229f6d17b4dbec3a9a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be3e2108_951b7ec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010516
+      },
+      "writtenOn": "2022-06-08T13:29:30Z",
+      "side": 1,
+      "message": "We\u0027re using gitiles for now, but it is less \"fancy\" than gitblit. The feature that users here mostly miss is the branch tree view.\n\ngitea looks nice, but is it pluggable to gerrit? Does it enforce access policies from gerrit?",
+      "parentUuid": "8ea48a6b_5ed3a690",
+      "revId": "9afe4c9797789c5f287fcb229f6d17b4dbec3a9a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
