@@ -192,6 +192,23 @@
       "message": "Sorry, i\u0027m not sure how to fix it so gitblit can run :(",
       "revId": "9afe4c9797789c5f287fcb229f6d17b4dbec3a9a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eba0a6c_6cf8df8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010516
+      },
+      "writtenOn": "2022-11-21T06:05:44Z",
+      "side": 1,
+      "message": "We have some progress with the help of Florian. See the discussion on https://github.com/gitblit/gitblit/issues/1413\n\nI\u0027m now stuck with another error though.",
+      "revId": "9afe4c9797789c5f287fcb229f6d17b4dbec3a9a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
